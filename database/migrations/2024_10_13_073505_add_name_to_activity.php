@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('activity', function (Blueprint $table) {
             
-            $table->string(column:'title', length:255)->nullable();
+            $table->string(column:'title', length:255);
         });
     }
 
