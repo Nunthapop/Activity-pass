@@ -12,8 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('activity', function (Blueprint $table) {
-            
-            $table->string(column:'title', length:255);
             $table->string(column:'title1', length:255);
         });
     }
