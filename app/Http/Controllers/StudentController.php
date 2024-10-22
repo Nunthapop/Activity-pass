@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 
 
-class StudentController extends Controller
+class StudentController extends SearchableController
 {
     public function getQuery(): Builder
     {
