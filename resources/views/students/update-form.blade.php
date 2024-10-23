@@ -10,7 +10,7 @@
 
         <!-- ฟิลด์สำหรับกรอกข้อมูลสินค้า -->
         <p><strong>Code:</strong> <input type="text" name="code" value="{{ $students->code }}" required></p>
-        <p><strong>Name:</strong> <input type="text" name="name" value="{{ $students->username }}" required></p>
+        <p><strong>Name:</strong> <input type="text" name="username" value="{{ $students->username }}" required></p>
         <p><strong>Score:</strong> <input type="text" name="score" value="{{ $students->score }}" required></p>
         
 

@@ -58,8 +58,8 @@ class StudentController extends SearchableController
             $data = $request->getParsedBody();
             // dd($data);
             $student =  Student::where('code', $student_code)->firstOrFail();
-            $student->fill($data);
-            $student->save();
+            // dd($student);
+            $student->update($data);
             return redirect(route('students.view', ['student_code' => $student->code]))->with('message', " $student->username has been updated");
         }
         catch(QueryException $e){
