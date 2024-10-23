@@ -10,7 +10,7 @@
 
 <body>
 
-    <header>
+    {{-- <header>
         <div id="main-header">
             <h1>
                 @section('title-container')@yield('title')@show
@@ -37,7 +37,7 @@
                     @endauth
                 </nav>
             </div>
-    </header>
+    </header> --}}
 
 
     @session('message')

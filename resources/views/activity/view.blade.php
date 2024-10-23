@@ -1,5 +1,5 @@
 {{-- @extends('layouts.main')
-@section('title', $reward->code)
+@section('title', $activity->code)
 @section('content')
 
     <!-- เมนูจัดการหน้ารางวัล -->
@@ -7,7 +7,7 @@
 
         @can('update', \App\Models\Product::class)
             <li class="action-item">
-                <a href="{{ route('rewards.update-form', ['reward' => $reward->code]) }}">
+                <a href="{{ route('activityies.update-form', ['activity' => $activity->code]) }}">
                     <button type="button" class="nav-button">Update</button>
                 </a>
             </li>
@@ -15,7 +15,7 @@
 
         @can('delete', \App\Models\Product::class)
             <li class="action-item">
-                <a href="{{ route('rewards.delete', ['reward' => $reward->code]) }}">
+                <a href="{{ route('activityies.delete', ['activity' => $activity->code]) }}">
                     <button type="button" class="nav-button">Delete</button>
                 </a>
             </li>
@@ -24,22 +24,32 @@
 
 
     <main>
-        <!-- รายละเอียดรางวัล -->
+        <!-- รายละเอียดกิจกรรม -->
         <table>
             <thead>
                 <tr>
                     <th>Code</th>
                     <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Activity Type</th>
+                    <th>Activity By</th>
+                    <th>Location</th>
                     <th>Score</th>
                     <th>Description</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $reward->code }}</td>
-                    <td>{{ $reward->name }}</td>
-                    <td>{{ $reward->score }}</td>
-                    <td>{{ $reward->description }}</td>
+                    <td>{{ $activity->code }}</td>
+                    <td>{{ $activity->name }}</td>
+                    <td>{{ $activity->date }}</td>
+                    <td>{{ $activity->time }}</td>
+                    <td>{{ $activity->activity_type }}</td>
+                    <td>{{ $activity->activity_by }}</td>
+                    <td>{{ $activity->location }}</td>
+                    <td>{{ $activity->score }}</td>
+                    <td>{{ $activity->description }}</td>
                 </tr>
             </tbody>
         </table>

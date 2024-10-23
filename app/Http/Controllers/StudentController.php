@@ -15,15 +15,18 @@ use App\Models\Student;
 
 class StudentController extends SearchableController
 {
+
     public function getQuery(): Builder
     {
         return Student::orderby('name');
     }
     function list(ServerRequestInterface $request): View
     {
-        // $students = $this->getQuery()->paginate(10);
-
-        return view('student.list',[
+        $search = $this->prepareSearch($request->getQueryParams());
+        $student = Student::getQuery();
+        return view('Students.list',[   
+            'search' => $search,
+            'students' => $student->paginate(5),
 
         ]);
     }

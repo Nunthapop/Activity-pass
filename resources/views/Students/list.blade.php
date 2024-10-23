@@ -1,11 +1,11 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', 'Reward: List')
 @section('content')
 
     <!-- หน้านี้แสดงรายการของรางวัล -->
 
     <!-- เนื้อหาหน้าเว็บ -->
-    <form action="{{ route('rewards.list') }}" method="get" class="search-form">
+    <form action="{{ route('Students.list') }}" method="get" class="search-form">
 
         <!-- ค้นหารางวัล -->
         <label>
@@ -16,7 +16,7 @@
         <br />
 
         <!-- ปุ่มค้นหาและเคลียร์ -->
-        <button type="submit" class="nav-link">Search</button>
+        {{-- <button type="submit" class="nav-link">Search</button>
         <a href="{{ route('rewards.list') }}">
             <button type="button" class="nav-link">Clear</button>
         </a>
@@ -26,12 +26,17 @@
             <a href="{{ route('rewards.create_form') }}">
                 <button type="button" class="nav-link">New Rewards</button>
             </a>
-        @endcan
+        @endcan --}}
 
     </form>
-
+    <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        {{$students->withQueryString()->links()}}
+    </div>
+@foreach($students as $student)
+    {{$student->username}}
+@endforeach
     <!-- แสดงการแบ่งหน้า -->
-    <div>{{ $products->withQueryString()->links() }}</div>
+    {{-- <div>{{ $products->withQueryString()->links() }}</div>
 
     @php
         // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
@@ -61,6 +66,6 @@
                 </tr>
             @endforeach
         </tbody>
-    </table>
+    </table> --}}
 
-@endsection --}}
+@endsection

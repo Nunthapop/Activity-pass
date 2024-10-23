@@ -1,11 +1,11 @@
 {{-- @extends('layouts.main')
-@section('title', 'Reward: Create')
+@section('title', 'Activity: Create')
 @section('content')
 
-    <!-- หน้าสร้างรางวัล -->
+    <!-- สร้างกิจกรรม -->
 
     <!-- ฟอร์ม -->
-    <form action="{{ route('rewards.create') }}" method="POST">
+    <form action="{{ route('activityies.create') }}" method="POST">
         @csrf <!-- ป้องกันการโจมตี CSRF -->
 
         <!-- กรอกข้อมูล -->
@@ -16,6 +16,26 @@
         <p>
             <strong> Name:</strong>
             <input type="text" name="name" required>
+        </p>
+        <p>
+            <strong> Date:</strong>
+            <input type="text" name="date" required>
+        </p>
+        <p>
+            <strong> Time:</strong>
+            <input type="text" name="time" required>
+        </p>
+        <p>
+            <strong> Activity Type:</strong>
+            <input type="text" name="type" required>
+        </p>
+        <p>
+            <strong> Activity By:</strong>
+            <input type="text" name="by" required>
+        </p>
+        <p>
+            <strong> Location:</strong>
+            <input type="text" name="location" required>
         </p>
         <p>
             <strong> Score:</strong>
@@ -29,5 +49,5 @@
         <button type="submit">Submit</button>
 
     </form>
-    
+
 @endsection --}}
