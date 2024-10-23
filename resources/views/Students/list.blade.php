@@ -5,7 +5,7 @@
     <!-- หน้านี้แสดงรายการของรางวัล -->
 
     <!-- เนื้อหาหน้าเว็บ -->
-    <form action="{{ route('Students.list') }}" method="get" class="search-form">
+    <form action="{{ route('students.list') }}" method="get" class="search-form">
 
         <!-- ค้นหารางวัล -->
         <label>
@@ -32,40 +32,32 @@
     <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
         {{$students->withQueryString()->links()}}
     </div>
-@foreach($students as $student)
-    {{$student->username}}
-@endforeach
-    <!-- แสดงการแบ่งหน้า -->
-    {{-- <div>{{ $products->withQueryString()->links() }}</div>
-
-    @php
+    {{--@php
         // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
         session()->put('bookmark.rewards.view', url()->full());
-    @endphp
-
+    @endphp--}}
     <!-- ตารางแสดงข้อมูลรางวัล -->
     <table class="/">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Score</th>
-            <th>Description</th>
+            <th>Studetn ID</th>
+            <th>Username</th>
+            <th>year</th>
+            <th>major</th>
+            <th>score</th>
+            <th>View</th>
         </tr>
         <tbody>
-            @foreach ($rewards as $reward)
+            @foreach ($students as $stude)
                 <tr>
-                    <td>{{ $reward->code }}</td>
-                    <td>{{ $reward->name }}</td>
-                    <td>{{ $reward->score }}</td>
-                    <td>
-                        <a href="{{ route('rewards.view', ['reward' => $reward->code]) }}">
-                            <button type="button" class="/">View</button>
-                        </a>
-                    </td>
-
+                    <td>{{ $stude->code }}</td>
+                    <td>{{ $stude->username }}</td>
+                    <td>{{ $stude->year }}</td>
+                    <td>{{ $stude->major }}</td>
+                    <td>{{ $stude->score }}</td>
+                   <td> <a href="{{ route('students.view', ['student_code' => $stude->code]) }}">View</a></td>
                 </tr>
             @endforeach
         </tbody>
-    </table> --}}
+    </table> 
 
 @endsection

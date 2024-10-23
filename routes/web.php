@@ -16,9 +16,10 @@ Route::middleware([
 ])->group(function () {
     Route::controller(StudentController::class)
         ->prefix('student')
-        ->name('Students.')
+        ->name('students.')
         ->group(function () {
             Route::get('/', 'list')->name('list');
+            Route::get('/{student_code}', 'show')->name('view');
         });
     Route::controller(ActivityController::class)
         ->prefix('activity')->name('activities.')->group(function () {

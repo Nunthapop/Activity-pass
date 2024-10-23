@@ -1,6 +1,6 @@
-{{-- @extends('layouts.main')
-@section('title', $reward->code)
-@section('content')
+ @extends('layouts.main')
+@section('title', 'studetn code')
+@section('content'){{--
 
     <!-- เมนูจัดการหน้ารางวัล -->
     <ul class="action-menu">
@@ -20,7 +20,7 @@
                 </a>
             </li>
         @endcan
-    </ul>
+    </ul>--}}
 
 
     <main>
@@ -36,13 +36,13 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $reward->code }}</td>
-                    <td>{{ $reward->name }}</td>
-                    <td>{{ $reward->score }}</td>
-                    <td>{{ $reward->description }}</td>
+                    <td>{{ $students->code }}</td>
+                    <td>{{ $students->username }}</td>
+                    <td>{{ $students->score }}</td>
+                    <td>{{ $students->major }}</td>
                 </tr>
             </tbody>
         </table>
     </main>
 
-@endsection --}}
+@endsection 
