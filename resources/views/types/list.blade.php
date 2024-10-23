@@ -1,11 +1,11 @@
 @extends('layouts.main')
-@section('title', 'Activity: List')
+@section('title', 'Type of Activity: List')
 @section('content')
 
-    <!-- หน้านี้แสดงรายการกิจกรรม -->
+    <!-- หน้านี้แสดงประเภทกิจกรรม -->
 
     <!-- เนื้อหาหน้าเว็บ -->
-    <form action="{{ route('activityies.list') }}" method="get" class="search-form">
+    <form action="{{ route('types.list') }}" method="get" class="search-form">
 
         <!-- ค้นหา -->
         <label>
@@ -17,14 +17,14 @@
 
         <!-- ปุ่มค้นหาและเคลียร์ -->
         <button type="submit" class="nav-link">Search</button>
-        <a href="{{ route('activityies.list') }}">
+        <a href="{{ route('types.list') }}">
             <button type="button" class="nav-link">Clear</button>
         </a>
 
-        <!-- เพิ่มกิจกรรมใหม่ -->
+        <!-- เพิ่มประเภทกิจกรรม -->
         @can('create', \App\Models\Product::class)
-            <a href="{{ route('activityies.create_form') }}">
-                <button type="button" class="nav-link">Add Activity</button>
+            <a href="{{ route('types.create_form') }}">
+                <button type="button" class="nav-link">Add Type of Activity</button>
             </a>
         @endcan
 
@@ -35,29 +35,29 @@
 
     @php
         // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
-        session()->put('bookmark.activityies.view', url()->full());
+        session()->put('bookmark.types.view', url()->full());
     @endphp
 
-    <!-- ตารางแสดงข้อมูลรางวัล -->
+    <!-- ตารางแสดงข้อมูลประเภทกิจกรรม -->
     <table class="/">
         <tr>
             <th>Code</th>
-            <th>Date</th>
             <th>Name</th>
-            <th>Description</th>
+            <th>Number of Activities</th>
+            <th>Details</th>
         </tr>
         <tbody>
-            @foreach ($activityies as $activity)
+            @foreach ($types as $type)
                 <tr>
-                    <td>{{ $activity->code }}</td>
-                    <td>{{ $activity->date }}</td>
-                    <td>{{ $activity->name }}</td>
+                    <td>{{ $type->code }}</td>
+                    <td>{{ $type->Name }}</td>
+                    <!-- แสดงจำนวนกิจกกรรมในประเภทนี้ -->
+                    <td>{{ $type->activities_count }}</td>
                     <td>
-                        <a href="{{ route('activityies.view', ['activity' => $activity->code]) }}">
+                        <a href="{{ route('types.view', ['type' => $type->code]) }}">
                             <button type="button" class="/">View</button>
                         </a>
                     </td>
-
                 </tr>
             @endforeach
         </tbody>

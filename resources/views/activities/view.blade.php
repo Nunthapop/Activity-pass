@@ -7,7 +7,7 @@
 
         @can('update', \App\Models\Product::class)
             <li class="action-item">
-                <a href="{{ route('activityies.update-form', ['activity' => $activity->code]) }}">
+                <a href="{{ route('activities.update-form', ['activity' => $activity->code]) }}">
                     <button type="button" class="nav-button">Update</button>
                 </a>
             </li>
@@ -15,7 +15,7 @@
 
         @can('delete', \App\Models\Product::class)
             <li class="action-item">
-                <a href="{{ route('activityies.delete', ['activity' => $activity->code]) }}">
+                <a href="{{ route('activities.delete', ['activity' => $activity->code]) }}">
                     <button type="button" class="nav-button">Delete</button>
                 </a>
             </li>

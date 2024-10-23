@@ -5,7 +5,7 @@
     <!-- สร้างกิจกรรม -->
 
     <!-- ฟอร์ม -->
-    <form action="{{ route('activityies.create') }}" method="POST">
+    <form action="{{ route('activities.create') }}" method="POST">
         @csrf <!-- ป้องกันการโจมตี CSRF -->
 
         <!-- กรอกข้อมูล -->
