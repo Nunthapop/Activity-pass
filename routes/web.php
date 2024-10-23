@@ -18,8 +18,11 @@ Route::middleware([
         ->prefix('student')
         ->name('students.')
         ->group(function () {
-            Route::get('/', 'list')->name('list');
+            Route::get('', 'list')->name('list');
             Route::get('/{student_code}', 'show')->name('view');
+            Route::get('/{student_code}/update', 'showUpdateForm')->name('update-form');
+            Route::post('/{student_code}/update', 'update')->name('update');
+
         });
     Route::controller(ActivityController::class)
         ->prefix('activity')->name('activities.')->group(function () {

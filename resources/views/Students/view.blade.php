@@ -1,27 +1,17 @@
  @extends('layouts.main')
 @section('title', 'studetn code')
-@section('content'){{--
+@section('content')
 
-    <!-- เมนูจัดการหน้ารางวัล -->
-    <ul class="action-menu">
 
-        @can('update', \App\Models\Product::class)
-            <li class="action-item">
-                <a href="{{ route('rewards.update-form', ['reward' => $reward->code]) }}">
+
+
+{{-- @can('update', \App\Models\Product::class) --}}
+            <li class="">
+                <a href="{{ route('students.update-form', ['student_code' => $students->code]) }}">
                     <button type="button" class="nav-button">Update</button>
                 </a>
             </li>
-        @endcan
-
-        @can('delete', \App\Models\Product::class)
-            <li class="action-item">
-                <a href="{{ route('rewards.delete', ['reward' => $reward->code]) }}">
-                    <button type="button" class="nav-button">Delete</button>
-                </a>
-            </li>
-        @endcan
-    </ul>--}}
-
+        {{-- @endcan --}}
 
     <main>
         <!-- รายละเอียดรางวัล -->

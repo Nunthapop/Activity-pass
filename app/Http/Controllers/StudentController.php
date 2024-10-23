@@ -12,7 +12,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models;
 use Illuminate\Http\Request;
 use App\Models\Student;
-
+use GuzzleHttp\Psr7\Query;
+use Illuminate\Database\QueryException;
 
 class StudentController extends SearchableController
 {
@@ -42,5 +43,30 @@ class StudentController extends SearchableController
             'students' => $student
         ]);
     }
+    function  showUpdateForm(ServerRequestInterface $request, string $student_code): View{
+       
+       
+        $student =  Student::where('code', $student_code)->firstOrFail();
+        return view('students.update-form',[
+            'students'=> $student
+        ]);
 
+    }
+    function update(string $student_code, ServerRequestInterface $request): RedirectResponse
+    {
+        try{
+            $data = $request->getParsedBody();
+            // dd($data);
+            $student =  Student::where('code', $student_code)->firstOrFail();
+            $student->fill($data);
+            $student->save();
+            return redirect(route('students.view', ['student_code' => $student->code]))->with('message', " $student->username has been updated");
+        }
+        catch(QueryException $e){
+            return redirect()->back()->withInput()->withErrors([ 
+            'error'=> $e->errorInfo[2],]);
+        }
+       
+       
+    }
 }
