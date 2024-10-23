@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 @section('title', 'Activity: List')
 @section('content')
 
@@ -63,4 +63,4 @@
         </tbody>
     </table>
 
-@endsection
+@endsection --}}

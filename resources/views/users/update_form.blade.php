@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 @section('title', 'User: Update')
 @section('content')
 
@@ -33,4 +33,4 @@
 
     </form>
 
-@endsection
+@endsection --}}

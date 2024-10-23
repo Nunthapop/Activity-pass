@@ -21,7 +21,7 @@ Route::middleware([
             Route::get('/', 'list')->name('list');
         });
     Route::controller(ActivityController::class)
-        ->prefix('activity')->name('activity.')->group(function () {
+        ->prefix('activity')->name('activities.')->group(function () {
             route::get('/', 'list')->name('list');
         });
 });

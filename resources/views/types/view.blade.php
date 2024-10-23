@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 @section('title', $type->code)
 @section('content')
 
@@ -50,4 +50,4 @@
         </table>
     </main>
 
-@endsection
+@endsection --}}

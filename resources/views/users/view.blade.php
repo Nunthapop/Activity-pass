@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 @section('title', 'User: Information')
 @section('content')
 
@@ -43,4 +43,4 @@
         </tbody>
     </table>
 
-@endsection
+@endsection --}}

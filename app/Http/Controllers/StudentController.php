@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse; 
+use Illuminate\Database\Eloquent\Model;
 use App\Models;
 use Illuminate\Http\Request;
 use App\Models\Student;
@@ -15,7 +16,10 @@ use App\Models\Student;
 
 class StudentController extends SearchableController
 {
-
+    function find(string $student_id): Model
+    {
+        return $this->getQuery()->where('id', $student_id)->firstOrFail();
+    }
     public function getQuery(): Builder
     {
         return Student::orderby('name');
@@ -30,4 +34,11 @@ class StudentController extends SearchableController
 
         ]);
     }
+    function show(string $id): View{
+        $student = Student::find($id);
+        return view('Students.show',[
+            'student' => $student
+        ]);
+    }
+
 }

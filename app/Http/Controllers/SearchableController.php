@@ -44,8 +44,5 @@ abstract class SearchableController extends Controller
         return $this->filter($query, $search);
     }
     // For easily searching by code.
-    function find(string $code): Model
-    {
-        return $this->getQuery()->where('code', $code)->firstOrFail();
-    }
+   
 }

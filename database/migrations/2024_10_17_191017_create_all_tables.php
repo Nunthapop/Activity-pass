@@ -10,6 +10,7 @@ class CreateAllTables extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->integer('code');
             $table->string('username', 45);
             $table->string('password', 45);
             $table->string('first_name', 45);

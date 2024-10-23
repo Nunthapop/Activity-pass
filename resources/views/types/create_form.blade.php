@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 @section('title', 'Type of Activity: Create')
 @section('content')
 
@@ -26,4 +26,4 @@
 
     </form>
 
-@endsection
+@endsection --}}
