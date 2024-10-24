@@ -59,5 +59,6 @@
             @endforeach
         </tbody>
     </table> 
+    <a href="{{ route('students.create-form') }}">Insert student</a>
 
 @endsection

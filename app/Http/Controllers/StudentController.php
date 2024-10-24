@@ -72,4 +72,27 @@ class StudentController extends SearchableController
     function ShowCreateForm(): View{
         return view('students.create-form');
     }
+    function  create(ServerRequestInterface $request): RedirectResponse
+    {
+        try{
+            $data = $request->getParsedBody();
+            // dd($data);
+            $student =Student::create([
+                'code' => $data['code'],
+                'username' => $data['username'],
+                'password' => $data['code'],
+                'first_name' => $data['first_name'],
+                'last_name' => $data['last_name'],
+                'year' => $data['year'],
+                'major' => $data['major'],
+                'score' => 0,
+            ]);
+          
+            return redirect(route('students.list'))->with('message', " $student->username has been created");
+        }
+        catch(QueryException $e){
+            return redirect()->back()->withInput()->withErrors([ 
+            'error'=> $e->errorInfo[2],]);
+        }   
+    }
 }

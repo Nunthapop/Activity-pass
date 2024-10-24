@@ -43,6 +43,9 @@
     @session('message')
         <span> {{ $value }}</span>
     @endsession
+    @error('error')
+        {{$message}}
+    @enderror
 
     <div id="main-content">
         @yield('content')

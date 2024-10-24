@@ -11,8 +11,17 @@
         <!-- ฟิลด์สำหรับกรอกข้อมูลสินค้า -->
         <p><strong>Code:</strong> <input type="text" name="code" value="{{ $students->code }}" required></p>
         <p><strong>Name:</strong> <input type="text" name="username" value="{{ $students->username }}" required></p>
-        <p><strong>Score:</strong> <input type="text" name="score" value="{{ $students->score }}" required></p>
-        
+        <p><strong>Score:</strong> <input type="text" name="first_name" value="{{ $students->first_name }}" required></p>
+        <p><strong>Score:</strong> <input type="text" name="last_name" value="{{ $students->last_name }}" required></p>
+        <p><strong>Score:</strong> <input type="text" name="year" value="{{ $students->year }}" required></p>
+        <select name="major" required>
+            <option value="">Select Major</option>
+            <option value="SE">SE</option>
+            <option value="DII">DII</option>
+            <option value="MMIT" selected>MMIT</option> <!-- This option will be selected -->
+            <option value="DG">DG</option>
+            <option value="ANI">ANI</option>
+        </select>
 
         <!-- ปุ่มสำหรับส่งฟอร์ม -->
         <button type="submit">Submit</button>

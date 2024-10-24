@@ -15,13 +15,16 @@
 
     <main>
         <!-- รายละเอียดรางวัล -->
-        <table>
+        <table style="border: 1px solid black; border-collapse: collapse; ">
             <thead>
                 <tr>
-                    <th>Code</th>
+                    <th >Code</th>
                     <th>Name</th>
                     <th>Score</th>
-                    <th>Description</th>
+                    <th>firts_name</th>
+                    <th>last_name</th>
+                    <th>year</th>
+                    <th>password</th>
                 </tr>
             </thead>
             <tbody>
@@ -29,7 +32,10 @@
                     <td>{{ $students->code }}</td>
                     <td>{{ $students->username }}</td>
                     <td>{{ $students->score }}</td>
-                    <td>{{ $students->major }}</td>
+                    <td>{{ $students->first_name }}</td>
+                    <td>{{ $students->last_name }}</td>
+                    <td>{{ $students->year }}</td>
+                    <td>{{ $students->passowrd }}</td>
                 </tr>
             </tbody>
         </table>
