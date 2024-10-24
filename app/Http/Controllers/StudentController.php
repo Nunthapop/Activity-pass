@@ -69,4 +69,7 @@ class StudentController extends SearchableController
        
        
     }
+    function ShowCreateForm(): View{
+        return view('students.create-form');
+    }
 }

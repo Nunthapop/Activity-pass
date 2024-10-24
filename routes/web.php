@@ -19,11 +19,18 @@ Route::middleware([
         ->name('students.')
         ->group(function () {
             Route::get('', 'list')->name('list');
-            Route::get('/{student_code}', 'show')->name('view');
-            Route::get('/{student_code}/update', 'showUpdateForm')->name('update-form');
-            Route::post('/{student_code}/update', 'update')->name('update');
-
+            Route::get('/create', 'showCreateForm')->name('create-form');
+            Route::post('/create', 'create')->name('create');
+            Route::prefix('/{student_code}')
+                ->group(function () {
+                    Route::get('', 'show')->name('view');
+                    Route::get('/update', 'showUpdateForm')->name('update-form');
+                    Route::post('/update', 'update')->name('update');
+                });
+                //end of student code prefix
         });
+        //end of student controller
+
     Route::controller(ActivityController::class)
         ->prefix('activity')->name('activities.')->group(function () {
             route::get('/', 'list')->name('list');
