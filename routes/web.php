@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RewardController;
 use App\Http\Controllers\StudentController;
+use App\Models\Reward;
 use App\Models\Student;
 use Illuminate\Support\Facades\Route;
 
@@ -35,4 +36,20 @@ Route::middleware([
         ->prefix('activity')->name('activities.')->group(function () {
             route::get('/', 'list')->name('list');
         });
+      
+
+Route::controller(RewardController::class)
+    ->prefix('reward')
+    ->name('rewards.')
+    ->group(function () {
+        Route::get('', 'list')->name('list');
+        Route::get('/create', 'showCreateForm')->name('create-form');
+        Route::post('/create', 'create')->name('create');
+        Route::prefix('/{reward_code}')
+            ->group(function () {
+                Route::get('', 'show')->name('view');
+                Route::get('/update', 'showUpdateForm')->name('update-form');
+                Route::post('/update', 'update')->name('update');
+            });
+    });
 });

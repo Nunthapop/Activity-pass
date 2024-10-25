@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAllTables extends Migration
+return new class extends Migration
 {
     public function up()
     {
@@ -18,12 +17,13 @@ class CreateAllTables extends Migration
             $table->timestamps();
         });
 
-        // Create users table
-        Schema::create('users', function (Blueprint $table) {
+        // Create rewards table first to resolve foreign key dependency
+        Schema::create('rewards', function (Blueprint $table) {
             $table->id();
-            $table->string('username', 45);
-            $table->string('password', 45);
-            $table->string('role', 45);
+            $table->string('code', 45);
+            $table->integer('score')->default(0);
+            $table->integer('qty')->default(0);
+            $table->string('description', 45);
             $table->timestamps();
         });
 
@@ -34,10 +34,8 @@ class CreateAllTables extends Migration
             $table->string('first_name', 45);
             $table->string('last_name', 45);
             $table->string('year', 45);
-            $table->string('major', 45);
-            $table->string('score', 45);
-            $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->string('branch', 45);
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
 
@@ -48,27 +46,13 @@ class CreateAllTables extends Migration
             $table->dateTime('datetime');
             $table->string('activity_by', 45);
             $table->string('location', 45);
-            $table->string('score', 45);
+            $table->integer('score')->default(0);
             $table->string('description', 45);
             $table->unsignedBigInteger('type_id');
             $table->unsignedBigInteger('reward_id');
             $table->foreign('type_id')->references('id')->on('types');
+            $table->foreign('reward_id')->references('id')->on('rewards'); // Should work now
             $table->timestamps();
-        });
-
-        // Create rewards table
-        Schema::create('rewards', function (Blueprint $table) {
-            $table->id();
-            $table->string('code', 45);
-            $table->string('score', 45);
-            $table->string('description', 45);
-            $table->string('rewardscol', 45);
-            $table->timestamps();
-        });
-
-        // Add foreign key for rewards in activities table
-        Schema::table('activities', function (Blueprint $table) {
-            $table->foreign('reward_id')->references('id')->on('rewards');
         });
 
         // Create student_activities (pivot) table
@@ -84,12 +68,10 @@ class CreateAllTables extends Migration
 
     public function down()
     {
-        // Drop tables in reverse order to avoid foreign key constraints
         Schema::dropIfExists('student_activities');
         Schema::dropIfExists('activities');
-        Schema::dropIfExists('rewards');
         Schema::dropIfExists('students');
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('rewards');
         Schema::dropIfExists('types');
     }
-}
+};
