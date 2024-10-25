@@ -30,7 +30,7 @@ class Activity extends Model
      * ความสัมพันธ์แบบ BelongsTo กับโมเดล Type
      * หมายถึง กิจกรรมจะมีแค่ 1 ประเภท
      */
-    public function type(): BelongsTo
+    public function types(): BelongsTo
     {
         return $this->belongsTo(Type::class);
     }
@@ -39,7 +39,7 @@ class Activity extends Model
      * ความสัมพันธ์แบบ BelongsTo กับโมเดล Reward
      * หมายถึง กิจกรรมจะมี 1 รางวัล
      */
-    public function reward(): BelongsTo
+    public function rewards(): BelongsTo
     {
         return $this->belongsTo(Reward::class);
     }
