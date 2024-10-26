@@ -12,7 +12,7 @@ class Type extends Model
     use HasFactory;
 
     // กำหนดค่าที่สามารถกรอกได้ในฐานข้อมูล
-    protected $fillable = [ 'datetime', 'name', 'description'];
+    protected $fillable = [ 'id','code','datetime', 'name', 'description'];
 
     /**
      * ความสัมพันธ์แบบ HasMany กับโมเดล Activity

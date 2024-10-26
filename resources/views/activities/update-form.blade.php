@@ -18,15 +18,15 @@
         <p><strong>Description:</strong>
             <textarea name="description" cols="200" rows="10" required>{{ $activity->description }}</textarea>
             <p><strong>Type</strong> 
-        {{-- <select name="type" required>
+               {{-- {{$type->id}} --}}
+        <select name="type" required>
+     <option value="{{ $type_id->id }}">{{ $type_id->name }} @selected(true)</option>
             @foreach ($type as $item)
-                @if ($item->code !== $activity->type->name)
+                @if ($item->id !== $type_id->id)
                     <option value="{{ $item->name }}">{{ $item->name }}</option>
                 @endif
             @endforeach
-        </select> --}}
-        {{-- <p><strong>Reward</strong> 
-            <select name="major" required>
+            {{-- <select name="major" required>
                 <option value="">Select Major</option>
                 <option value="SE">SE</option>
                 <option value="DII">DII</option>
@@ -34,7 +34,7 @@
                 <option value="DG">DG</option>
                 <option value="ANI">ANI</option>
             </select>
-     --}}
+     --}} 
 
         <!-- ปุ่มสำหรับส่งฟอร์ม -->
         <button type="submit">Submit</button>

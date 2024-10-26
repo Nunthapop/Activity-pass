@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\activities;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Reward;
 use App\Models\Type;
 use Illuminate\Http\Request;
@@ -48,12 +49,18 @@ class ActivityController extends SearchableController
     function showUpdateForm(ServerRequestInterface $request, string $activity_name): View
     {
         $activity = activities::where('name', $activity_name)->firstOrFail();
+        $type_id =Type::where('id', $activity->type_id)->firstOrFail();
         $type =Type::all();
         $reward =Reward::all();
+        // dd($reward);
+        // dd($activity->type_id);
+        // dd($type->id);
+        // dd($type_id);
         return view('activities.update-form', [
             'activity' => $activity,
             'type' => $type,
-            'reward' => $reward
+            'reward' => $reward,
+            'type_id' => $type_id,
         ]);
     }
     
