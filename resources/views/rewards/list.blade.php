@@ -1,13 +1,13 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', 'Reward: List')
 @section('content')
 
-    <!-- หน้านี้แสดงรายการของรางวัล -->
+    <!-- Reward List Page -->
 
-    <!-- เนื้อหาหน้าเว็บ -->
+    <!-- Search Form -->
     <form action="{{ route('rewards.list') }}" method="get" class="search-form">
 
-        <!-- ค้นหารางวัล -->
+        <!-- Search Rewards -->
         <label>
             Search
             <input type="text" name="term" value="{{ $search['term'] }}" />
@@ -15,52 +15,48 @@
 
         <br />
 
-        <!-- ปุ่มค้นหาและเคลียร์ -->
+        <!-- Search and Clear Buttons -->
         <button type="submit" class="nav-link">Search</button>
         <a href="{{ route('rewards.list') }}">
             <button type="button" class="nav-link">Clear</button>
         </a>
 
-        <!-- เพิ่มรางวัลใหม่ -->
-        @can('create', \App\Models\Product::class)
+        <!-- Add New Reward (Visible if Authorized) -->
+        {{-- @can('create', \App\Models\Reward::class)
             <a href="{{ route('rewards.create_form') }}">
-                <button type="button" class="nav-link">New Rewards</button>
+                <button type="button" class="nav-link">New Reward</button>
             </a>
-        @endcan
+        @endcan --}}
 
     </form>
 
-    <!-- แสดงการแบ่งหน้า -->
-    <div>{{ $products->withQueryString()->links() }}</div>
+    <!-- Pagination Links -->
+    <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        {{ $reward->withQueryString()->links() }}
+    </div>
 
-    @php
-        // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
-        session()->put('bookmark.rewards.view', url()->full());
-    @endphp
-
-    <!-- ตารางแสดงข้อมูลรางวัล -->
+    <!-- Reward Data Table -->
     <table class="/">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Score</th>
+            <th>Reward Code</th>
+            <th>Reward QTY</th>
             <th>Description</th>
+            <th>Score</th>
+          
         </tr>
         <tbody>
-            @foreach ($rewards as $reward)
+            @foreach ($reward as $item)
                 <tr>
-                    <td>{{ $reward->code }}</td>
-                    <td>{{ $reward->name }}</td>
-                    <td>{{ $reward->score }}</td>
-                    <td>
-                        <a href="{{ route('rewards.view', ['reward' => $reward->code]) }}">
-                            <button type="button" class="/">View</button>
-                        </a>
-                    </td>
-
+                    <td>{{ $item->code }}</td>
+                    <td>{{ $item->qty }}</td>
+                    <td>{{ $item->description }}</td>
+                    <td>{{ $item->score }}</td>
+                    <td><a href="{{ route('rewards.view', ['reward_code' => $item->code]) }}">View</a></td>
                 </tr>
             @endforeach
         </tbody>
     </table>
 
-@endsection --}}
+    <a href="{{ route('rewards.create-form') }}">Insert Reward</a>
+
+@endsection

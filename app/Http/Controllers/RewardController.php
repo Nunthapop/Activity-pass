@@ -30,70 +30,73 @@ class RewardController extends SearchableController
     {
         $search = $this->prepareSearch($request->getQueryParams());
         $reward = Reward::getQuery();
-        return view('reward.list',[   
+        return view('rewards.list',[   
             'search' => $search,
             'reward' => $reward->paginate(5),
 
         ]);
     }
 
-    // function show($student_code): View
-    // {
-    //     $student =  Student::where('code', $student_code)->firstOrFail();
-    //     return view('students.view',[
-    //         'students' => $student
-    //     ]);
-    // }
-    // function  showUpdateForm(ServerRequestInterface $request, string $student_code): View{
-       
-       
-    //     $student =  Student::where('code', $student_code)->firstOrFail();
-    //     return view('students.update-form',[
-    //         'students'=> $student
-    //     ]);
 
-    // }
-    // function update(string $student_code, ServerRequestInterface $request): RedirectResponse
-    // {
-    //     try{
-    //         $data = $request->getParsedBody();
-    //         // dd($data);
-    //         $student =  Student::where('code', $student_code)->firstOrFail();
-    //         // dd($student);
-    //         $student->update($data);
-    //         return redirect(route('students.view', ['student_code' => $student->code]))->with('message', " $student->username has been updated");
-    //     }
-    //     catch(QueryException $e){
-    //         return redirect()->back()->withInput()->withErrors([ 
-    //         'error'=> $e->errorInfo[2],]);
-    //     }
-       
-       
-    // }
-    // function ShowCreateForm(): View{
-    //     return view('students.create-form');
-    // }
-    // function  create(ServerRequestInterface $request): RedirectResponse
-    // {
-    //     try{
-    //         $data = $request->getParsedBody();
-    //         // dd($data);
-    //         $student =Student::create([
-    //             'code' => $data['code'],
-    //             'username' => $data['username'],
-    //             'password' => $data['code'],
-    //             'first_name' => $data['first_name'],
-    //             'last_name' => $data['last_name'],
-    //             'year' => $data['year'],
-    //             'major' => $data['major'],
-    //             'score' => 0,
-    //         ]);
-          
-    //         return redirect(route('students.list'))->with('message', " $student->username has been created");
-    //     }
-    //     catch(QueryException $e){
-    //         return redirect()->back()->withInput()->withErrors([ 
-    //         'error'=> $e->errorInfo[2],]);
-    //     }   
-    // }
+    function show($reward_code): View
+    {
+        $reward =  Reward::where('code', $reward_code)->firstOrFail();
+        return view('rewards.view',[
+            'reward' => $reward
+        ]);
+    }
+    
+    function showUpdateForm(ServerRequestInterface $request, string $reward_code): View
+    {
+        $reward = Reward::where('code', $reward_code)->firstOrFail();
+        return view('rewards.update-form', [
+            'reward' => $reward
+        ]);
+    }
+    
+    function update(string $reward_code, ServerRequestInterface $request): RedirectResponse
+    {
+        try {
+            $data = $request->getParsedBody();
+            
+            $reward = Reward::where('code', $reward_code)->firstOrFail();
+            $reward->update([
+                'code' => $data['code'],
+                'qty' => $data['qty'],
+                'description' => $data['description'],
+                'score' => $data['score'],
+            ]);
+    
+            return redirect(route('rewards.view', ['reward_code' => $reward->code]))
+                ->with('message', "$reward->code has been updated");
+        } catch (QueryException $e) {
+            return redirect()->back()->withInput()->withErrors([
+                'error' => $e->errorInfo[2],
+            ]);
+        }
+    }
+    
+    function ShowCreateForm(): View{
+        return view('rewards.create-form');
+    }
+    function create(ServerRequestInterface $request): RedirectResponse
+    {
+        try {
+            $data = $request->getParsedBody();
+            // dd($data); // Uncomment to debug data
+    
+            $reward = Reward::create([
+                'code' => $data['code'],
+                'qty' => $data['qty'],
+                'description' => $data['description'],
+                'score' => $data['score'],
+            ]);
+    
+            return redirect(route('rewards.list'))->with('message', "$reward->code has been created");
+        } catch (QueryException $e) {
+            return redirect()->back()->withInput()->withErrors([
+                'error' => $e->errorInfo[2],
+            ]);
+        }
+    }
 }

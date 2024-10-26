@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class Reward extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'score', 'qty'];
+    protected $fillable = ['code', 'description', 'score', 'qty'];
 }

@@ -1,33 +1,33 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', 'Reward: Create')
 @section('content')
 
-    <!-- หน้าสร้างรางวัล -->
+    <!-- Reward Creation Page -->
 
-    <!-- ฟอร์ม -->
+    <!-- Form -->
     <form action="{{ route('rewards.create') }}" method="POST">
-        @csrf <!-- ป้องกันการโจมตี CSRF -->
+        @csrf <!-- CSRF token for security -->
 
-        <!-- กรอกข้อมูล -->
         <p>
-            <strong> Code:</strong>
-            <input type="text" name="code" required>
+            <strong>Code:</strong>
+            <input type="text" name="code" value="" required>
         </p>
         <p>
-            <strong> Name:</strong>
-            <input type="text" name="name" required>
+            <strong>Score:</strong>
+            <input type="number" name="score" value="" required>
         </p>
         <p>
-            <strong> Score:</strong>
-            <input type="text" name="score" required>
+            <strong>QTY:</strong>
+            <input type="number" name="qty" value="" required>
         </p>
         <p>
-            <strong> Description:</strong>
-            <textarea name="description" cols="200" rows="10" required></textarea>
+            <strong>Description:</strong>
+            <textarea name="description" required></textarea>
         </p>
 
-        <button type="submit">Submit</button>
+     
 
+        <button type="submit">Create Reward</button> <!-- Submit button -->
     </form>
-    
-@endsection --}}
+
+@endsection
