@@ -50,7 +50,6 @@
             @foreach ($students as $stude)
                 <tr>
                     <td>{{ $stude->code }}</td>
-                    <td>{{ $stude->username }}</td>
                     <td>{{ $stude->year }}</td>
                     <td>{{ $stude->major }}</td>
                     <td>{{ $stude->score }}</td>
