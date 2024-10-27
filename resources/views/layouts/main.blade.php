@@ -10,18 +10,18 @@
 
 <body>
 
-    {{-- <header>
+    <header>
         <div id="main-header">
             <h1>
                 @section('title-container')@yield('title')@show
                 </h1>
                 <nav class="main-nav">
                     <ul class="nav-list">
-                        <li><a href="{{ route('-.list') }}">Home</a></li>
-                        <li><a href="{{ route('-.list') }}">Activity</a></li>
-                        <li><a href="{{ route('-.list') }}">My Activity</a></li>
-                        <li><a href="{{ route('-.list') }}">Type</a></li>
-                        <li><a href="{{ route('-.list') }}">Reward</a></li>
+                        <li>Home</a></li>
+                        <li><a href="{{ route('activities.list') }}">Activity</a></li>
+                        <li>My Activity</a></li>
+                        <li>Type</a></li>
+                        <li><a href="{{ route('rewards.list') }}">Reward</a></li>
                         @can('update', \App\Models\Product::class)
                             <li> <a href="{{ route('user.list') }}">User</a></li>
                         @endcan
@@ -37,7 +37,7 @@
                     @endauth
                 </nav>
             </div>
-    </header> --}}
+    </header>
 
 
     @session('message')

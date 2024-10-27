@@ -9,42 +9,45 @@
         @csrf <!-- ป้องกันการโจมตี CSRF -->
 
         <!-- กรอกข้อมูล -->
-        <p>
-            <strong> Code:</strong>
-            <input type="text" name="code" required>
-        </p>
-        <p>
-            <strong> Name:</strong>
-            <input type="text" name="name" required>
-        </p>
-        <p>
-            <strong> Date:</strong>
-            <input type="text" name="date" required>
-        </p>
-        <p>
-            <strong> Time:</strong>
-            <input type="text" name="time" required>
-        </p>
-        <p>
-            <strong> Activity Type:</strong>
-            <input type="text" name="type" required>
-        </p>
-        <p>
-            <strong> Activity By:</strong>
-            <input type="text" name="by" required>
-        </p>
-        <p>
-            <strong> Location:</strong>
-            <input type="text" name="location" required>
-        </p>
-        <p>
-            <strong> Score:</strong>
-            <input type="text" name="score" required>
-        </p>
-        <p>
-            <strong> Description:</strong>
-            <textarea name="description" cols="200" rows="10" required></textarea>
-        </p>
+        <table class="">
+            <tr>
+                <td><strong>Code:</strong></td>
+                <td><input type="text" name="code" required></td>
+            </tr>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <td><strong>Type</strong></td>
+                <td>
+                    <select name="type_id" id="type" required>
+                        <option>
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Activity By:</strong></td>
+                <td><input type="text" name="activity_by" required></td>
+            </tr>
+            <tr>
+                <td><strong>Date & Time:</strong></td>
+                <td><input type="datetime-local" name="datetime" required></td>
+            </tr>
+            <tr>
+                <td><strong>Location:</strong></td>
+                <td><input type="text" name="location" required></td>
+            </tr>
+            <tr>
+                <td><strong>Score:</strong></td>
+                <td><input type="text" name="score" required></td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td>
+                    <textarea name="description" cols="200" rows="10" required></textarea>
+                </td>
+            </tr>
+        </table>
 
         <button type="submit">Submit</button>
 
