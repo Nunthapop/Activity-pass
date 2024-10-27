@@ -44,7 +44,11 @@ Route::middleware([
                 Route::get('', 'show')->name('view');
                 Route::get('/update', 'showUpdateForm')->name('update-form');
                 Route::post('/update', 'update')->name('update');
+                Route::prefix('/students')->group(function () {
+                    Route::get('', 'showStudents')->name('view-students');
+                });
             });
+            
     });
 
     Route::controller(RewardController::class)

@@ -113,4 +113,16 @@ class ActivityController extends SearchableController
             ]);
         }
     }
+    function showStudents(string $activity_name,StudentController $student, ServerRequestInterface $request): View
+    {
+        $search = $student->prepareSearch($request->getQueryParams());
+        $activity = $this->find($activity_name);
+        $query = $student->filter($activity->students(), $search);
+        return view('activities.view-students', [
+            'activity' => $activity,
+            'search' => $search,
+            'students' => $query->paginate(5),
+        ]);
+    }
+
 }

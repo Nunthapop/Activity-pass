@@ -1,26 +1,8 @@
-@extends('layouts.main')
-@section('title', $activity->code)
+{{-- @extends('layouts.main')
+@section('title', 'Students')
 @section('content')
 
-    <!-- เมนูจัดการหน้ารางวัล -->
-    {{-- <ul class="action-menu">
-
-        @can('update', \App\Models\Product::class)
-            <li class="action-item">
-                <a href="{{ route('activities.update-form', ['activity' => $activity->code]) }}">
-                    <button type="button" class="nav-button">Update</button>
-                </a>
-            </li>
-        @endcan
-
-        @can('delete', \App\Models\Product::class)
-            <li class="action-item">
-                <a href="{{ route('activities.delete', ['activity' => $activity->code]) }}">
-                    <button type="button" class="nav-button">Delete</button>
-                </a>
-            </li>
-        @endcan
-    </ul> --}}
+   
 
 
     <li>
@@ -61,4 +43,4 @@
         </table>
     </main>
 
-@endsection
+@endsection --}}
