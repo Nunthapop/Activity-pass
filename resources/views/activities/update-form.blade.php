@@ -13,11 +13,11 @@
         <table class="">
             <tr>
                 <td><strong>Code:</strong></td>
-                <td><input type="text" name="name" value="{{ $activities->code }}" required></td>
+                <td><input type="text" name="name" value="{{ $activity->code }}" required></td>
             </tr>
             <tr>
                 <td><strong>Name:</strong></td>
-                <td><input type="text" name="name" value="{{ $activities->name }}" required></td>
+                <td><input type="text" name="name" value="{{ $activity->name }}" required></td>
             </tr>
             <tr>
                 <td>strong>Type</strong></td>
@@ -34,24 +34,24 @@
             </tr>
             <tr>
                 <td><strong>Activity By:</strong></td>
-                <td><input type="text" name="activity_by" value="{{ $activities->activity_by }}" required></td>
+                <td><input type="text" name="activity_by" value="{{ $activity->activity_by }}" required></td>
             </tr>
             <tr>
                 <td><strong>Date & Time:</strong></td>
-                <td><input type="datetime-local" name="datetime" value="{{ $activities->datetime }}" required></td>
+                <td><input type="datetime-local" name="datetime" value="{{ $activity->datetime }}" required></td>
             </tr>
             <tr>
                 <td><strong>Location:</strong></td>
-                <td><input type="text" name="location" value="{{ $activities->location }}" required></td>
+                <td><input type="text" name="location" value="{{ $activity->location }}" required></td>
             </tr>
             <tr>
                 <td><strong>Score:</strong></td>
-                <td><input type="text" name="score" value="{{ $activities->score }}" required></td>
+                <td><input type="text" name="score" value="{{ $activity->score }}" required></td>
             </tr>
             <tr>
                 <td><strong>Description:</strong></td>
                 <td>
-                    <textarea name="description" cols="200" rows="10" required>{{ $activities->description }}</textarea>
+                    <textarea name="description" cols="200" rows="10" required>{{ $activity->description }}</textarea>
                 </td>
             </tr>
         </table>

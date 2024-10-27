@@ -2,10 +2,6 @@
 
 namespace App\Models;
 
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 use App\Models\activities;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -1,15 +1,15 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', 'Students')
 @section('content')
 
    
 
 
-    <li>
+    {{-- <li>
         <a href="{{ route('activities.update-form', ['activity_name' => $activity->name]) }}">
             <button type="button" class="nav-button">Update</button>
         </a>
-    </li>
+    </li> --}}
 
     <main>
         <!-- รายละเอียดกิจกรรม -->
@@ -29,18 +29,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $activity->code }}</td>
-                    <td>{{ $activity->name }}</td>
-                    <td>{{ $activity->date }}</td>
-                    <td>{{ $activity->time }}</td>
-                    <td>{{ $activity->type }}</td>
-                    <td>{{ $activity->activity_by }}</td>
-                    <td>{{ $activity->location }}</td>
-                    <td>{{ $activity->score }}</td>
-                    <td>{{ $activity->description }}</td>
+                    @foreach ($students as $item)
+                    <td>{{ $item->code }}</td>
+                    <td>{{ $item->first_name }}</td>
+                    <td>{{ $item->last_name }}</td>
+                    <td>{{ $item->year }}</td>
+                    <td>{{ $item->major }}</td>
+                    <td>{{ $item->score }}</td>
+                    @endforeach
+                    
+                  
                 </tr>
             </tbody>
         </table>
     </main>
 
-@endsection --}}
+@endsection
