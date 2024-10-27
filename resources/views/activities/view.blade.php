@@ -60,5 +60,6 @@
             </tbody>
         </table>
     </main>
+    <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}"></a>
 
 @endsection
