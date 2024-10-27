@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- เมนูจัดการหน้ารางวัล -->
-    <ul class="action-menu">
+    {{-- <ul class="action-menu">
 
         @can('update', \App\Models\Product::class)
             <li class="action-item">
@@ -20,8 +20,14 @@
                 </a>
             </li>
         @endcan
-    </ul>
+    </ul> --}}
 
+
+    <li>
+        <a href="{{ route('activities.update-form', ['activity_name' => $activity->name]) }}">
+            <button type="button" class="nav-button">Update</button>
+        </a>
+    </li>
 
     <main>
         <!-- รายละเอียดกิจกรรม -->

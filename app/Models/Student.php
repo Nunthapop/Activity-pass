@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Student extends Model
 {
     use HasFactory;
-    protected $fillable = ['code', 'firstname', 'lastname', 'year', 'major', 'score', 'user_id'];
+    protected $fillable = ['code', 'first_name', 'last_name', 'year', 'major', 'score', 'user_id'];
 
     /**
      * ความสัมพันธ์แบบ BelongsToMany กับโมเดล Activity
@@ -18,6 +18,6 @@ class Student extends Model
      */
     public function activities(): BelongsToMany
     {
-        return $this->belongsToMany(Activity::class)->withTimestamps();
+        return $this->belongsToMany(activities::class)->withTimestamps();
     }
 }

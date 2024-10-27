@@ -1,35 +1,34 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', $reward->code)
 @section('content')
 
-    <!-- เมนูจัดการหน้ารางวัล -->
+    <!-- Reward Management Menu -->
     <ul class="action-menu">
 
-        @can('update', \App\Models\Product::class)
+        {{-- @can('update', \App\Models\Reward::class) --}}
             <li class="action-item">
-                <a href="{{ route('rewards.update-form', ['reward' => $reward->code]) }}">
+                <a href="{{ route('rewards.update-form', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="nav-button">Update</button>
                 </a>
             </li>
-        @endcan
-
-        @can('delete', \App\Models\Product::class)
+        {{-- @endcan --}}
+{{-- 
+        @can('delete', \App\Models\Reward::class)
             <li class="action-item">
-                <a href="{{ route('rewards.delete', ['reward' => $reward->code]) }}">
+                <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="nav-button">Delete</button>
                 </a>
             </li>
-        @endcan
+        @endcan --}}
     </ul>
 
-
     <main>
-        <!-- รายละเอียดรางวัล -->
+        <!-- Reward Details -->
         <table>
             <thead>
                 <tr>
                     <th>Code</th>
-                    <th>Name</th>
+                    <th>qty</th>
                     <th>Score</th>
                     <th>Description</th>
                 </tr>
@@ -37,12 +36,12 @@
             <tbody>
                 <tr>
                     <td>{{ $reward->code }}</td>
-                    <td>{{ $reward->name }}</td>
-                    <td>{{ $reward->score }}</td>
+                    <td>{{ $reward->qty }}</td>
+                    <td>{{ $reward->points }}</td>
                     <td>{{ $reward->description }}</td>
                 </tr>
             </tbody>
         </table>
     </main>
 
-@endsection --}}
+@endsection
