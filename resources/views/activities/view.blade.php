@@ -51,7 +51,7 @@
                     <td>{{ $activity->name }}</td>
                     <td>{{ $activity->date }}</td>
                     <td>{{ $activity->time }}</td>
-                    <td>{{ $activity->activity_type }}</td>
+                    <td>{{ $activity->type->name }}</td>
                     <td>{{ $activity->activity_by }}</td>
                     <td>{{ $activity->location }}</td>
                     <td>{{ $activity->score }}</td>
