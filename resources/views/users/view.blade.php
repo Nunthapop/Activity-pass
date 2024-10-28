@@ -1,46 +1,51 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', 'User: Information')
 @section('content')
 
     <!-- หน้านี้ใช้ดูข้อมูล User -->
 
-    <ul class="action-menu">
-        <li class="action-item">
-            <a href="{{ route('users.list', ['userEmail' => $users->email]) }}">
-                <button type="button" class="nav-button">&lt; BACK</button>
-            </a>
-        </li>
+    <!-- ปุ่ม action -->
+    <nav>
+        <ul class="action-menu">
+            <li class="action-item">
+                <a href="{{ route('users.list', ['userEmail' => $users->email]) }}">
+                    <button type="button" class="nav-button">&lt; BACK</button>
+                </a>
+            </li>
 
-        <li class="action-item">
-            <a href="{{ route('users.update-form', ['userEmail' => $users->email]) }}">
-                <button type="button" class="nav-button">Update</button>
-            </a>
-        </li>
-    </ul>
+            {{-- @can('update', \App\Models\activities::class)
+               <li class="action-item">
+                   <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
+                       <button type="button" class="update-button">Update</button>
+                   </a>
+               </li>
+           @endcan
+
+           @can('delete', \App\Models\activities::class)
+               <li class="action-item">
+                   <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
+                       <button type="button" class="delete-button">Delete</button>
+                   </a>
+               </li>
+           @endcan --}}
+        </ul>
+    </nav>
 
     <table>
         <tbody>
             <tr>
-                <th>E-mail</th>
-                <th>Name</th>
+                <th>Username</th>
                 @can('update', \App\Models\Product::class)
                     <th>Role</th>
                 @endcan
-                <th>Year</th>
-                <th>Branch</th>
-                <th>Score</th>
             </tr>
             <tr>
-                <td>{{ $users->email }}</td>
                 <td>{{ $users->name }}</td>
                 @can('update', \App\Models\Product::class)
                     <td>{{ $users->role }}</td>
                 @endcan
-                <td> {{ $user->year }}</td>
-                <td> {{ $user->branch }}</td>
-                <td> {{ $user->score }}</td>
             </tr>
         </tbody>
     </table>
 
-@endsection --}}
+@endsection

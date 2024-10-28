@@ -56,8 +56,6 @@
             </tr>
         </table>
 
-        <button type="submit">Submit</button>
-
         <!-- ปุ่ม action -->
         <nav>
             <ul class="action-menu">
