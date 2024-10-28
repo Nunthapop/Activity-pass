@@ -6,15 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
     <title>Activity Pass</title>
+
+    {{-- <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentUrl = window.location.href; 
+            const navItems = document.querySelectorAll("#navMenu li a");
+    
+            navItems.forEach(item => {
+    
+                if (item.href === currentUrl) {
+                    item.parentElement.classList.add("active"); 
+                }
+            });
+        });
+    </script>  --}}
+
 </head>
 
 <body>
-
     <header>
         <div id="main-header">
-            <nav class="main-nav">
-                <ul>
-                    <li><a class="active">Home</a></li>
+            <nav id="main-nav">
+                <ul id="navMenu">
+                    <li><a href="#">Home</a></li>
                     {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
                     <li><a href="{{ route('activities.list') }}">Activity</a></li>
                     <li><a href="{{ route('types.list') }}">Type</a></li>
