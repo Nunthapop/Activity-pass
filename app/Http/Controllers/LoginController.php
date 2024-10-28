@@ -47,7 +47,10 @@ class LoginController extends Controller
 
             // redirect to the requested URL or
             // to route products.list if does not specify
-            return redirect()->intended(route('students.list'));
+            session(['student_code' => Auth::user()->email]);
+            
+            return redirect()->intended(route('home.profile',[
+                'student_code' => Auth::user()->email]));
             // return redirect()->back()->withErrors([
             //     'credentials' => 'The provided credentials do not match our records.',
             //     ]);
@@ -74,6 +77,6 @@ class LoginController extends Controller
 
         // สร้าง CSRF TOKEN ใหม่เพื่อความปลอดภัย
         session()->regenerateToken();
-        return redirect()->route('home.home');
+        return redirect()->route('students.list');
     }
 }

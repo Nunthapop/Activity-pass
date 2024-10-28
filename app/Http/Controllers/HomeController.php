@@ -28,4 +28,12 @@ class HomeController extends SearchableController
             'activities' => $activities
         ]);
     }
+    // function viewProfile($student_code)
+    // {
+    //     $student =  Student::where('code', $student_code)->firstOrFail();
+    //     return view('home.profile',[
+    //         'students' => $student
+    //     ]);
+    // }
+    
 }
