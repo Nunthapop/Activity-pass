@@ -15,7 +15,7 @@
                     <strong>Code:</strong>
                 </td>
                 <td>
-                    <input type="number" name="code" value="" required>
+                    <input type="text" name="code" value="" required>
                 </td>
             </tr>
             <tr>
