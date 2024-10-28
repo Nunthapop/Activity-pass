@@ -41,7 +41,7 @@
     @endphp
 
     <!-- Table to display activity data -->
-    <table>
+    <table border="1">
         <tr>
             <th>Name</th>
             <th>Date & Time</th>
