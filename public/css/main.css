@@ -1,0 +1,39 @@
+/* body {
+    background-color: black;
+} */
+h1 {
+    text-align: center;
+    font-family: sans-serif;
+    color: #555;
+}
+.main-nav {
+    background-color: #747474;
+    overflow: hidden;
+}
+.main-nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: left;
+    margin: 0%;
+}
+.main-nav ul li a {
+    display: block;
+    padding: 20px 50px 20px 50px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+/* Hover effect for links */
+.main-nav ul li a:hover {
+    background-color: #555;
+    color: #f0f0f0;
+    width: fit-content;
+}
+
+/* Active state for the current page */
+.main-nav ul li a.active {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+}
