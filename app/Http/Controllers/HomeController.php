@@ -16,5 +16,8 @@ use GuzzleHttp\Psr7\Query;
 use Illuminate\Database\QueryException;
 class HomeController extends Controller
 {
-    //
+    function  showHome()
+    {
+        return view('home.home');
+    }
 }
