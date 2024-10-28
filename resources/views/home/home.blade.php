@@ -1,10 +1,10 @@
 @extends('layouts.main')
-@section('title', 'Reward: List')
+@section('title', 'Home: List')
 @section('content')
 
     <form>
-
-        <p>tesssssssst</p>
+        <a href="{{ route('authentication') }}"></a>
+        <p></p>
         
     </form>
 

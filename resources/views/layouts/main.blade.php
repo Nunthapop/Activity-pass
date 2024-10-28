@@ -28,13 +28,13 @@
                         @endcan
                     </ul>
                     @auth
-                        <nav class="user-panel">
+                        {{-- <nav class="user-panel">
                             <span>
                                 <a href="{{ route('user.view', ['userEmail' => Auth::user()->email]) }}">
                                     {{ \Auth::user()->name }}</a>
                             </span>
                             <a href="{{ route('logout') }}">Logout</a>
-                        </nav>
+                        </nav> --}}
                     @endauth
                 </nav>
             </div>
