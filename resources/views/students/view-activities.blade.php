@@ -23,7 +23,6 @@
     <!-- ตารางกิจกรรม -->
     <table>
         <tr>
-            <th>Code</th>
             <th>Name</th>
             <th>Date & Time</th>
             <th>Details</th>
@@ -32,7 +31,6 @@
         <tbody>
             @foreach ($activities as $activityItem)
                 <tr>
-                    <td>{{ $activityItem->code }}</td>
                     <td>{{ $activityItem->name }}</td>
                     <td>{{ $activityItem->datetime }}</td>
                     <td>
