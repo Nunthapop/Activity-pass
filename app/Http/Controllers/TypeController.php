@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse; 
 use Illuminate\Database\Eloquent\Model;
 use App\Models;
+use app\Models\Type;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use GuzzleHttp\Psr7\Query;
@@ -23,6 +24,7 @@ class TypeController extends SearchableController
     {
         return Type::orderby('code');
     }
+
     function find(string $student_code): Model
     {
         return $this->getQuery()->where('code', $student_code)->firstOrFail();
@@ -108,3 +110,4 @@ class TypeController extends SearchableController
         ]);
     }
 }
+
