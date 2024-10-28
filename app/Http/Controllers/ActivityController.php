@@ -15,7 +15,7 @@ use App\Models\Reward;
 use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
-
+use Illuminate\Database\Eloquent\Relations\Relation;
 class ActivityController extends SearchableController
 {
     public function getQuery(): Builder
@@ -113,16 +113,33 @@ class ActivityController extends SearchableController
             ]);
         }
     }
+    public function filterByTerm(Builder|Relation $query, ?string $term): Builder|Relation
+    {
+        if (empty($term)) {
+            return $query;
+        }
+
+        return $query->where(function($query) use ($term) {
+            foreach (preg_split('/\s+/', trim($term)) as $word) {
+                $query->orWhere('code', 'LIKE', "%{$word}%")
+                      ->orWhere('name', 'LIKE', "%{$word}%")
+                      ->orWhereHas('student', function (Builder $query) use ($word) {
+                        $query->where('name', 'LIKE', "%{$word}%");
+                    });
+            }
+        });
+    }
+
+
     public function showStudents(string $activity_name,StudentController $student, ServerRequestInterface $request): View
     {
         $search = $student->prepareSearch($request->getQueryParams());
         $activity = $this->find($activity_name);
         $query = $student->filter($activity->students(), $search);
-        // dd($query);
         return view('activities.view-students', [
-            // 'activity' => $activity,
-            // 'search' => $search,
-            // 'students' => $query->paginate(5),
+            'activity' => $activity,
+            'search' => $search,
+            'students' => $query->paginate(5),
         ]);
     }
 

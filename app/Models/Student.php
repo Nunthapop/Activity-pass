@@ -16,8 +16,10 @@ class Student extends Model
      * ความสัมพันธ์แบบ BelongsToMany กับโมเดล Activity
      * หมายถึง กิจกกรรมหนึ่งสามารถมีผู้เข้าร่วมได้หลายคนและผู้เข้าร่วม 1 คน เข้าร่วมได้หลายกิจกกรรม
      */
-    public function activities(): BelongsToMany
+    public function activities()
     {
-        return $this->belongsToMany(activities::class)->withTimestamps();
+        //กำหนด many to many แบบ table
+        return $this->belongsToMany(activities::class, 'student_activities', 'student_id', 'activity_id')
+                    ->withTimestamps();
     }
 }
