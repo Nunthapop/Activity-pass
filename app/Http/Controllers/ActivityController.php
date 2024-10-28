@@ -43,8 +43,10 @@ class ActivityController extends SearchableController
     function show(string $activity_name): View
     {
         $activity = activities::where('name', $activity_name)->firstOrFail();
+    $type = Type::where('id', $activity->type_id)->firstOrFail();
         return view('activities.view', [
             'activity' => $activity,
+            'type' => $type,
         ]);
     }
 
@@ -180,9 +182,15 @@ class ActivityController extends SearchableController
         $student = Student::whereDoesntHave('activities', function (Builder $innerQuery) use ($activity) {
             return $innerQuery->where('name', $activity->name);
         })->where('code', $data['code'])->firstOrFail();
-        
+    
+        //update score
+        $score = $activity->score;
+        Student::where('code', $data['code'])->update([
+            'score' => Student::where('code', $data['code'])->value('score')+$score
+        ]);
+
         $activity->students()->attach($student);
-        return redirect()->back();
+        return redirect()->route('activities.view-students', ['activity_name' => $activity->name])->with('message', "$student->code has been added");;
     }
 
 }

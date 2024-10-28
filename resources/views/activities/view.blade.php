@@ -39,7 +39,7 @@
             </tr>
             <tr>
                 <td><strong>Type:</strong></td>
-                <td>{{ $activity->type->name }}</td>
+                <td>{{ $type->name }}</td>
             </tr>
             <tr>
                 <td><strong>Activity By:</strong></td>
