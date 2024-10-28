@@ -7,6 +7,7 @@
     <!--link css-->
     <link rel="stylesheet" href="{{ asset('css/activities.css') }}" type="text/css">
     <!-- Web page content -->
+    <body>
     <form action="{{ route('activities.list') }}" method="get" class="search-form">
 
         <!-- Search -->
@@ -69,5 +70,6 @@
             </tbody>
         </table>
     </div>
+    </body>
 
 @endsection

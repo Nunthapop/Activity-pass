@@ -1,6 +1,14 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+/*pagination*/
+.pagination {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 20px 0;
+}
+
 /* table */
 .container {
     margin-top: 20px;

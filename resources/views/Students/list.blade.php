@@ -3,7 +3,7 @@
 @section('content')
 
     <!-- หน้านี้แสดงรายการของรางวัล -->
-
+<link rel="stylesheet" href="{{ asset('css/students.css') }}" type="text/css">
     <!-- เนื้อหาหน้าเว็บ -->
     <form action="{{ route('students.list') }}" method="get" class="search-form">
 
@@ -16,7 +16,7 @@
         <br />
 
     </form>
-    <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+    <div class="pagination">
         {{ $students->withQueryString()->links() }}
     </div>
     {{-- @php
@@ -24,9 +24,10 @@
         session()->put('bookmark.rewards.view', url()->full());
     @endphp --}}
     <!-- ตารางแสดงข้อมูลรางวัล -->
-    <table class="/">
-        <tr>
-            <th>Studetn ID</th>
+    <div class="container">
+    <table>
+        <tr class="headcol">
+            <th>Student ID</th>
             <th>Name</th>
             <th>Year</th>
             <th>Major</th>
@@ -50,5 +51,6 @@
     <a href="{{ route('students.create-form') }}">
         <button type="button" class="create-button">Insert student</button>
     </a>
+</div>
 
 @endsection
