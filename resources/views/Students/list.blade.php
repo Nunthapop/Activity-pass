@@ -4,36 +4,29 @@
 
     <!-- หน้านี้แสดงรายการของรางวัล -->
 
-    <link rel="stylesheet" href="{{ asset('css/students.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
     <!-- Web page content -->
-    <form action="{{ route('students.list') }}" method="get" class="search-form">
-
-        <!-- Search -->
-        <label>
-            Search
-            <input type="text" name="term" value="{{ $search['term'] }}" />
-        </label>
-
-        <!-- Search and Clear buttons -->
-        <button type="submit" class="nav-link">Search</button>
-        <a href="{{ route('activities.list') }}">
-            <button type="button" class="nav-link">Clear</button>
-        </a>
-
-    </form>
+        <form action="{{ route('students.list') }}" method="get" class="search-form">
+            <div class="search-container">
+                <label id="search"> Search </label>
+                <input type="text" name="term" value="{{ $search['term'] }}" />
+                <button type="submit">Search</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>  
 
     <main>
 
         <!-- ปุ่ม action -->
-        <nav>
-            <ul class="action-menu">
-                <li class="action-item">
+        <nav class="action">
+            <ul>
+                <li>
                     <a href="{{ route('students.create-form') }}">
-                        <button type="button" class="add-button">Insert Student</button>
+                        <button type="button" class="add-button"> + Insert Student</button>
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> 
 
         <div class="pagination">
             {{ $students->withQueryString()->links() }}

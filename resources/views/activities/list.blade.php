@@ -3,33 +3,26 @@
 @section('content')
 
     <!-- This page displays the list of activities -->
-    <link rel="stylesheet" href="{{ asset('css/activities.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
 
     <!-- Web page content -->
     <form action="{{ route('activities.list') }}" method="get" class="search-form">
-
-        <!-- Search -->
-        <label>
-            Search
+        <div class="search-container">
+            <label id="search">Search</label>
             <input type="text" name="term" value="{{ $search['term'] }}" />
-        </label>
-
-        <!-- Search and Clear buttons -->
-        <button type="submit" class="nav-link">Search</button>
-        <a href="{{ route('activities.list') }}">
-            <button type="button" class="nav-link">Clear</button>
-        </a>
-
+            <button type="submit" class="nav-link">Search</button>
+            <button type="reset">Clear</button>
+        </div>
     </form>
 
     <main>
 
         <!-- Add New Activity (Visible if Authorized) -->
-        <nav>
-            <ul class="action-menu">
+        <nav class="action">
+            <ul>
                 <li class="action-item">
                     <a href="{{ route('activities.create-form') }}">
-                        <button type="button" class="add-button">Add Activity</button>
+                        <button type="button" class="add-button">+ Add Activity</button>
                     </a>
                 </li>
             </ul>

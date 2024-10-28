@@ -3,30 +3,22 @@
 @section('content')
 
     <!-- Reward List Page -->
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
 
     <!-- Search Form -->
     <form action="{{ route('rewards.list') }}" method="get" class="search-form">
-
-        <!-- Search Rewards -->
-        <label>
-            Search
+        <div class="search-container">
+            <label id="search">Search</label>
             <input type="text" name="term" value="{{ $search['term'] }}" />
-        </label>
-
-        <!-- Search and Clear Buttons -->
-        <button type="submit" class="nav-link">Search</button>
-        <a href="{{ route('rewards.list') }}">
-            <button type="button" class="nav-link">Clear</button>
-        </a>
-
+            <button type="submit" class="nav-link">Search</button>
+            <button type="reset" class="nav-link">Clear</button>
+        </div>
     </form>
 
     <main>
-
-        <!-- Add New Reward (Visible if Authorized) -->
-        <nav>
-            <ul class="action-menu">
-                <li class="action-item">
+        <nav class="action">
+            <ul>
+                <li>
                     <a href="{{ route('rewards.create-form') }}">
                         <button type="button" class="nav-link">Insert Reward</button>
                     </a>
@@ -40,13 +32,14 @@
         </div>
 
         <!-- Reward Data Table -->
-        <table class="/">
-            <tr>
+        <div class="container">
+        <table>
+            <tr class="headcol">
                 <th>Reward Code</th>
                 <th>Reward QTY</th>
                 <th>Description</th>
                 <th>Score</th>
-
+                <th></th>
             </tr>
             <tbody>
                 @foreach ($reward as $item)
@@ -60,6 +53,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
 
     </main>
 

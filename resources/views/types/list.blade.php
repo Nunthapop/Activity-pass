@@ -4,6 +4,7 @@
 
     <!-- หน้านี้แสดงประเภทกิจกรรม -->
 
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
     <!-- เนื้อหาหน้าเว็บ -->
     {{-- <form action="{{ route('types.list') }}" method="get" class="search-form">
 
@@ -31,18 +32,18 @@
     <div>{{ $types->withQueryString()->links() }}</div>
 
         <!-- Add New Type (Visible if Authorized) -->
-        <nav>
-            <ul class="action-menu">
-                <li class="action-item">
+        <nav class="action">
+            <ul>
+                <li>
                     <a href="{{ route('types.create-form') }}">
-                        <button type="button" class="add-button">Add Type Of Activity</button>
+                        <button type="button" class="add-button">+ Add Type Of Activity</button>
                     </a>
                 </li>
             </ul>
         </nav>
 
         <!-- แสดงการแบ่งหน้า -->
-        <div>{{ $types->withQueryString()->links() }}</div>
+        <div class="pagination">{{ $types->withQueryString()->links() }}</div>
 
         {{-- @php
             // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
@@ -50,8 +51,9 @@
         @endphp --}}
 
         <!-- ตารางแสดงข้อมูลประเภทกิจกรรม -->
-        <table class="/">
-            <tr>
+        <div class="container">
+        <table>
+            <tr class="headcol">
                 <th>Code</th>
                 <th>Name</th>
                 <th>Number of Activities</th>
@@ -73,5 +75,6 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
 
     @endsection
