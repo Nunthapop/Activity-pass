@@ -4,7 +4,7 @@
 
     <li>
         <a href="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}">
-            <button type="button" class="nav-button">Add students to {{ $activity->name }}</button>
+            <button type="button" class="nav-button">Add Students To {{ $activity->name }}</button>
         </a>
     </li>
     <form action="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}" method="get">
