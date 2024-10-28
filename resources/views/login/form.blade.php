@@ -17,13 +17,13 @@
 
             <!-- ฟิลด์สำหรับกรอกอีเมล -->
             <label class="form-label">
-                E-mail 
+               Students Code
                 <input type="text" name="email" required class="form-input" />
             </label><br />
 
             <!-- ฟิลด์สำหรับกรอกรหัสผ่าน -->
             <label class="form-label">
-                Password 
+                Password 'Last_name'
                 <input type="password" name="password" required class="form-input" />
             </label><br />
 

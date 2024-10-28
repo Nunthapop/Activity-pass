@@ -17,26 +17,23 @@
                 </h1>
                 <nav class="main-nav">
                     <ul class="nav-list">
-                      
+
                         <li>Home</a></li>
+                        {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
-                    
-                       
-                        <li>My Activity</a></li>
+                        
                         <li><a href="{{ route('types.list') }}">Type</a></li>
                         <li><a href="{{ route('rewards.list') }}">Reward</a></li>
-
-                      
                         <li><a href="{{ route('students.list') }}">Student</a></li>
-                
+
 
                         {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
-                            {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
+                        {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
                         {{-- @endcan --}}
                     </ul>
                     @auth
                         <nav class="app-cmp-user-panel">
-                        
+
 
                             <a href="{{ route('students.list', ['Email' => Auth::user()->email]) }}">
                                 {{ \Auth::user()->name }}</a>

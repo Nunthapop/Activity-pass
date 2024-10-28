@@ -90,6 +90,7 @@ class StudentController extends SearchableController
                 'name' => $data['code'],
                 'email' => $data['code'],
                 'password' => $data['last_name'],
+                'role' => 'USER',
             ]);
           
             return redirect(route('students.list'))->with('message', " $student->username has been created");

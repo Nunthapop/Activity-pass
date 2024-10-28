@@ -1,0 +1,27 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/* table */
+.container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container table {
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+    border-collapse: collapse;
+}
+.container table tr.headcol th {
+    padding: 10px;
+    border-bottom: 1px solid grey;
+}
+.container table td {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}

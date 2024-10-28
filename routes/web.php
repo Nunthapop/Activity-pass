@@ -31,7 +31,7 @@ Route::middleware([
     ->name('home.')
     ->group(function () {
         Route::get('', 'showHome')->name('home');
-    
+        // Route::get('/{student_code}', 'viewProfile')->name('profile');
     });
     
     
