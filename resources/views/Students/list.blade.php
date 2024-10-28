@@ -4,6 +4,7 @@
 
     <!-- หน้านี้แสดงรายการของรางวัล -->
 
+    <link rel="stylesheet" href="{{ asset('css/students.css') }}" type="text/css">
     <!-- Web page content -->
     <form action="{{ route('students.list') }}" method="get" class="search-form">
 
@@ -39,9 +40,10 @@
         </div>
 
         <!-- ตารางแสดงข้อมูล -->
-        <table class="/">
-            <tr>
-                <th>Studetn ID</th>
+        <div class="container">
+        <table>
+            <tr class="headcol">
+                <th>Student ID</th>
                 <th>Name</th>
                 <th>Year</th>
                 <th>Major</th>
@@ -61,7 +63,7 @@
                 @endforeach
             </tbody>
         </table>
-
+    </div>
     </main>
 
 @endsection

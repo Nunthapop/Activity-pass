@@ -3,6 +3,7 @@
 @section('content')
 
     <!-- This page displays the list of activities -->
+    <link rel="stylesheet" href="{{ asset('css/activities.css') }}" type="text/css">
 
     <!-- Web page content -->
     <form action="{{ route('activities.list') }}" method="get" class="search-form">
@@ -43,8 +44,9 @@
         @endphp
 
         <!-- Table to display activity data -->
-        <table border="1">
-            <tr>
+        <div class="container">
+        <table>
+            <tr class="headcol">
                 <th>Name</th>
                 <th>Date & Time</th>
                 <th>Location</th>
@@ -67,6 +69,7 @@
                 @endforeach
             </tbody>
         </table>
+    </div>
 
     </main>
 
