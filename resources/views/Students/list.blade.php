@@ -30,12 +30,12 @@
 
     </form>
     <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
-        {{$students->withQueryString()->links()}}
+        {{ $students->withQueryString()->links() }}
     </div>
-    {{--@php
+    {{-- @php
         // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
         session()->put('bookmark.rewards.view', url()->full());
-    @endphp--}}
+    @endphp --}}
     <!-- ตารางแสดงข้อมูลรางวัล -->
     <table class="/">
         <tr>
@@ -54,11 +54,14 @@
                     <td>{{ $student->year }}</td>
                     <td>{{ $student->major }}</td>
                     <td>{{ $student->score }}</td>
-                   <td> <a href="{{ route('students.view', ['student_code' => $student->code]) }}">View</a></td>
+                    <td> <a href="{{ route('students.view', ['student_code' => $student->code]) }}">View</a></td>
                 </tr>
             @endforeach
         </tbody>
-    </table> 
-    <a href="{{ route('students.create-form') }}">Insert student</a>
+    </table>
+
+    <a href="{{ route('students.create-form') }}">
+        <button type="button" class="create-button">Insert student</button>
+    </a>
 
 @endsection
