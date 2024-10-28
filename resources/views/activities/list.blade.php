@@ -4,6 +4,8 @@
 
     <!-- This page displays the list of activities -->
 
+    <!--link css-->
+    <link rel="stylesheet" href="{{ asset('css/activities.css') }}" type="text/css">
     <!-- Web page content -->
     <form action="{{ route('activities.list') }}" method="get" class="search-form">
 
@@ -41,29 +43,31 @@
     @endphp
 
     <!-- Table to display activity data -->
-    <table border="1">
-        <tr>
-            <th>Name</th>
-            <th>Date & Time</th>
-            <th>Location</th>
-            <th>Score</th>
-            <th>Details</th>
-        </tr>
-        <tbody>
-            @foreach ($activity as $activityItem)
-                <tr>
-                    <td>{{ $activityItem->name }}</td>
-                    <td>{{ $activityItem->datetime }}</td>
-                    <td>{{ $activityItem->location }}</td>
-                    <td>{{ $activityItem->score }}</td>
-                    <td>
-                        <a href="{{ route('activities.view', ['activity_name' => $activityItem->name]) }}">
-                            <button type="button" class="/">View</button>
-                        </a>
-                    </td>
+    <div class="container">
+        <table>
+                <tr class="headcol">
+                    <th>Name</th>
+                    <th>Date & Time</th>
+                    <th>Location</th>
+                    <th>Score</th>
+                    <th>Details</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
+            <tbody>
+                @foreach ($activity as $activityItem)
+                    <tr>
+                        <td>{{ $activityItem->name }}</td>
+                        <td>{{ $activityItem->datetime }}</td>
+                        <td>{{ $activityItem->location }}</td>
+                        <td>{{ $activityItem->score }}</td>
+                        <td>
+                            <a href="{{ route('activities.view', ['activity_name' => $activityItem->name]) }}">
+                                <button type="button" class="/">View</button>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 
 @endsection

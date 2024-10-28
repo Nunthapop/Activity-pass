@@ -1,0 +1,17 @@
+
+/* table */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container table {
+    background-color: blanchedalmond;
+    padding: 20px;
+}
+.container table tr.headcol th,.container table tr.headcol td{
+    padding: 10px;
+}
+.container table tr.headcol {
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+}
