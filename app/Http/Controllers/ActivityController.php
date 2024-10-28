@@ -116,8 +116,9 @@ class ActivityController extends SearchableController
     public function showStudents(string $activity_name,StudentController $student, ServerRequestInterface $request): View
     {
         $search = $student->prepareSearch($request->getQueryParams());
-        // $activity = $this->find($activity_name);
-        // $query = $student->filter($activity->students(), $search);
+        $activity = $this->find($activity_name);
+        $query = $student->filter($activity->students(), $search);
+        // dd($query);
         return view('activities.view-students', [
             // 'activity' => $activity,
             // 'search' => $search,
