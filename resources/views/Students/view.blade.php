@@ -7,7 +7,13 @@
          <ul class="action-menu">
              <li class="action-item">
                  <a href="{{ route('students.view-activities', ['student_code' => $student->code]) }}">
-                     <button type="button" class="view-button">View all activity of this student</button>
+                     <button type="button" class="view-button">View All Activity of This Student</button>
+                 </a>
+             </li>
+
+             <li class="action-item">
+                 <a href="{{ route('students.list') }}">
+                     <button type="button" class="back-button">Back</button>
                  </a>
              </li>
 

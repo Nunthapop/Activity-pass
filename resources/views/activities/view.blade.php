@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Activity: ' .$activity->name . $activity->code)
+@section('title', 'Activity: ' . $activity->name . $activity->code)
 @section('content')
 
     <!-- ปุ่ม action -->
@@ -7,11 +7,17 @@
         <ul class="action-menu">
             <li class="action-item">
                 <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}">
-                    <button type="button" class="view-button">View students in this activity</button>
+                    <button type="button" class="view-button">View Students In This Activity</button>
                 </a>
             </li>
 
-           {{-- @can('update', \App\Models\activities::class)
+            <li class="action-item">
+                <a href="{{ route('activities.list') }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
+
+            {{-- @can('update', \App\Models\activities::class)
                 <li class="action-item">
                     <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
                         <button type="button" class="update-button">Update</button>
@@ -56,8 +62,8 @@
             <tr>
                 <td><strong>Score:</strong></td>
                 <td>{{ $activity->score }}</td>
-            </tr>  
-            <tr>    
+            </tr>
+            <tr>
                 <td><strong>Description:</strong></td>
                 <td>{{ $activity->description }}</td>
             </tr>

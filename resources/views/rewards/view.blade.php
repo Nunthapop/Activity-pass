@@ -5,11 +5,7 @@
     <!-- ปุ่ม action -->
     <nav>
         <ul class="action-menu">
-            <li class="action-item">
-                <a href="{{ route('rewards.list') }}">
-                    <button type="button" class="back-button">Back</button>
-                </a>
-            </li>
+            
             <li class="action-item">
                 <a href="{{ route('rewards.update-form', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="update-button">Update</button>
@@ -21,6 +17,13 @@
                 <button type="button" class="delete-button">Delete</button>
             </a>
         </li> --}}
+
+            <li class="action-item">
+                <a href="{{ route('rewards.list') }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
+
         </ul>
     </nav>
 

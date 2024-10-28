@@ -64,7 +64,7 @@
                     <button type="submit" class="submit-button">Submit</button>
                 </li>
                 <li class="action-item">
-                    <button type="clear" class="cancel-button">Cancel</button>
+                    <button type="reset" class="cancel-button">Cancel</button>
                 </li>
             </ul>
         </nav>

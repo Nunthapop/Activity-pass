@@ -12,9 +12,6 @@
             Search
             <input type="text" name="term" value="{{ $search['term'] }}" />
         </label>
-
-        <br />
-
         <!-- ปุ่มค้นหาและเคลียร์ -->
         <button type="submit" class="nav-link">Search</button>
         <a href="{{ route('types.list') }}">
@@ -30,37 +27,50 @@
 
     </form>
 
-    <!-- แสดงการแบ่งหน้า -->
-    <div>{{ $products->withQueryString()->links() }}</div>
+    <main>
 
-    @php
-        // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
-        session()->put('bookmark.types.view', url()->full());
-    @endphp
+        <!-- Add New Type (Visible if Authorized) -->
+        <nav>
+            <ul class="action-menu">
+                <li class="action-item">
+                    <a href="{{ route('types.create-form') }}">
+                        <button type="button" class="add-button">Add Type Of Activity</button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
 
-    <!-- ตารางแสดงข้อมูลประเภทกิจกรรม -->
-    <table class="/">
-        <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Number of Activities</th>
-            <th>Details</th>
-        </tr>
-        <tbody>
-            @foreach ($types as $type)
-                <tr>
-                    <td>{{ $type->code }}</td>
-                    <td>{{ $type->Name }}</td>
-                    <!-- แสดงจำนวนกิจกกรรมในประเภทนี้ -->
-                    <td>{{ $type->activities_count }}</td>
-                    <td>
-                        <a href="{{ route('types.view', ['type' => $type->code]) }}">
-                            <button type="button" class="/">View</button>
-                        </a>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+        <!-- แสดงการแบ่งหน้า -->
+        <div>{{ $types->withQueryString()->links() }}</div>
 
-@endsection
+        @php
+            // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
+            session()->put('bookmark.types.view', url()->full());
+        @endphp
+
+        <!-- ตารางแสดงข้อมูลประเภทกิจกรรม -->
+        <table class="/">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Number of Activities</th>
+                <th>Details</th>
+            </tr>
+            <tbody>
+                @foreach ($types as $type)
+                    <tr>
+                        <td>{{ $type->code }}</td>
+                        <td>{{ $type->Name }}</td>
+                        <!-- แสดงจำนวนกิจกกรรมในประเภทนี้ -->
+                        <td>{{ $type->activities_count }}</td>
+                        <td>
+                            <a href="{{ route('types.view', ['type' => $type->code]) }}">
+                                <button type="button" class="/">View</button>
+                            </a>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+
+    @endsection
