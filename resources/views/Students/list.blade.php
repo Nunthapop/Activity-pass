@@ -34,7 +34,7 @@
             </ul>
         </nav>
 
-        <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">
+        <div class="pagination">
             {{ $students->withQueryString()->links() }}
         </div>
 
