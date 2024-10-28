@@ -43,18 +43,15 @@
     <!-- Table to display activity data -->
     <table>
         <tr>
-            <th>Code</th>
             <th>Name</th>
             <th>Date & Time</th>
             <th>Location</th>
             <th>Score</th>
             <th>Details</th>
-         
         </tr>
         <tbody>
             @foreach ($activity as $activityItem)
                 <tr>
-                    <td>{{ $activityItem->code }}</td>
                     <td>{{ $activityItem->name }}</td>
                     <td>{{ $activityItem->datetime }}</td>
                     <td>{{ $activityItem->location }}</td>

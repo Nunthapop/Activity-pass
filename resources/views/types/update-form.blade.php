@@ -1,4 +1,4 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', 'Type of Activity: Update')
 @section('content')
 
@@ -9,15 +9,40 @@
         @csrf
 
         <!-- ฟิลด์สำหรับกรอกข้อมูล -->
-        <p><strong>Code:</strong> <input type="text" name="code" value="{{ $type->code }}" required></p>
-        <p><strong>Name:</strong> <input type="text" name="name" value="{{ $type->name }}" required></p>
-        <p><strong>Description:</strong>
-            <textarea name="description" cols="200" rows="10" required>{{ $type->description }}</textarea>
-        </p>
+        <table>
+            <tr>
+                <td><strong>Code:</strong></td>
+                <td><input type="text" name="code" value="{{ $type->code }}" required></td>
+            </tr>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td><input type="text" name="name" value="{{ $type->name }}" required></td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td>
+                    <textarea name="description" cols="200" rows="10" required>{{ $type->description }}</textarea>
+                </td>
+            </tr>
+        </table>
 
-        <!-- ปุ่มสำหรับส่งฟอร์ม -->
-        <button type="submit">Submit</button>
+        <!-- ปุ่ม action -->
+        <nav>
+            <ul class="action-menu">
+                <li class="action-item">
+                    <a href="{{ route('types.view', ['type_code' => $type->code]) }}">
+                        <button type="button" class="back-button">Back</button>
+                    </a>
+                </li>
+                <li class="action-item">
+                    <button type="submit" class="submit-button">Submit</button>
+                </li>
+                <li class="action-item">
+                    <button type="clear" class="cancel-button">Cancel</button>
+                </li>
+            </ul>
+        </nav>
 
     </form>
 
-@endsection --}}
+@endsection

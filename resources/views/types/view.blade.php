@@ -1,53 +1,52 @@
-{{-- @extends('layouts.main')
+@extends('layouts.main')
 @section('title', $type->code)
 @section('content')
 
-    <!-- เมนูจัดการหน้ารางวัล -->
-    <ul class="action-menu">
-        @can('update', \App\Models\Product::class)
+    <!-- ปุ่ม action -->
+    <nav>
+        <ul class="action-menu">
             <li class="action-item">
-                <a href="{{ route('types.update-form', ['type' => $type->code]) }}">
-                    <button type="button" class="nav-button">Update</button>
+                <a href="{{ route('types.view-activities', ['type_code' => $type->code]) }}">
+                    <button type="button" class="view-button">View all activity of this type</button>
                 </a>
             </li>
-        @endcan
 
-        @can('delete', \App\Models\Product::class)
-            <li class="action-item">
-                <a href="{{ route('types.delete', ['type' => $type->code]) }}">
-                    <button type="button" class="nav-button">Delete</button>
-                </a>
-            </li>
-        @endcan
+            {{-- @can('update', \App\Models\activities::class)
+               <li class="action-item">
+                   <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
+                       <button type="button" class="update-button">Update</button>
+                   </a>
+               </li>
+           @endcan
 
-        <!-- ลิงก์สำหรับกิจกรรมในประเภทนี้ -->
-        <li class="action-item">
-            <a href="{{ route('types.view_activities', ['type' => $type->code]) }}">
-                <button type="button" class="nav-button">View Activities</button>
-            </a>
-        </li>
-    </ul>
+           @can('delete', \App\Models\activities::class)
+               <li class="action-item">
+                   <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
+                       <button type="button" class="delete-button">Delete</button>
+                   </a>
+               </li>
+           @endcan --}}
+        </ul>
+    </nav>
 
     <main>
+
         <!-- รายละเอียดรางวัล -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Code</th>
-                    <th>Name</th>
-                    <th>Number of Activities</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ $type->code }}</td>
-                    <td>{{ $type->name }}</td>
-                    <td>{{ $type->activities_count }}</td>
-                    <td>{{ $type->description }}</td>
-                </tr>
-            </tbody>
+        <table class="/">
+            <tr>
+                <td><strong>Code:</strong></td>
+                <td>{{ $type->code }}</td>
+            </tr>
+            <tr>
+                <td><strong>Name:</strong></td>
+                <td>{{ $type->name }}</td>
+            </tr>
+            <tr>
+                <td><strong>Description:</strong></td>
+                <td>{{ $type->description }}</td>
+            </tr>
         </table>
+
     </main>
 
-@endsection --}}
+@endsection

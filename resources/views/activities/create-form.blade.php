@@ -11,10 +11,6 @@
         <!-- กรอกข้อมูล -->
         <table class="">
             <tr>
-                <td><strong>Code:</strong></td>
-                <td><input type="text" name="code" required></td>
-            </tr>
-            <tr>
                 <td><strong>Name:</strong></td>
                 <td><input type="text" name="name" required></td>
             </tr>

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Add Activities For Student: ' . $student->code)
+@section('title', 'Add Activities For Type: ' . $student->code)
 @section('content')
 
     <!-- ฟอร์มเพิ่มกิจกรรม -->
@@ -19,8 +19,8 @@
     <!-- แสดงหน้าลิงค์เพจ -->
     <div>{{ $activities->withQueryString()->links() }}</div>
 
-    <!-- ฟอร์มเพิ่มกิจกรรมของ student -->
-    <form action="{{ route('students.add-activities', ['student' => $student->code]) }}" method="POST">
+    <!-- ฟอร์มเพิ่มกิจกรรมของ type -->
+    <form action="{{ route('types.add-activities', ['type' => $type->code]) }}" method="POST">
         @csrf
 
         @php
@@ -47,7 +47,7 @@
                         <td>{{ $activityItem->score }}</td>
                         <td>
                             <!-- ปุ่มเพิ่ม activity -->
-                            <button type="submit" name="student" value="{{ $activity->code }}" class="add-button">Add</button>
+                            <button type="submit" name="type" value="{{ $activity->code }}" class="add-button">Add</button>
                         </td>
                     </tr>
                 @endforeach
