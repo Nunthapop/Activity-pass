@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Type of Activity: Create')
+@section('title', 'Add Type of Activity')
 @section('content')
 
     <!-- สร้างกิจกรรม -->

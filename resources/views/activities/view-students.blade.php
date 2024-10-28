@@ -2,8 +2,6 @@
 @section('title', 'Students List In Activity: ' . $activity->name)
 @section('content')
 
-
-
     <li>
         <a href="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}">
             <button type="button" class="nav-button">Add students to {{ $activity->name }}</button>

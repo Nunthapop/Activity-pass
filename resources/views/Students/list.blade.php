@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Reward: List')
+@section('title', 'Student: List')
 @section('content')
 
     <!-- หน้านี้แสดงรายการของรางวัล -->
@@ -14,19 +14,6 @@
         </label>
 
         <br />
-
-        <!-- ปุ่มค้นหาและเคลียร์ -->
-        {{-- <button type="submit" class="nav-link">Search</button>
-        <a href="{{ route('rewards.list') }}">
-            <button type="button" class="nav-link">Clear</button>
-        </a>
-
-        <!-- เพิ่มรางวัลใหม่ -->
-        @can('create', \App\Models\Product::class)
-            <a href="{{ route('rewards.create_form') }}">
-                <button type="button" class="nav-link">New Rewards</button>
-            </a>
-        @endcan --}}
 
     </form>
     <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">

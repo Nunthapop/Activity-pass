@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Type of Activity: Update')
+@section('title', 'Type of Activity Update: ' . $type->code)
 @section('content')
 
     <!-- หน้านี้ใช้สำหรับอัปเดต -->

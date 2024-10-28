@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', $reward->code)
+@section('title', 'View Reward: ' . $reward->code)
 @section('content')
 
     <!-- ปุ่ม action -->

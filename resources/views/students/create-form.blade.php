@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Student: Create')
+@section('title', 'Insert Student')
 @section('content')
 
     <!-- หน้าสร้างรางวัล -->
