@@ -79,8 +79,6 @@ class StudentController extends SearchableController
             // dd($data);
             $student =Student::create([
                 'code' => $data['code'],
-                'username' => $data['username'],
-                'password' => $data['code'],
                 'first_name' => $data['first_name'],
                 'last_name' => $data['last_name'],
                 'year' => $data['year'],
