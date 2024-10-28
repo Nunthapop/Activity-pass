@@ -27,7 +27,12 @@
 
     </form>
 
+<<<<<<< Updated upstream
     <main>
+=======
+    <!-- แสดงการแบ่งหน้า -->
+    <div>{{ $types->withQueryString()->links() }}</div>
+>>>>>>> Stashed changes
 
         <!-- Add New Type (Visible if Authorized) -->
         <nav>

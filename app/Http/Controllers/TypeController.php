@@ -1,4 +1,5 @@
 <?php
+namespace App\Models;
 
 namespace App\Http\Controllers;
 use Psr\Http\Message\ServerRequestInterface;
@@ -6,11 +7,12 @@ use Illuminate\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\RedirectResponse; 
 use Illuminate\Database\Eloquent\Model;
-use app\Models\Type;
+use App\Models;
+use App\Models\Type;
 use App\Models\Student;
 use Illuminate\Database\QueryException;
 
-use function PHPSTORM_META\type;
+
 
 class TypeController extends SearchableController
 {
@@ -28,10 +30,12 @@ class TypeController extends SearchableController
     function list(ServerRequestInterface $request): View
     {
         $search = $this->prepareSearch($request->getQueryParams());
-        $type = Type::getQuery();
+        $type = Type::orderby('code');
+       
+       
         return view('types.list',[   
             'search' => $search,
-            'type' => $type()->paginate(5),
+            'types' => $type->paginate(5),
 
         ]);
     }
