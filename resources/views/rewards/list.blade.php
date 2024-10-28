@@ -22,11 +22,9 @@
         </a>
 
         <!-- Add New Reward (Visible if Authorized) -->
-        {{-- @can('create', \App\Models\Reward::class)
-            <a href="{{ route('rewards.create_form') }}">
-                <button type="button" class="nav-link">New Reward</button>
-            </a>
-        @endcan --}}
+        <a href="{{ route('rewards.create-form') }}">
+            <button type="button" class="nav-link">Insert Reward</button>
+        </a>
 
     </form>
 
@@ -42,7 +40,7 @@
             <th>Reward QTY</th>
             <th>Description</th>
             <th>Score</th>
-          
+
         </tr>
         <tbody>
             @foreach ($reward as $item)
@@ -56,7 +54,5 @@
             @endforeach
         </tbody>
     </table>
-
-    <a href="{{ route('rewards.create-form') }}">Insert Reward</a>
 
 @endsection

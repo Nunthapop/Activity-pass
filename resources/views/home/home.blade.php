@@ -3,8 +3,7 @@
 @section('content')
 
     <form>
-        <a href="{{ route('authentication') }}"></a>
-        <p></p>
+        <a href="{{ route('login') }}">Login</a>
         
     </form>
 

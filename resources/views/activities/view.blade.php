@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', $activity->code)
+@section('title', 'Activity: ' .$activity->name . $activity->code)
 @section('content')
 
     <!-- ปุ่ม action -->

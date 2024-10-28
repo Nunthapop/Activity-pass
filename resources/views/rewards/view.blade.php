@@ -1,26 +1,28 @@
 @extends('layouts.main')
-@section('title', $reward->code)
+@section('title', 'View Reward: ' . $reward->code)
 @section('content')
 
-    <!-- Reward Management Menu -->
-    <ul class="action-menu">
-
-        {{-- @can('update', \App\Models\Reward::class) --}}
+    <!-- ปุ่ม action -->
+    <nav>
+        <ul class="action-menu">
+            <li class="action-item">
+                <a href="{{ route('rewards.list') }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
             <li class="action-item">
                 <a href="{{ route('rewards.update-form', ['reward_code' => $reward->code]) }}">
-                    <button type="button" class="nav-button">Update</button>
+                    <button type="button" class="update-button">Update</button>
                 </a>
             </li>
-        {{-- @endcan --}}
-{{-- 
-        @can('delete', \App\Models\Reward::class)
-            <li class="action-item">
-                <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
-                    <button type="button" class="nav-button">Delete</button>
-                </a>
-            </li>
-        @endcan --}}
-    </ul>
+
+            {{-- <li class="action-item">
+            <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
+                <button type="button" class="delete-button">Delete</button>
+            </a>
+        </li> --}}
+        </ul>
+    </nav>
 
     <main>
         <!-- Reward Details -->

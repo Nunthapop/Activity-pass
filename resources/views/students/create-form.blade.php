@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Student: Create')
+@section('title', 'Insert Student')
 @section('content')
 
     <!-- หน้าสร้างรางวัล -->
@@ -15,7 +15,7 @@
                     <strong>Code:</strong>
                 </td>
                 <td>
-                    <input type="number" name="code" value="" required>
+                    <input type="text" name="code" value="" required>
                 </td>
             </tr>
             <tr>
@@ -76,7 +76,7 @@
                     <button type="submit" class="submit-button">Submit</button>
                 </li>
                 <li class="action-item">
-                    <button type="clear" class="cancel-button">Cancel</button>
+                    <button type="reset" class="cancel-button">Cancel</button>
                 </li>
             </ul>
         </nav>

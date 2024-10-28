@@ -18,13 +18,13 @@
         <!-- ปุ่มค้นหาและเคลียร์ -->
         <button type="submit" class="nav-link">Search</button>
         <a href="{{ route('types.list') }}">
-            <button type="button" class="nav-link">Clear</button>
+            <button type="button" class="clear-link">Clear</button>
         </a>
 
         <!-- เพิ่มประเภทกิจกรรม -->
         @can('create', \App\Models\Product::class)
             <a href="{{ route('types.create_form') }}">
-                <button type="button" class="nav-link">Add Type of Activity</button>
+                <button type="button" class="add-link">Add Type of Activity</button>
             </a>
         @endcan
 

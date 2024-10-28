@@ -74,6 +74,6 @@ class LoginController extends Controller
 
         // สร้าง CSRF TOKEN ใหม่เพื่อความปลอดภัย
         session()->regenerateToken();
-        return redirect()->route('login');
+        return redirect()->route('home.home');
     }
 }

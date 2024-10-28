@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Student: Update')
+@section('title', 'Student Update: ' . $student->code)
 @section('content')
 
     <!-- หน้านี้ใช้สำหรับอัปเดตข้อมูลของ student -->

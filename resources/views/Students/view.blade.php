@@ -1,5 +1,5 @@
  @extends('layouts.main')
- @section('title', 'View Student')
+ @section('title', 'View Student: ' . $student->code)
  @section('content')
 
      <!-- ปุ่ม action -->

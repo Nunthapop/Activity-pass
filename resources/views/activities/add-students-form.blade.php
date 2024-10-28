@@ -1,27 +1,19 @@
 @extends('layouts.main')
-@section('title', 'Add students to ' . $activity->name)
-
+@section('title', 'Add Students To ' . $activity->name)
 @section('content')
-    <!DOCTYPE html>
-    <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
-    </head>
-    {{-- <nav>
+    <nav>
         <ul>
-            <li><a href="{{ route('products.view-shops', [
-                'product' => $products->code,
-            ]) }}">&lt;
-                    Back</a>
-                </li>
+            <li>
+                <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
         </ul>
-    </nav> --}}
+    </nav>
 
-    <form action="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}" method="post" class="search-form">
+    <form action="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}" method="post"
+        class="search-form">
         @csrf
         <label>
             Search
@@ -42,19 +34,19 @@
                 <th>Owner</th>
             </tr>
             <tbody>
-                <tr>
-                    @foreach ($students as $item)
+                @foreach ($students as $item)
+                    <tr>
                         <td class="underline">
                             {{ $item->code }} </td>
-                        <td> {{$item->first_name }} {{$item->last_name }}</td>
-                        <td> {{$item->major }}</td>
+                        <td> {{ $item->first_name }} {{ $item->last_name }}</td>
+                        <td> {{ $item->major }}</td>
                         <td> <button type="submit" name="code" value="{{ $item->code }}" class="primary">Add</button>
                         </td>
-                </tr>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
 
-    </html>
+        </html>
     </form>
 @endsection
