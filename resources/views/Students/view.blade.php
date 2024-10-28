@@ -1,44 +1,64 @@
  @extends('layouts.main')
-@section('title', 'studetn code')
-@section('content')
+ @section('title', 'View Student')
+ @section('content')
 
+     <!-- ปุ่ม action -->
+     <nav>
+         <ul class="action-menu">
+             <li class="action-item">
+                 <a href="{{ route('students.view-activities', ['student_code' => $student->code]) }}">
+                     <button type="button" class="view-button">View all activity of this student</button>
+                 </a>
+             </li>
 
+             {{-- @can('update', \App\Models\activities::class)
+                <li class="action-item">
+                    <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
+                        <button type="button" class="update-button">Update</button>
+                    </a>
+                </li>
+            @endcan
 
+            @can('delete', \App\Models\activities::class)
+                <li class="action-item">
+                    <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
+                        <button type="button" class="delete-button">Delete</button>
+                    </a>
+                </li>
+            @endcan --}}
+         </ul>
+     </nav>
 
-{{-- @can('update', \App\Models\Product::class) --}}
-            <li class="">
-                <a href="{{ route('students.update-form', ['student_code' => $students->code]) }}">
-                    <button type="button" class="nav-button">Update</button>
-                </a>
-            </li>
-        {{-- @endcan --}}
+     <main>
 
-    <main>
-        <!-- รายละเอียดรางวัล -->
-        <table style="border: 1px solid black; border-collapse: collapse; ">
-            <thead>
-                <tr>
-                    <th >Code</th>
-                    <th>Name</th>
-                    <th>Score</th>
-                    <th>firts_name</th>
-                    <th>last_name</th>
-                    <th>year</th>
-                    <th>password</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ $students->code }}</td>
-                    <td>{{ $students->username }}</td>
-                    <td>{{ $students->score }}</td>
-                    <td>{{ $students->first_name }}</td>
-                    <td>{{ $students->last_name }}</td>
-                    <td>{{ $students->year }}</td>
-                    <td>{{ $students->passowrd }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
+         <!-- รายละเอียดรางวัล -->
+         <table class="">
+             <tr>
+                 <td><strong>Student Code:</strong></td>
+                 <td>{{ $student->code }}</td>
+             </tr>
+             <tr>
+                 <td><strong>First Name:</strong></td>
+                 <td>{{ $student->first_name }}</td>
+             </tr>
+             <tr>
+                 <td><strong>Last Name:</strong></td>
+                 <td>{{ $student->last_name }}</td>
+             </tr>
+             <tr>
+                 <td><strong>Year:</strong></td>
+                 <td>{{ $student->year }}</td>
+             </tr>
+             <tr>
+                 <td><strong>Major:</strong></td>
+                 <td>{{ $student->major }}</td>
+             </tr>
+             <tr>
+                 <td><strong>Score:</strong></td>
+                 <td>{{ $student->score }}</td>
+             </tr>
+         </table>
 
-@endsection 
+     </main>
+
+ @endsection
