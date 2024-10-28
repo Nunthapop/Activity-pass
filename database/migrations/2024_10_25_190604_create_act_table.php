@@ -34,7 +34,7 @@ return new class extends Migration
             $table->string('first_name', 45);
             $table->string('last_name', 45);
             $table->string('year', 45);
-            $table->string('branch', 45);
+            $table->string('major', 45);
             $table->integer('score')->default(0);
             $table->timestamps();
         });
