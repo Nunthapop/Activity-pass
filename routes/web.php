@@ -84,18 +84,18 @@ Route::middleware([
                     Route::post('/update', 'update')->name('update');
                 });
         });
-        // Route::controller(TypeController::class)
-        // ->prefix('types')
-        // ->name('types.')
-        // ->group(function () {
-        //     Route::get('', 'list')->name('list');
-        //     Route::get('/create', 'showCreateForm')->name('create-form');
-        //     Route::post('/create', 'create')->name('create');
-        //     Route::prefix('/{types_code}')
-        //         ->group(function () {
-        //             Route::get('', 'show')->name('view');
-        //             Route::get('/update', 'showUpdateForm')->name('update-form');
-        //             Route::post('/update', 'update')->name('update');
-        //         });
-        // });
+        Route::controller(TypeController::class)
+        ->prefix('types')
+        ->name('types.')
+        ->group(function () {
+            Route::get('', 'list')->name('list');
+            Route::get('/create', 'showCreateForm')->name('create-form');
+            Route::post('/create', 'create')->name('create');
+            Route::prefix('/{types_code}')
+                ->group(function () {
+                    Route::get('', 'show')->name('view');
+                    Route::get('/update', 'showUpdateForm')->name('update-form');
+                    Route::post('/update', 'update')->name('update');
+                });
+        });
 });
