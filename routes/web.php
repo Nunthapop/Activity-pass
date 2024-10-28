@@ -34,7 +34,7 @@ Route::middleware([
     
     });
     
-
+    
     // Route::middleware(['auth'])->group(function () {
     Route::controller(StudentController::class)
         ->prefix('student')
