@@ -4,28 +4,28 @@
 
     <!-- ปุ่ม action -->
     <nav>
-        <ul class="action-menu">
+        {{-- <ul class="action-menu">
             <li class="action-item">
                 <a href="{{ route('types.view-activities', ['type_code' => $type->code]) }}">
                     <button type="button" class="view-button">View all activity of this type</button>
                 </a>
-            </li>
+            </li> --}}
 
-            @can('update', \App\Models\Type::class)
+            {{-- @can('update', \App\Models\Type::class) --}}
                <li class="action-item">
                    <a href="{{ route('types.update-form', ['type_code' => $type->code]) }}">
                        <button type="button" class="update-button">Update</button>
                    </a>
                </li>
-           @endcan
+           {{-- @endcan --}}
 
-           @can('delete', \App\Models\Type::class)
-               <li class="action-item">
+           {{-- @can('delete', \App\Models\Type::class) --}}
+               {{-- <li class="action-item">
                    <a href="{{ route('types.delete', ['type_code' => $type->code]) }}">
                        <button type="button" class="delete-button">Delete</button>
                    </a>
-               </li>
-           @endcan
+               </li> --}}
+           {{-- @endcan --}}
         </ul>
     </nav>
 

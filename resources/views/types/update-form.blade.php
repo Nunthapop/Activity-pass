@@ -5,7 +5,7 @@
     <!-- หน้านี้ใช้สำหรับอัปเดต -->
 
     <!-- ฟอร์ม -->
-    <form action="{{ route('types.update', ['type' => $type->code]) }}" method="POST">
+    <form action="{{ route('types.update', ['type_code' => $type->code]) }}" method="POST">
         @csrf
 
         <!-- ฟิลด์สำหรับกรอกข้อมูล -->

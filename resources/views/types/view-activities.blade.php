@@ -34,7 +34,7 @@
         </nav>
 
         <!-- แสดงลิงก์สำหรับการแบ่งหน้า -->
-        <div>{{ $activity->withQueryString()->links() }}</div>
+        <div>{{ $activities->withQueryString()->links() }}</div>
 
         @php
             session()->put('bookmark.activities.view', url()->full());
@@ -49,7 +49,7 @@
                 <th>Details</th>
             </tr>
             <tbody>
-                @foreach ($activity as $activityItem)
+                @foreach ($activities as $activityItem)
                     <tr>
                         <td>{{ $activityItem->code }}</td>
                         <td>{{ $activityItem->name }}</td>

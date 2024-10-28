@@ -103,6 +103,12 @@ Route::middleware([
             Route::prefix('/{type_code}')
                 ->group(function () {
                     Route::get('', 'show')->name('view');
+                    Route::prefix('/activities')->group(function () {
+                        Route::get('', 'showActivity')->name('view-activities');
+                        // Route::get('/add', 'AddStudentForm')->name('add-activities-form');
+                        // Route::post('/add', 'AddStudent')->name('add-activities');
+                       
+                    });
                     Route::get('/update', 'showUpdateForm')->name('update-form');
                     Route::post('/update', 'update')->name('update');
                 });

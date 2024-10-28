@@ -50,7 +50,7 @@ class TypeController extends SearchableController
     {
         $type =  Type::where('code', $type_code)->firstOrFail();
         return view('types.update-form',[
-            'types'=> $type
+            'type'=> $type
         ]);
 
     }
@@ -59,10 +59,10 @@ class TypeController extends SearchableController
         try{
             $data = $request->getParsedBody();
             // dd($data);
-            $type =  Student::where('code', $type_code)->firstOrFail();
+            $type =  Type::where('code', $type_code)->firstOrFail();
             // dd($student);
             $type->update($data);
-            return redirect(route('types.view', ['type_code' => $type->code]))->with('message', " $type->username has been updated");
+            return redirect(route('types.view', ['type_code' => $type->code]))->with('message', " $type->code has been updated");
         }
         catch(QueryException $e){
             return redirect()->back()->withInput()->withErrors([ 
@@ -82,25 +82,26 @@ class TypeController extends SearchableController
             $type =Type::create([
                 'code' => $data['code'],
                 'name' => $data['name'],
-                'description' => $data['description']
+                'description' => $data['description'],
+                'datetime' =>now(),
             ]);
           
-            return redirect(route('types.list'))->with('message', " $type->username has been created");
+            return redirect(route('types.list'))->with('message', " $type->code has been created");
         }
         catch(QueryException $e){
             return redirect()->back()->withInput()->withErrors([ 
             'error'=> $e->errorInfo[2],]);
         }   
     }
-    public function showType(string $type_code,ActivityController $type, ServerRequestInterface $request): View
+    public function showActivity(string $activity_name,ActivityController $activity, ServerRequestInterface $request): View
     {
-        $search = $type->prepareSearch($request->getQueryParams());
-        $type = $this->find($type_code);
-        $query = $type->filter($type->activities(), $search);
-        return view('types.view-types', [
-            'types' => $type,
+        $search = $activity->prepareSearch($request->getQueryParams());
+        $type = $this->find($activity_name);
+        $query = $activity->filter($type->activities(), $search);
+        return view('students.view-activities', [
+            'Type' =>  $type,
             'search' => $search,
-            'types' => $query->paginate(5),
+            'activities' => $query->paginate(5),
         ]);
     }
 }

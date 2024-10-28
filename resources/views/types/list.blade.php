@@ -5,7 +5,7 @@
     <!-- หน้านี้แสดงประเภทกิจกรรม -->
 
     <!-- เนื้อหาหน้าเว็บ -->
-    <form action="{{ route('types.list') }}" method="get" class="search-form">
+    {{-- <form action="{{ route('types.list') }}" method="get" class="search-form">
 
         <!-- ค้นหา -->
         <label>
@@ -25,14 +25,10 @@
             </a>
         @endcan
 
-    </form>
+    </form> --}}
 
-<<<<<<< Updated upstream
-    <main>
-=======
     <!-- แสดงการแบ่งหน้า -->
     <div>{{ $types->withQueryString()->links() }}</div>
->>>>>>> Stashed changes
 
         <!-- Add New Type (Visible if Authorized) -->
         <nav>
@@ -48,10 +44,10 @@
         <!-- แสดงการแบ่งหน้า -->
         <div>{{ $types->withQueryString()->links() }}</div>
 
-        @php
+        {{-- @php
             // บันทึก URL ปัจจุบันใน session เพื่อใช้ในการกลับไปยังหน้าที่เคยเข้าชม
             session()->put('bookmark.types.view', url()->full());
-        @endphp
+        @endphp --}}
 
         <!-- ตารางแสดงข้อมูลประเภทกิจกรรม -->
         <table class="/">
@@ -67,9 +63,9 @@
                         <td>{{ $type->code }}</td>
                         <td>{{ $type->Name }}</td>
                         <!-- แสดงจำนวนกิจกกรรมในประเภทนี้ -->
-                        <td>{{ $type->activities_count }}</td>
+                        {{-- <td>{{ $type->activities_count }}</td> --}}
                         <td>
-                            <a href="{{ route('types.view', ['type' => $type->code]) }}">
+                            <a href="{{ route('types.view', ['type_code' => $type->code]) }}">
                                 <button type="button" class="/">View</button>
                             </a>
                         </td>

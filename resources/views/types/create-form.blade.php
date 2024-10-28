@@ -29,7 +29,7 @@
         <nav>
             <ul class="action-menu">
                 <li class="action-item">
-                    <a href="{{ route('types.view', ['type_code' => $type->code]) }}">
+                    <a href="{{ route('types.list') }}">
                         <button type="button" class="back-button">Back</button>
                     </a>
                 </li>
