@@ -51,6 +51,23 @@
 
         <button type="submit">Submit</button>
 
+        <!-- ปุ่ม action -->
+        <nav>
+            <ul class="action-menu">
+                <li class="action-item">
+                    <a href="{{ route('activities.view', ['activity_name' => $activity->code]) }}">
+                        <button type="button" class="back-button">Back</button>
+                    </a>
+                </li>
+                <li class="action-item">
+                    <button type="submit" class="submit-button">Submit</button>
+                </li>
+                <li class="action-item">
+                    <button type="clear" class="cancel-button">Cancel</button>
+                </li>
+            </ul>
+        </nav>
+
     </form>
 
 @endsection

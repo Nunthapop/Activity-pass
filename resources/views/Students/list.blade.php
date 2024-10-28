@@ -40,20 +40,21 @@
     <table class="/">
         <tr>
             <th>Studetn ID</th>
-            <th>Username</th>
-            <th>year</th>
-            <th>major</th>
-            <th>score</th>
+            <th>Name</th>
+            <th>Year</th>
+            <th>Major</th>
+            <th>Score</th>
             <th>View</th>
         </tr>
         <tbody>
-            @foreach ($students as $stude)
+            @foreach ($students as $student)
                 <tr>
-                    <td>{{ $stude->code }}</td>
-                    <td>{{ $stude->year }}</td>
-                    <td>{{ $stude->major }}</td>
-                    <td>{{ $stude->score }}</td>
-                   <td> <a href="{{ route('students.view', ['student_code' => $stude->code]) }}">View</a></td>
+                    <td>{{ $student->code }}</td>
+                    <td>{{ $student->first_name }} {{ $student->last_name }}</td>
+                    <td>{{ $student->year }}</td>
+                    <td>{{ $student->major }}</td>
+                    <td>{{ $student->score }}</td>
+                   <td> <a href="{{ route('students.view', ['student_code' => $student->code]) }}">View</a></td>
                 </tr>
             @endforeach
         </tbody>

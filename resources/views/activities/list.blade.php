@@ -43,24 +43,22 @@
     <!-- Table to display activity data -->
     <table>
         <tr>
+            <th>Code</th>
             <th>Name</th>
-            <th>Date</th>
-            <th>activity by</th>
-            <th>location</th>
-            <th>score</th>
-            <th>Date</th>
-            <th>Description</th>
+            <th>Date & Time</th>
+            <th>Location</th>
+            <th>Score</th>
+            <th>Details</th>
          
         </tr>
         <tbody>
             @foreach ($activity as $activityItem)
                 <tr>
+                    <td>{{ $activityItem->code }}</td>
                     <td>{{ $activityItem->name }}</td>
                     <td>{{ $activityItem->datetime }}</td>
-                    <td>{{ $activityItem->activity_by }}</td>
                     <td>{{ $activityItem->location }}</td>
                     <td>{{ $activityItem->score }}</td>
-                    <td>{{ $activityItem->description }}</td>
                     <td>
                         <a href="{{ route('activities.view', ['activity_name' => $activityItem->name]) }}">
                             <button type="button" class="/">View</button>

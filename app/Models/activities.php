@@ -15,7 +15,7 @@ class activities extends Model
     use HasFactory;
 
     // กำหนดค่าที่สามารถกรอกได้ในฐานข้อมูล
-    protected $fillable = ['code', 'name', 'datetime', 'activity_by', 'location', 'score', 'description', 'type_id', 'student_id', 'reward_id'];
+    protected $fillable = ['name', 'datetime', 'activity_by', 'location', 'score', 'description', 'type_id', 'student_id', 'reward_id'];
 
     /**
      * ความสัมพันธ์แบบ BelongsToMany กับโมเดล Student

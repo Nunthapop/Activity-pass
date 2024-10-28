@@ -23,11 +23,33 @@
     </ul> --}}
 
 
-    <li>
-        <a href="{{ route('activities.update-form', ['activity_name' => $activity->name]) }}">
-            <button type="button" class="nav-button">Update</button>
-        </a>
-    </li>
+
+    <!-- ปุ่ม action -->
+    <nav>
+        <ul class="action-menu">
+            <li class="action-item">
+                <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}">
+                    <button type="button" class="view-button">View students in this activity</button>
+                </a>
+            </li>
+
+            @can('update', \App\Models\activities::class)
+                <li class="action-item">
+                    <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
+                        <button type="button" class="update-button">Update</button>
+                    </a>
+                </li>
+            @endcan
+
+            @can('delete', \App\Models\activities::class)
+                <li class="action-item">
+                    <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
+                        <button type="button" class="delete-button">Delete</button>
+                    </a>
+                </li>
+            @endcan
+        </ul>
+    </nav>
 
     <main>
         <!-- รายละเอียดกิจกรรม -->
@@ -59,8 +81,7 @@
                 </tr>
             </tbody>
         </table>
-        <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}">View students list in {{ $activity->name }}</a>
     </main>
-   
+
 
 @endsection
