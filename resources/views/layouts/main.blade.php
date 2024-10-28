@@ -17,45 +17,52 @@
                 </h1>
                 <nav class="main-nav">
                     <ul class="nav-list">
+                      
                         <li>Home</a></li>
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
+                    
+                       
                         <li>My Activity</a></li>
                         <li><a href="{{ route('types.list') }}">Type</a></li>
                         <li><a href="{{ route('rewards.list') }}">Reward</a></li>
+
+                      
                         <li><a href="{{ route('students.list') }}">Student</a></li>
-                        @can('update', \App\Models\Product::class)
-                            <li> <a href="{{ route('user.list') }}">User</a></li>
-                        @endcan
+                
+
+                        {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
+                            {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
+                        {{-- @endcan --}}
                     </ul>
                     @auth
-                        {{-- <nav class="user-panel">
-                            <span>
-                                <a href="{{ route('user.view', ['userEmail' => Auth::user()->email]) }}">
-                                    {{ \Auth::user()->name }}</a>
-                            </span>
+                        <nav class="app-cmp-user-panel">
+                        
+
+                            <a href="{{ route('students.list', ['Email' => Auth::user()->email]) }}">
+                                {{ \Auth::user()->name }}</a>
                             <a href="{{ route('logout') }}">Logout</a>
-                        </nav> --}}
+                        </nav>
                     @endauth
                 </nav>
             </div>
-    </header>
+        </header>
 
 
-    @session('message')
-        <span> {{ $value }}</span>
-    @endsession
-    @error('error')
-        {{$message}}
-    @enderror
+        @session('message')
+            <span> {{ $value }}</span>
+        @endsession
+        @error('error')
+            {{ $message }}
+        @enderror
 
-    <div id="main-content">
-        @yield('content')
-    </div>
+        <div id="main-content">
+            @yield('content')
+        </div>
 
-    <footer id="main-footer">
-        &#xA9; Copyright Activity Pass, By College of Arts, Media and Technology Student Association 2024
-    </footer>
+        <footer id="main-footer">
+            &#xA9; Copyright Activity Pass, By College of Arts, Media and Technology Student Association 2024
+        </footer>
 
-</body>
+    </body>
 
-</html>
+    </html>

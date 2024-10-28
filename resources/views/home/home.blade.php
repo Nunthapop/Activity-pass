@@ -4,7 +4,6 @@
 
     <form>
         <a href="{{ route('login') }}">Login</a>
-        <p></p>
         
     </form>
 
