@@ -100,7 +100,7 @@ Route::middleware([
             Route::get('', 'list')->name('list');
             Route::get('/create', 'showCreateForm')->name('create-form');
             Route::post('/create', 'create')->name('create');
-            Route::prefix('/{types_code}')
+            Route::prefix('/{type_code}')
                 ->group(function () {
                     Route::get('', 'show')->name('view');
                     Route::get('/update', 'showUpdateForm')->name('update-form');

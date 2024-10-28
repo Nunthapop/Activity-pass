@@ -5,7 +5,7 @@
     <!-- สร้างกิจกรรม -->
 
     <!-- ฟอร์ม -->
-    <form action="{{ route('Types.create') }}" method="POST">
+    <form action="{{ route('types.create') }}" method="POST">
         @csrf <!-- ป้องกันการโจมตี CSRF -->
 
         <!-- กรอกข้อมูล -->
@@ -29,7 +29,7 @@
         <nav>
             <ul class="action-menu">
                 <li class="action-item">
-                    <a href="{{ route('students.view', ['student_code' => $student->code]) }}">
+                    <a href="{{ route('types.view', ['type_code' => $type->code]) }}">
                         <button type="button" class="back-button">Back</button>
                     </a>
                 </li>

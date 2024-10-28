@@ -20,7 +20,7 @@
                         <li>Home</a></li>
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
                         <li>My Activity</a></li>
-                        {{-- <li><a href="{{ route('types.list') }}">Type</a></li> --}}
+                        <li><a href="{{ route('types.list') }}">Type</a></li>
                         <li><a href="{{ route('rewards.list') }}">Reward</a></li>
                         <li><a href="{{ route('students.list') }}">Student</a></li>
                         @can('update', \App\Models\Product::class)

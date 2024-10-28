@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Reward: Update')
+@section('title', 'Reward Update: ' . $reward->code)
 @section('content')
 
     <!-- หน้านี้ใช้สำหรับอัปเดตข้อมูลของสินค้า -->
@@ -16,8 +16,22 @@
             <textarea name="description" cols="200" rows="10" required>{{ $reward->description }}</textarea>
         </p>
 
-        <!-- ปุ่มสำหรับส่งฟอร์ม -->
-        <button type="submit">Submit</button>
+        <!-- ปุ่ม action -->
+        <nav>
+            <ul class="action-menu">
+                <li class="action-item">
+                    <a href="{{ route('rewards.view', ['reward_code' => $reward->code]) }}">
+                        <button type="button" class="back-button">Back</button>
+                    </a>
+                </li>
+                <li class="action-item">
+                    <button type="submit" class="submit-button">Submit</button>
+                </li>
+                <li class="action-item">
+                    <button type="clear" class="cancel-button">Cancel</button>
+                </li>
+            </ul>
+        </nav>
 
     </form>
 

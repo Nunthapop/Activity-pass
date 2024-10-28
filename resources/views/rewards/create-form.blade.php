@@ -25,9 +25,23 @@
             <textarea name="description" required></textarea>
         </p>
 
-     
+        <!-- ปุ่ม action -->
+        <nav>
+            <ul class="action-menu">
+                <li class="action-item">
+                    <a href="{{ route('rewards.list') }}">
+                        <button type="button" class="back-button">Back</button>
+                    </a>
+                </li>
+                <li class="action-item">
+                    <button type="submit" class="submit-button">Submit</button>
+                </li>
+                <li class="action-item">
+                    <button type="clear" class="cancel-button">Cancel</button>
+                </li>
+            </ul>
+        </nav>
 
-        <button type="submit">Create Reward</button> <!-- Submit button -->
     </form>
 
 @endsection

@@ -4,17 +4,13 @@ namespace App\Http\Controllers;
 use Psr\Http\Message\ServerRequestInterface;
 use Illuminate\View\View;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Relations\Relation;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse; 
 use Illuminate\Database\Eloquent\Model;
-use App\Models;
 use app\Models\Type;
-use Illuminate\Http\Request;
 use App\Models\Student;
-use GuzzleHttp\Psr7\Query;
 use Illuminate\Database\QueryException;
+
+use function PHPSTORM_META\type;
 
 class TypeController extends SearchableController
 {
@@ -25,45 +21,44 @@ class TypeController extends SearchableController
         return Type::orderby('code');
     }
 
-    function find(string $student_code): Model
+    function find(string $type_code): Model
     {
-        return $this->getQuery()->where('code', $student_code)->firstOrFail();
+        return $this->getQuery()->where('code', $type_code)->firstOrFail();
     }
     function list(ServerRequestInterface $request): View
     {
         $search = $this->prepareSearch($request->getQueryParams());
-        $student = Student::getQuery();
-        return view('students.list',[   
+        $type = Type::getQuery();
+        return view('types.list',[   
             'search' => $search,
-            'students' => $student->paginate(5),
+            'type' => $type()->paginate(5),
 
         ]);
     }
-    function show($student_code): View
+    function show($type_code): View
     {
-        $student =  Student::where('code', $student_code)->firstOrFail();
-        return view('students.view',[
-            'student' => $student
+        $type =  Type::where('code', $type_code)->firstOrFail();
+        return view('types.view',[
+            'type' => $type
         ]);
     }
-    function  showUpdateForm(ServerRequestInterface $request, string $student_code): View{
-       
-       
-        $student =  Student::where('code', $student_code)->firstOrFail();
-        return view('students.update-form',[
-            'students'=> $student
+    function  showUpdateForm(ServerRequestInterface $request, string $type_code): View
+    {
+        $type =  Type::where('code', $type_code)->firstOrFail();
+        return view('types.update-form',[
+            'types'=> $type
         ]);
 
     }
-    function update(string $student_code, ServerRequestInterface $request): RedirectResponse
+    function update(string $type_code, ServerRequestInterface $request): RedirectResponse
     {
         try{
             $data = $request->getParsedBody();
             // dd($data);
-            $student =  Student::where('code', $student_code)->firstOrFail();
+            $type =  Student::where('code', $type_code)->firstOrFail();
             // dd($student);
-            $student->update($data);
-            return redirect(route('students.view', ['student_code' => $student->code]))->with('message', " $student->username has been updated");
+            $type->update($data);
+            return redirect(route('types.view', ['type_code' => $type->code]))->with('message', " $type->username has been updated");
         }
         catch(QueryException $e){
             return redirect()->back()->withInput()->withErrors([ 
@@ -73,41 +68,35 @@ class TypeController extends SearchableController
        
     }
     function ShowCreateForm(): View{
-        return view('students.create-form');
+        return view('types.create-form');
     }
     function  create(ServerRequestInterface $request): RedirectResponse
     {
         try{
             $data = $request->getParsedBody();
             // dd($data);
-            $student =Student::create([
+            $type =Type::create([
                 'code' => $data['code'],
-                'username' => $data['username'],
-                'password' => $data['code'],
-                'first_name' => $data['first_name'],
-                'last_name' => $data['last_name'],
-                'year' => $data['year'],
-                'major' => $data['major'],
-                'score' => 0,
+                'name' => $data['name'],
+                'description' => $data['description']
             ]);
           
-            return redirect(route('students.list'))->with('message', " $student->username has been created");
+            return redirect(route('types.list'))->with('message', " $type->username has been created");
         }
         catch(QueryException $e){
             return redirect()->back()->withInput()->withErrors([ 
             'error'=> $e->errorInfo[2],]);
         }   
     }
-    public function showActivity(string $activity_name,ActivityController $activity, ServerRequestInterface $request): View
+    public function showType(string $type_code,ActivityController $type, ServerRequestInterface $request): View
     {
-        $search = $activity->prepareSearch($request->getQueryParams());
-        $student = $this->find($activity_name);
-        $query = $activity->filter($student->activities(), $search);
-        return view('students.view-activities', [
-            'students' => $student,
+        $search = $type->prepareSearch($request->getQueryParams());
+        $type = $this->find($type_code);
+        $query = $type->filter($type->activities(), $search);
+        return view('types.view-types', [
+            'types' => $type,
             'search' => $search,
-            'activities' => $query->paginate(5),
+            'types' => $query->paginate(5),
         ]);
     }
 }
-
