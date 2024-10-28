@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" type="text/css">
     <title>Activity Pass</title>
 
-    {{-- <script>
+    <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const currentUrl = window.location.href; 
-            const navItems = document.querySelectorAll("#navMenu li a");
-    
-            navItems.forEach(item => {
-    
-                if (item.href === currentUrl) {
-                    item.parentElement.classList.add("active"); 
-                }
-            });
+            const currentUrl = window.location.href;
+            const navLinks = document.querySelectorAll("#main-nav a");
+
+            navLinks.forEach(link => {
+            if (link.href === currentUrl) {
+                link.classList.add("active"); 
+            }
         });
-    </script>  --}}
+    });
+    </script>
 
 </head>
 
@@ -27,7 +26,7 @@
     <header>
         <div id="main-header">
             <nav id="main-nav">
-                <ul id="navMenu">
+                <ul >
                     <li><a href="#">Home</a></li>
                     {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
                     <li><a href="{{ route('activities.list') }}">Activity</a></li>
