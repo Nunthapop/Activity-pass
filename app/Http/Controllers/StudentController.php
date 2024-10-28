@@ -20,7 +20,7 @@ class StudentController extends SearchableController
     
     public function getQuery(): Builder
     {
-        return Student::orderby('name');
+        return Student::orderby('code');
     }
     function find(string $student_code): Model
     {
@@ -40,7 +40,7 @@ class StudentController extends SearchableController
     {
         $student =  Student::where('code', $student_code)->firstOrFail();
         return view('students.view',[
-            'students' => $student
+            'student' => $student
         ]);
     }
     function  showUpdateForm(ServerRequestInterface $request, string $student_code): View{
@@ -94,5 +94,16 @@ class StudentController extends SearchableController
             return redirect()->back()->withInput()->withErrors([ 
             'error'=> $e->errorInfo[2],]);
         }   
+    }
+    public function showActivity(string $activity_name,ActivityController $activity, ServerRequestInterface $request): View
+    {
+        $search = $activity->prepareSearch($request->getQueryParams());
+        $student = $this->find($activity_name);
+        $query = $activity->filter($student->activities(), $search);
+        return view('students.view-activities', [
+            'students' => $student,
+            'search' => $search,
+            'activities' => $query->paginate(5),
+        ]);
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'View Activities Of Student: ' . $student->code)
+@section('title', 'View Activities Of Student: ' . $students->code)
 @section('content')
 
     <!-- ปุ่มเพิ่มกิจกรรม (เฉพาะผู้มีสิทธิ์) -->
@@ -14,7 +14,7 @@
     </ul>
 
     <!-- แสดงลิงก์สำหรับการแบ่งหน้า -->
-    <div>{{ $products->withQueryString()->links() }}</div>
+    <div>{{ $activities->withQueryString()->links() }}</div>
 
     @php
         session()->put('bookmark.activities.view', url()->full());
@@ -30,7 +30,7 @@
             <th>Delete</th>
         </tr>
         <tbody>
-            @foreach ($activity as $activityItem)
+            @foreach ($activities as $activityItem)
                 <tr>
                     <td>{{ $activityItem->code }}</td>
                     <td>{{ $activityItem->name }}</td>

@@ -1,4 +1,4 @@
-@extends('layouts.main')
+{{-- @extends('layouts.main')
 @section('title', 'Add Activities For Student: ' . $student->code)
 @section('content')
 
@@ -55,4 +55,4 @@
         </table>
     </form>
 
-@endsection
+@endsection --}}

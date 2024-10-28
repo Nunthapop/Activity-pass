@@ -25,6 +25,9 @@ Route::middleware([
             Route::prefix('/{student_code}')
                 ->group(function () {
                     Route::get('', 'show')->name('view');
+                    Route::prefix('/activities')->group(function () {
+                        Route::get('', 'showActivity')->name('view-activities');
+                    });
                     Route::get('/update', 'showUpdateForm')->name('update-form');
                     Route::post('/update', 'update')->name('update');
                 });
