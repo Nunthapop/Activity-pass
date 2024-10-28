@@ -13,6 +13,7 @@ use App\Models\activities;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Models\Reward;
 use App\Models\Type;
+use App\Models\Student;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use Illuminate\Database\Eloquent\Relations\Relation;
@@ -27,6 +28,7 @@ class ActivityController extends SearchableController
     {
         return $this->getQuery()->where('name', $activity_name)->firstOrFail();
     }
+    
 
     function list(ServerRequestInterface $request): View
     {
@@ -91,7 +93,12 @@ class ActivityController extends SearchableController
 
     function showCreateForm(): View
     {
-        return view('activities.create-form');
+        $type = Type::all();
+        $reward = Reward::all();
+        return view('activities.create-form',[
+            'type' => $type,
+            'reward' => $reward
+        ]);
     }
 
     function create(ServerRequestInterface $request): RedirectResponse
@@ -101,9 +108,13 @@ class ActivityController extends SearchableController
 
             $activity = activities::create([
                 'name' => $data['name'],
-                'qty' => $data['qty'],
-                'description' => $data['description'],
+                'datetime' => $data['datetime'],
+                'activity_by' => $data['activity_by'],
+                'location' => $data['location'],
                 'score' => $data['score'],
+                'description' => $data['description'],
+                'type_id' => $data['type'],
+                'reward_id' => $data['reward'],
             ]);
 
             return redirect(route('activities.list'))->with('message', "$activity->name has been created");
@@ -141,6 +152,37 @@ class ActivityController extends SearchableController
             'search' => $search,
             'students' => $query->paginate(5),
         ]);
+    }
+
+    function AddStudentForm(string $activity_name, 
+    serverRequestInterface $request,
+    StudentController $studentController
+        ): View
+    {
+        $activity = $this->find($activity_name);
+        $search = $studentController->prepareSearch($request->getQueryParams());
+        $student = Student::whereDoesntHave('activities', function (Builder $innerQuery) use ($activity) {
+            return $innerQuery->where('name', $activity->name);
+        });
+        $query = $studentController->filter($student, $search);
+        return view('activities.add-students-form', [
+            'activity' => $activity,
+            'search' => $search,
+            'students' => $query->paginate(5),
+        ]);
+    }
+    function AddStudent(ServerRequestInterface $request, string $activity_name): RedirectResponse
+    {
+        // Gate::authorize('update', Product::class);
+        $activity = $this->find($activity_name);
+        $data = $request->getParsedBody();
+        // To make sure that no duplicate shop.
+        $student = Student::whereDoesntHave('activities', function (Builder $innerQuery) use ($activity) {
+            return $innerQuery->where('name', $activity->name);
+        })->where('code', $data['code'])->firstOrFail();
+        
+        $activity->students()->attach($student);
+        return redirect()->back();
     }
 
 }

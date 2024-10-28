@@ -21,8 +21,19 @@
             <tr>
                 <td><strong>Type</strong></td>
                 <td>
-                    <select name="type_id" id="type" required>
-                        <option>
+                    <select name="type" id="type" required>
+                       @foreach ($type as $item)
+                           <option value="{{ $item->id }}">{{ $item->name }}</option>
+                       @endforeach
+                </td>
+            </tr>
+            <tr>
+                <td><strong>Reward</strong></td>
+                <td>
+                    <select name="reward" id="type" required>
+                       @foreach ($reward as $item)
+                           <option value="{{ $item->id }}">{{ $item->code }}</option>
+                       @endforeach
                 </td>
             </tr>
             <tr>
@@ -55,7 +66,7 @@
         <nav>
             <ul class="action-menu">
                 <li class="action-item">
-                    <a href="{{ route('activities.view', ['activity_name' => $activity->code]) }}">
+                    <a href="{{ route('activities.list') }}">
                         <button type="button" class="back-button">Back</button>
                     </a>
                 </li>

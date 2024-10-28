@@ -42,7 +42,12 @@ Route::middleware([
         Route::prefix('/{activity_name}')
             ->group(function () {
                 Route::get('', 'show')->name('view');
-                Route::get('/students', 'showStudents')->name('view-students');
+                Route::prefix('/students')->group(function () {
+                    Route::get('', 'showStudents')->name('view-students');
+                    Route::get('/add', 'AddStudentForm')->name('add-students-form');
+                    Route::post('/add', 'AddStudent')->name('add-students');
+                   
+                });
                 Route::get('/update', 'showUpdateForm')->name('update-form');
                 Route::post('/update', 'update')->name('update');
                 
