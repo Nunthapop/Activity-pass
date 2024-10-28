@@ -24,7 +24,7 @@ class LoginController extends Controller
             session()->regenerate();
 
             // เปลี่ยนเส้นทางไปยัง URL ที่ร้องขอหรือไปยังเส้นทาง products.list หากไม่ได้ระบุ
-            return redirect()->intended(route('products.list'));
+            return redirect()->intended(route('home.home'));
         } else {
             // หากข้อมูลรับรองไม่ถูกต้อง ให้เปลี่ยนเส้นทางกลับและแสดงข้อผิดพลาด
             return redirect()->back()->withErrors([

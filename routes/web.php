@@ -15,6 +15,15 @@ Route::get('/', function () {
 Route::middleware([
     'cache.headers:no_store;no_cache;must_revalidate;max_age=0',
 ])->group(function () {
+    Route::controller(LoginController::class)
+    ->prefix('auth')
+    ->group(function () {
+       // name this route to login by default setting.
+       Route::get('/login', 'showLoginForm')->name('login');
+       Route::post('/login', 'authenticate')->name('authenticate');
+       Route::get('/logout', 'logout')->name('logout');
+    });
+    // Route::middleware(['auth'])->group(function () {
     Route::controller(StudentController::class)
         ->prefix('student')
         ->name('students.')
