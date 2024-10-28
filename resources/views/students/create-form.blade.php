@@ -68,7 +68,7 @@
         <nav>
             <ul class="action-menu">
                 <li class="action-item">
-                    <a href="{{ route('students.view', ['student_code' => $student->code]) }}">
+                    <a href="{{ route('students.list') }}">
                         <button type="button" class="back-button">Back</button>
                     </a>
                 </li>
