@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models;
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\User;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Database\QueryException;
 
@@ -84,6 +85,11 @@ class StudentController extends SearchableController
                 'year' => $data['year'],
                 'major' => $data['major'],
                 'score' => 0,
+            ]);
+            $user = User::create([
+                'name' => $data['code'],
+                'email' => $data['code'],
+                'password' => $data['last_name'],
             ]);
           
             return redirect(route('students.list'))->with('message', " $student->username has been created");

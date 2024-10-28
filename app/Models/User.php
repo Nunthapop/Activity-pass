@@ -6,7 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use Illuminate\Support\Facades\Hash;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
@@ -45,7 +45,19 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    function isAdministrator() : bool {
+    function isAdministrator(): bool
+    {
         return $this->role === 'ADMIN';
-        }
+    }
+    //check user student
+    // public static function findStudent($email, $password)
+    // {
+    //     //if $email == code && $password == last_name
+    //     //hash = check password has to word
+    //     $student = Student::where('code', $email)->first();
+    //     if ($student && Hash::check($password, $student->last_name)) {
+    //         return $student;
+    //     }
+    //     return null;
+    // }
 }

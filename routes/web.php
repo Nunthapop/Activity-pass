@@ -5,8 +5,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\RewardController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TypeController;
 use App\Models\Reward;
 use App\Models\Student;
+use App\Models\Type;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -15,6 +17,16 @@ Route::get('/', function () {
 Route::middleware([
     'cache.headers:no_store;no_cache;must_revalidate;max_age=0',
 ])->group(function () {
+    Route::controller(LoginController::class)
+    ->prefix('auth')
+    ->group(function () {
+       // name this route to login by default setting.
+       Route::get('/login', 'showLoginForm')->name('login');
+       Route::post('/login', 'authenticate')->name('authenticate');
+       Route::get('/logout', 'logout')->name('logout');
+    });
+
+    // Route::middleware(['auth'])->group(function () {
     Route::controller(StudentController::class)
         ->prefix('student')
         ->name('students.')
@@ -66,6 +78,20 @@ Route::middleware([
             Route::get('/create', 'showCreateForm')->name('create-form');
             Route::post('/create', 'create')->name('create');
             Route::prefix('/{reward_code}')
+                ->group(function () {
+                    Route::get('', 'show')->name('view');
+                    Route::get('/update', 'showUpdateForm')->name('update-form');
+                    Route::post('/update', 'update')->name('update');
+                });
+        });
+        Route::controller(TypeController::class)
+        ->prefix('types')
+        ->name('types.')
+        ->group(function () {
+            Route::get('', 'list')->name('list');
+            Route::get('/create', 'showCreateForm')->name('create-form');
+            Route::post('/create', 'create')->name('create');
+            Route::prefix('/{types_code}')
                 ->group(function () {
                     Route::get('', 'show')->name('view');
                     Route::get('/update', 'showUpdateForm')->name('update-form');
