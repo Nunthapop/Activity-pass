@@ -1,0 +1,64 @@
+/* สไตล์ทั่วไปสำหรับ body */
+body {
+    font-family: Arial, sans-serif; /* ฟอนต์หลัก */
+    background-color: #f4f4f4; /* พื้นหลังสีอ่อน */
+    display: flex;
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+    height: 100vh; /* ความสูงเต็มหน้าจอ */
+    margin: 0; /* ไม่ใช้ margin */
+}
+
+/* สไตล์สำหรับ container ของฟอร์ม */
+.login-container {
+    background-color: white; /* สีพื้นหลังของฟอร์ม */
+    border-radius: 8px; /* มุมโค้ง */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* เงา */
+    padding: 20px; /* Padding */
+    width: 300px; /* กว้างของฟอร์ม */
+}
+
+/* สไตล์สำหรับฟอร์ม */
+.login-form {
+    display: flex; /* ใช้ flexbox */
+    flex-direction: column; /* แนวตั้ง */
+}
+
+/* สไตล์สำหรับ label */
+.form-label {
+    margin-bottom: 10px; /* เว้นระยะห่างด้านล่าง */
+    color: #333; /* สีตัวอักษร */
+}
+
+/* สไตล์สำหรับ input fields */
+.form-input {
+    padding: 10px; /* Padding */
+    border: 1px solid #ccc; /* ขอบ */
+    border-radius: 4px; /* มุมโค้ง */
+    font-size: 14px; /* ขนาดตัวอักษร */
+    width: 100%; /* กว้างเต็มที่ */
+    box-sizing: border-box; /* รวม padding และ border ใน width */
+}
+
+/* สไตล์สำหรับปุ่ม */
+.submit-button {
+    padding: 10px; /* Padding */
+    font-size: 16px; /* ขนาดตัวอักษร */
+    color: white; /* สีตัวอักษร */
+    background-color: #333; /* สีพื้นหลัง */
+    border: none; /* ไม่มีขอบ */
+    border-radius: 4px; /* มุมโค้ง */
+    cursor: pointer; /* แสดงเคอร์เซอร์เป็นมือ */
+    transition: background-color 0.3s; /* การเปลี่ยนแปลงสีพื้นหลัง */
+}
+
+/* เปลี่ยนสีพื้นหลังเมื่อวางเมาส์ */
+.submit-button:hover {
+    background-color: #555; /* สีเมื่อวางเมาส์ */
+}
+
+/* สไตล์สำหรับข้อความเตือน */
+.warn {
+    color: red; /* สีแดงสำหรับข้อความผิดพลาด */
+    margin-top: 10px; /* เว้นระยะห่างด้านบน */
+}
