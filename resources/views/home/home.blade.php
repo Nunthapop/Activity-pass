@@ -20,19 +20,19 @@ $player_points = 350;
 ?>
 
 <body>
-    <div class="container-align>">
+    <div class="container-align">
         <div class="event-container">
-            <h3>Event Container</h3>
+            <h3>Event Upcoming</h3>
         </div>
         <div class="info-container">
-            <h3>Reward Upcoming</h3>
+            <h3>Next Reward</h3>
                 <ul>
                     <?php foreach ($battle_pass_levels as $level) { ?>
                     <?php if ($player_points < $level['points_required']) { ?>
                         <li>Level <?php echo $level['level']; ?>: <?php echo $level['reward']; ?></li>
                     <?php } ?>
                 <?php } ?>
-                </ul>
+            </ul>
         </div>
     </div>
 

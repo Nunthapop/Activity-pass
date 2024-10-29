@@ -1,35 +1,33 @@
 /* styles.css */
 body {
     font-family: Arial, sans-serif;
-    color: #ffffff;
-    display: flex;
     height: 100vh;
-    margin: 0;
+    margin: 0 ;
 }
 .container-align {
-    display: flex;
-    justify-content: space-between; /* จัดให้มีช่องว่างระหว่างสองกล่อง */
-    align-items: center; /* จัดแนวให้อยู่ในแนวเดียวกัน */
-    padding: 10px;
+    width: 80%;
+    box-sizing: border-box;
+    margin: auto;
+    overflow: hidden;
+    padding-bottom: 30px;
 }
+
 .event-container {
-    display: block;
-    width: 400px;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px;
+    float: left; /* Arrange the box to the left */
+    width: 30;
+    padding: 20px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
     border-radius: 10px;
 }
+
 .info-container {
-    display: block;
-    width: 400px;
-    background-color: #ffffff;
-    color: #000000;
-    padding: 10px;
+    float: right; /* Arrange the box to the right */
+    width: 30%;
+    padding: 20px;
     border: 1px solid #ccc;
+    box-sizing: border-box;
     border-radius: 10px;
-    margin-left: auto; /* ดัน info-container ไปทางขวา */
 }
 
 /*battlepass*/
@@ -38,8 +36,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    width: 90%;
-    max-width: 1000px;
+    width: 80%;
     margin: auto;
 }
 .levels-horizontal {
@@ -57,7 +54,6 @@ body {
     border-radius: 8px;
     width: 150px;
     min-width: 150px;
-    transition: background-color 0.3s, border-color 0.3s;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -70,6 +66,7 @@ body {
 
 .level-header {
     background: #000000;
+    color: #ccc;
     padding: 10px;
     text-align: center;
     border-radius: 5px 5px 0 0;
