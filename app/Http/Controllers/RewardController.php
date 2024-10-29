@@ -1,13 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Psr\Http\Message\ServerRequestInterface;
 use Illuminate\View\View;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Http\RedirectResponse; 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Model;
 use App\Models;
 use App\Models\Reward;
@@ -30,7 +31,7 @@ class RewardController extends SearchableController
     {
         $search = $this->prepareSearch($request->getQueryParams());
         $reward = Reward::getQuery();
-        return view('rewards.list',[   
+        return view('rewards.list', [
             'search' => $search,
             'reward' => $reward->paginate(5),
 
@@ -41,11 +42,11 @@ class RewardController extends SearchableController
     function show($reward_code): View
     {
         $reward =  Reward::where('code', $reward_code)->firstOrFail();
-        return view('rewards.view',[
+        return view('rewards.view', [
             'reward' => $reward
         ]);
     }
-    
+
     function showUpdateForm(ServerRequestInterface $request, string $reward_code): View
     {
         $reward = Reward::where('code', $reward_code)->firstOrFail();
@@ -53,12 +54,12 @@ class RewardController extends SearchableController
             'reward' => $reward
         ]);
     }
-    
+
     function update(string $reward_code, ServerRequestInterface $request): RedirectResponse
     {
         try {
             $data = $request->getParsedBody();
-            
+
             $reward = Reward::where('code', $reward_code)->firstOrFail();
             $reward->update([
                 'code' => $data['code'],
@@ -67,7 +68,7 @@ class RewardController extends SearchableController
                 'description' => $data['description'],
                 'score' => $data['score'],
             ]);
-    
+
             return redirect(route('rewards.view', ['reward_code' => $reward->code]))
                 ->with('message', "$reward->code has been updated");
         } catch (QueryException $e) {
@@ -76,8 +77,9 @@ class RewardController extends SearchableController
             ]);
         }
     }
-    
-    function ShowCreateForm(): View{
+
+    function ShowCreateForm(): View
+    {
         return view('rewards.create-form');
     }
     function create(ServerRequestInterface $request): RedirectResponse
@@ -85,7 +87,7 @@ class RewardController extends SearchableController
         try {
             $data = $request->getParsedBody();
             // dd($data); // Uncomment to debug data
-    
+
             $reward = Reward::create([
                 'code' => $data['code'],
                 'name' => $data['name'],
@@ -93,12 +95,20 @@ class RewardController extends SearchableController
                 'description' => $data['description'],
                 'score' => $data['score'],
             ]);
-    
+
             return redirect(route('rewards.list'))->with('message', "$reward->code has been created");
         } catch (QueryException $e) {
             return redirect()->back()->withInput()->withErrors([
                 'error' => $e->errorInfo[2],
             ]);
         }
+    }
+
+    // ฟังก์ชันสำหรับลบ
+    function delete(string $reward_code): RedirectResponse
+    {
+        $reward = $this->find($reward_code);
+        $reward->delete();
+        return redirect()->route('products.list');
     }
 }
