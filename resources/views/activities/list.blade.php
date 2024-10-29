@@ -22,9 +22,7 @@
         <nav class="action">
             <ul>
                 <li class="action-item">
-                    <a href="{{ route('activities.create-form') }}">
-                        <button type="button" class="add-button">+ Add Activity</button>
-                    </a>
+                    <a href="{{ route('activities.create-form') }}">+ Add Activity</a>
                 </li>
             </ul>
         </nav>
