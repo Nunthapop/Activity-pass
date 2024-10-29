@@ -45,11 +45,11 @@
             @endcan
 
             <!-- ปุ่ม Delete-->
-            {{-- <li class="action-item">
+            <li class="action-item">
                 <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="delete-button">Delete</button>
                 </a>
-            </li> --}}
+            </li>
 
             <li class="action-item">
                 <a href="{{ route('rewards.list') }}">
