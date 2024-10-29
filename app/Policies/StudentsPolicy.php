@@ -13,13 +13,28 @@ class StudentsPolicy
     {
        
     }
-    function update(User $user)
+    // function update(User $user)
+    // {
+    //     return $user->role === 'USER';
+    // }
+    function create (User $user)
     {
-        return $user->role === 'USER';
+        return $user->isAdministrator();
     }
+
+
+
     function view(User $user)
     {
-        
-        return $user->role === '';
+        if ($user->isUser()) {
+            return true;
+        }
+        else if ($user->isAdministrator()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+       
     }
 }

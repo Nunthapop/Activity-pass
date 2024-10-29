@@ -8,55 +8,61 @@
     <title>Activity Pass</title>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             const currentUrl = window.location.href;
             const navLinks = document.querySelectorAll("#main-nav a");
-    
+
             navLinks.forEach(link => {
                 const linkUrl = new URL(link.href);
                 const currentUrlObj = new URL(currentUrl);
-                
-                if (linkUrl.href === currentUrl || linkUrl.pathname === currentUrlObj.pathname || currentUrlObj.pathname.startsWith(linkUrl.pathname)) {
-                    link.classList.add("active"); 
+
+                if (linkUrl.href === currentUrl || linkUrl.pathname === currentUrlObj.pathname ||
+                    currentUrlObj.pathname.startsWith(linkUrl.pathname)) {
+                    link.classList.add("active");
                 }
             });
         });
     </script>
-    
-    </head>
-    
-    <body>
-        <header>
-            <div id="main-header">
-                <nav id="main-nav">
-                    <ul >
-                        {{-- <li><a href="{{ route('home.home') }}">Home</a></li> --}}
-                        {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
+
+</head>
+
+<body>
+    <header>
+        <div id="main-header">
+            <nav id="main-nav">
+                <ul>
+                    {{-- <li><a href="{{ route('home.home') }}">Home</a></li> --}}
+                    {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
+                    @can('view', \App\Models\Student::class)
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
-                        @can('view', \App\Models\StudentsPolicy::class)
+                    @endcan
+                    @can('view', \App\Models\Student::class)
                         <li><a href="{{ route('types.list') }}">Type</a></li>
-                        @endcan
-                        <li><a href="{{ route('rewards.list') }}">Reward</a></li>
+                    @endcan
+
+                    <li><a href="{{ route('rewards.list') }}">Reward</a></li>
+                    @can('create', \App\Models\Student::class)
                         <li><a href="{{ route('students.list') }}">Student</a></li>
-                            {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
-                            {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
-                            {{-- @endcan --}}
-                    </ul>
-                    @auth
-                        <nav class="app-cmp-user-panel">
-                            <a href="{{ route('students.list', ['Email' => Auth::user()->email]) }}">
-                                {{ \Auth::user()->name }}</a>
-                                {{ \Auth::user()->role }}
-                            <a href="{{ route('logout') }}">Logout</a>
-                        </nav>
-                    @endauth
-                </nav>
-                <h1>
-                    @section('title-container')@yield('title')@show
+                    @endcan
+                    {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
+                    {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
+                    {{-- @endcan --}}
+                </ul>
+                @auth
+                    <nav class="app-cmp-user-panel">
+                        <a href="{{ route('students.list', ['Email' => Auth::user()->email]) }}">
+                            {{ \Auth::user()->name }}</a>
+                        {{ \Auth::user()->role }}
+                        <a href="{{ route('logout') }}">Logout</a>
+                    </nav>
+                @endauth
+            </nav>
+            <h1>
+                @section('title-container')@yield('title')@show
                 </h1>
             </div>
         </header>
-    
+
 
 
         @session('message')
@@ -76,4 +82,4 @@
 
     </body>
 
-</html>
+    </html>

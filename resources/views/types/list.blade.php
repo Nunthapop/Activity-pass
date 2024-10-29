@@ -32,15 +32,17 @@
     <div>{{ $types->withQueryString()->links() }}</div>
 
         <!-- Add New Type (Visible if Authorized) -->
+        @can('create', \App\Models\Student::class)
         <nav class="action">
             <ul>
                 <li>
-                    <a href="{{ route('types.create-form') }}">
+                    <a href="{{ route('types.create-form') }}">+
                         <button type="button" class="add-button">+ Add Type Of Activity</button>
                     </a>
                 </li>
             </ul>
         </nav>
+        @endcan
 
         <!-- แสดงการแบ่งหน้า -->
         <div class="pagination">{{ $types->withQueryString()->links() }}</div>

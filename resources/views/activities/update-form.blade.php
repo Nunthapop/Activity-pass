@@ -56,7 +56,7 @@
         <nav>
             <ul class="action-menu">
                 <li class="action-item">
-                    <a href="{{ route('activities.view', ['activity_name' => $activity->code]) }}">
+                    <a href="{{ route('activities.view', ['activity_name' => $activity->name]) }}">
                         <button type="button" class="back-button">Back</button>
                     </a>
                 </li>

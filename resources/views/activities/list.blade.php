@@ -18,6 +18,7 @@
     <main>
 
         <!-- Add New Activity (Visible if Authorized) -->
+        @can('create', \App\Models\Student::class)
         <nav class="action">
             <ul>
                 <li class="action-item">
@@ -27,6 +28,7 @@
                 </li>
             </ul>
         </nav>
+        @endcan
 
         <!-- Show pagination -->
         <div>{{ $activity->withQueryString()->links() }}</div>

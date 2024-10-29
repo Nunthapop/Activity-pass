@@ -16,6 +16,7 @@
     </form>
 
     <main>
+        @can('create', \App\Models\Student::class)
         <nav class="action">
             <ul>
                 <li>
@@ -25,6 +26,7 @@
                 </li>
             </ul>
         </nav>
+        @endcan
 
         <!-- Pagination Links -->
         <div style="display: flex; justify-content: center; align-items: center; margin: 20px 0;">

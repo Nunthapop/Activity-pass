@@ -12,11 +12,13 @@
             </li> --}}
 
             {{-- @can('update', \App\Models\Type::class) --}}
+            @can('create', \App\Models\Student::class)
                <li class="action-item">
                    <a href="{{ route('types.update-form', ['type_code' => $type->code]) }}">
                        <button type="button" class="update-button">Update</button>
                    </a>
                </li>
+               @endcan
            {{-- @endcan --}}
 
            {{-- @can('delete', \App\Models\Type::class) --}}

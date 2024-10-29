@@ -79,7 +79,7 @@ class StudentController extends SearchableController
        
     }
     function ShowCreateForm(): View{
-        Gate::authorize('view', StudentsPolicy::class);
+        Gate::authorize('view', Student::class);
         return view('students.create-form');
     }
     function  create(ServerRequestInterface $request): RedirectResponse
