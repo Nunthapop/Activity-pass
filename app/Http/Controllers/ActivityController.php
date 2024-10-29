@@ -44,9 +44,11 @@ class ActivityController extends SearchableController
     {
         $activity = activities::where('name', $activity_name)->firstOrFail();
     $type = Type::where('id', $activity->type_id)->firstOrFail();
+    $reward = Reward::where('id', $activity->reward_id)->firstOrFail();
         return view('activities.view', [
             'activity' => $activity,
             'type' => $type,
+            'reward' => $reward
         ]);
     }
 
