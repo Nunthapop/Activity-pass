@@ -17,6 +17,10 @@
                 <span>{{ $type->name }}</span>
             </div>
             <div class="detail-item">
+                <label><strong>Reward:</strong></label>
+                <span>{{ $reward->code }}</span>
+            </div>
+            <div class="detail-item">
                 <label><strong>Activity By:</strong></label>
                 <span>{{ $activity->activity_by }}</span>
             </div>

@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'Reward Update: ' . $reward->code)
+@section('title', 'Reward Update: ' . $reward->name)
 @section('content')
 
     <!-- หน้านี้ใช้สำหรับอัปเดตข้อมูลของสินค้า -->
@@ -10,6 +10,7 @@
 
         <!-- ฟิลด์สำหรับกรอกข้อมูลสินค้า -->
         <p><strong>Code:</strong> <input type="text" name="code" value="{{ $reward->code }}" required></p>
+        <p><strong>Name:</strong> <input type="text" name="name" value="{{ $reward->name }}" required></p>
         <p><strong>Qty:</strong> <input type="number" name="qty" value="{{ $reward->qty }}" required></p>
         <p><strong>Score:</strong> <input type="text" name="score" value="{{ $reward->score }}" required></p>
         <p><strong>Description:</strong>

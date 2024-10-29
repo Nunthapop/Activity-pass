@@ -12,7 +12,7 @@ class Reward extends Model
     use HasFactory;
 
     // กำหนดค่าที่สามารถกรอกได้ในฐานข้อมูล
-    protected $fillable = ['code', 'score', 'description'];
+    protected $fillable = ['code', 'name', 'qty', 'score', 'description'];
 
     /**
      * ความสัมพันธ์แบบ HasMany กับโมเดล Activity

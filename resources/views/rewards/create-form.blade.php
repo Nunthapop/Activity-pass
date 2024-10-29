@@ -14,6 +14,11 @@
             <label for="code"><strong>Code </strong></label>
             <input type="text" id="code" name="code" placeholder="Enter code" required>
         </div>
+
+        <div>
+            <label for="code"><strong>Name </strong></label>
+            <input type="text" id="name" name="name" placeholder="Enter name" required>
+        </div>
         
         <div>
             <label for="score"><strong>Score </strong></label>

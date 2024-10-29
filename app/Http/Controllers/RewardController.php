@@ -62,6 +62,7 @@ class RewardController extends SearchableController
             $reward = Reward::where('code', $reward_code)->firstOrFail();
             $reward->update([
                 'code' => $data['code'],
+                'name' => $data['name'],
                 'qty' => $data['qty'],
                 'description' => $data['description'],
                 'score' => $data['score'],
@@ -87,6 +88,7 @@ class RewardController extends SearchableController
     
             $reward = Reward::create([
                 'code' => $data['code'],
+                'name' => $data['name'],
                 'qty' => $data['qty'],
                 'description' => $data['description'],
                 'score' => $data['score'],

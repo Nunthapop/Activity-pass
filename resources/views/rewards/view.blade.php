@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'View Reward: ' . $reward->code)
+@section('title', 'View Reward: ' . $reward->name)
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/view.css') }}" type="text/css">
@@ -14,13 +14,18 @@
             </div>
 
             <div class="detail-item">
+                <label><strong>Name:</strong></label>
+                <span>{{ $reward->name }}</span>
+            </div>
+
+            <div class="detail-item">
                 <label><strong>Quantity:</strong></label>
                 <span>{{ $reward->qty }}</span>
             </div>
 
             <div class="detail-item">
                 <label><strong>Score:</strong></label>
-                <span>{{ $reward->points }}</span>
+                <span>{{ $reward->score }}</span>
             </div>
 
             <div class="detail-item">

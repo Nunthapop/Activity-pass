@@ -36,8 +36,8 @@
         <table>
             <tr class="headcol">
                 <th>Reward Code</th>
+                <th>Reward Name</th>
                 <th>Reward QTY</th>
-                <th>Description</th>
                 <th>Score</th>
                 <th></th>
             </tr>
@@ -45,8 +45,8 @@
                 @foreach ($reward as $item)
                     <tr>
                         <td>{{ $item->code }}</td>
+                        <td>{{ $item->name }}</td>
                         <td>{{ $item->qty }}</td>
-                        <td>{{ $item->description }}</td>
                         <td>{{ $item->score }}</td>
                         <td><a href="{{ route('rewards.view', ['reward_code' => $item->code]) }}">View</a></td>
                     </tr>
