@@ -6,6 +6,7 @@ body {
     display: flex;
     justify-content: center;
     overflow: hidden;
+    position: relative;
     font-family: sans-serif;
 }
 
@@ -19,15 +20,10 @@ body img[aly="bg"] {
     z-index: -1;
 }
 
-#main-header {
-    background: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay to distinguish the header from the background */
-    padding: 20px;
-}
-
 a {
-    position: fixed;
-    bottom: 108px;
-    right: 140px;
+    position: absolute;
+    bottom: 11.5%;
+    right: 7.5%;
     background-color: white;
     padding: 30px 40px;
     width: 350px;
@@ -35,7 +31,5 @@ a {
     text-decoration: none;
     color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-a:hover {
-    background-color: aqua;
+    z-index: 1;
 }
