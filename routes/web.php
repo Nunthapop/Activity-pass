@@ -12,6 +12,7 @@ use App\Models\Student;
 use App\Models\Type;
 use Illuminate\Support\Facades\Route;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -33,6 +34,9 @@ Route::middleware([
         Route::get('', 'showHome')->name('home');
         // Route::get('/{student_code}', 'viewProfile')->name('profile');
     });
+
+
+    Route::get('students/export/', [StudentController::class, 'export'])->name('students.export');
     
     
     // Route::middleware(['auth'])->group(function () {
@@ -43,6 +47,7 @@ Route::middleware([
             Route::get('', 'list')->name('list');
             Route::get('/create', 'showCreateForm')->name('create-form');
             Route::post('/create', 'create')->name('create');
+            Route::get('/export', 'export')->name('export');
             Route::prefix('/{student_code}')
                 ->group(function () {
                     Route::get('', 'show')->name('view');

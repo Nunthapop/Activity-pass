@@ -15,6 +15,8 @@ use App\Models\Student;
 use App\Models\User;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Database\QueryException;
+use App\Exports\StudentsExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends SearchableController
 {
@@ -27,6 +29,10 @@ class StudentController extends SearchableController
     {
         return $this->getQuery()->where('code', $student_code)->firstOrFail();
     }
+    public function export()
+    {
+        return Excel::download(new StudentsExport, 'students.xlsx');
+    }
     function list(ServerRequestInterface $request): View
     {
         $search = $this->prepareSearch($request->getQueryParams());
@@ -37,6 +43,7 @@ class StudentController extends SearchableController
 
         ]);
     }
+
     function show($student_code): View
     {
         $student =  Student::where('code', $student_code)->firstOrFail();
