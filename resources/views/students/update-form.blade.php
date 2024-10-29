@@ -2,67 +2,46 @@
 @section('title', 'Student Update: ' . $student->code)
 @section('content')
 
-    <!-- หน้านี้ใช้สำหรับอัปเดตข้อมูลของ student -->
+<!-- หน้านี้ใช้สำหรับอัปเดตข้อมูลของ student -->
+<link rel="stylesheet" href="{{ asset('css/create.css') }}" type="text/css">
 
-    <!-- ฟอร์มสำหรับอัปเดตข้อมูล student -->
+<div class="container">
     <form action="{{ route('students.update', ['student_code' => $student->code]) }}" method="POST">
-        @csrf
+        @csrf <!-- ป้องกันการโจมตี CSRF -->
 
-        <tabl class="table-form">
-            <tr>
-                <td>
-                    <strong>Code:</strong>
-                </td>
-                <td>
-                    <input type="number" name="code" value="{{ $student->code }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>First Name:</strong>
-                </td>
-                <td>
-                    <input type="text" name="first_name" value="{{ $student->first_name }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Last Name:</strong>
-                </td>
-                <td>
-                    <input type="text" name="last_name" value="{{ $student->last_name }}" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Year:</strong>
-                </td>
-                <td>
-                    <select name="year" required>
-                        <option value="{{ $student->year }}">{{ $student->year }}</option>
-                        <option value="1">1</option>
-                        <option value="3">2</option>
-                        <option value="2">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Major:</strong>
-                </td>
-                <td>
-                    <select name="major" required>
-                        <option value="{{ $student->major }}">{{ $student->major }}</option>
-                        <option value="SE">SE</option>
-                        <option value="DII">DII</option>
-                        <option value="MMIT">MMIT</option>
-                        <option value="DG">DG</option>
-                        <option value="ANI">ANI</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
+        <div>
+            <label for="code"><strong>Code:</strong></label>
+            <input type="number" name="code" id="code" value="{{ $student->code }}" required>
+        </div>
+        <div>
+            <label for="first_name"><strong>First Name:</strong></label>
+            <input type="text" name="first_name" id="first_name" value="{{ $student->first_name }}" required>
+        </div>
+        <div>
+            <label for="last_name"><strong>Last Name:</strong></label>
+            <input type="text" name="last_name" id="last_name" value="{{ $student->last_name }}" required>
+        </div>
+        <div>
+            <label for="year"><strong>Year:</strong></label>
+            <select name="year" id="year" required>
+                <option value="{{ $student->year }}">{{ $student->year }}</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+        <div>
+            <label for="major"><strong>Major:</strong></label>
+            <select name="major" id="major" required>
+                <option value="{{ $student->major }}">{{ $student->major }}</option>
+                <option value="SE">SE</option>
+                <option value="DII">DII</option>
+                <option value="MMIT">MMIT</option>
+                <option value="DG">DG</option>
+                <option value="ANI">ANI</option>
+            </select>
+        </div>
 
         <!-- ปุ่ม action -->
         <nav>
@@ -80,7 +59,8 @@
                 </li>
             </ul>
         </nav>
-
     </form>
+</div>
+
 
 @endsection
