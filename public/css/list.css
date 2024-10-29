@@ -150,7 +150,7 @@ button[type="button"].add-button:hover {
     padding-bottom: 5px;
     text-align: center;
 }
-.container table a {
+.container table a,button[type="submit"] {
     text-decoration: none;
     border: #555 solid 1px;
     border-radius: 10px;
@@ -158,7 +158,7 @@ button[type="button"].add-button:hover {
     width: 100%;
     color: rgb(88, 47, 31);
 }
-.container table a:hover {
+.container table a:hover,button[type="submit"]:hover {
     background-color: #ddd;
     color: #000000;
     transition: 0.2s ease;

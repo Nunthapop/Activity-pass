@@ -2,36 +2,16 @@
 @section('title', 'Add Students To ' . $activity->name)
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
     <form action="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}" method="post"
         class="search-form">
-        @csrf
-        <label>
-            Search
-            <input type="text" name="term" value="{{ $search['term'] }}" />
-        </label>
-        <button type="submit" class="primary">Search</button>
-
-        <a href="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}">
-            <button type="button" class="accent">Clear</button>
-        </a>
-
-        @csrf
         <main>
-            <!-- ปุ่ม action -->
-            <nav>
-                <li>
-                    <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}">
-                        <button type="button" class="back-button">Back</button>
-                    </a>
-                </li>
-                </ul>
-            </nav>
 
             <!-- แสดงหน้าลิงค์เพจ -->
-            <div>{{ $students->withQueryString()->links() }}</div>
-
-            <table class="lg:w-1/2">
-                <tr>
+            <div class="pagination">{{ $students->withQueryString()->links() }}</div>
+    <div class="container">
+            <table>
+                <tr class="headcol">
                     <th>Code</th>
                     <th>Name</th>
                     <th>Year</th>
@@ -48,7 +28,7 @@
                             <td>{{ $item->year }}</td>
                             <td>{{ $item->major }}</td>
                             <td>{{ $item->score }}</td>
-                            <td> <button type="submit" name="code" value="{{ $item->code }}"
+                            <td><button type="submit" name="code" value="{{ $item->code }}"
                                     class="add-button">Add</button>
                             </td>
                         </tr>
@@ -56,9 +36,17 @@
                 </tbody>
             </table>
 
-        </main>
+    </div></main>
 
     </form>
+    <!-- ปุ่ม action -->
+    <nav class="action">
+        <ul>
+            <li>
+            <a href="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}">Back</a>
+            </li>
+        </ul>
+    </nav>
 
     </html>
 
