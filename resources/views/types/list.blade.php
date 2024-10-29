@@ -36,9 +36,7 @@
         <nav class="action">
             <ul>
                 <li>
-                    <a href="{{ route('types.create-form') }}">+
-                        <button type="button" class="add-button">+ Add Type Of Activity</button>
-                    </a>
+                    <a href="{{ route('types.create-form') }}">+ Add Type Of Activity</a>
                 </li>
             </ul>
         </nav>

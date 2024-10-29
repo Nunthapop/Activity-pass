@@ -97,11 +97,27 @@ nav.action ul {
     text-align: right;
     list-style-type: none;
 }
-.action button {
+.action button{
     margin-left: 20%;
     padding: 8px;
     border-radius: 10px;
     border: darkgrey solid 1.5px;
+}
+.action li {
+    margin-top: 30px;
+}
+.action li a {
+    margin-left: 10px;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 10px;
+    border: darkgrey solid 1.5px;
+    background-color: #ddd;
+    color: #000000;
+}
+.action li a:hover {
+    background-color: #ffffff;
+    transition: 0.2s ease;
 }
 button[type="button"].add-button:hover {
     background-color: rgb(100, 157, 196);

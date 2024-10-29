@@ -47,16 +47,16 @@
                     @can('MyActivity', \App\Models\Student::class)
                         <li><a href="{{ route('students.view-activities' ,['student_code' => session('student_code')]) }}">My activities</a></li>
                     @endcan
-                </ul>
                 @auth
                
                     <nav class="app-cmp-user-panel">
-                        <a href="{{ route('students.view-activities', ['student_code' => session('student_code')]) }}">
-                            {{ \Auth::user()->name }}</a>
+                        <li><a href="{{ route('students.view-activities', ['student_code' => session('student_code')]) }}">
+                            {{ \Auth::user()->name }}</a></li>
                         {{ \Auth::user()->role }}
-                        <a href="{{ route('logout') }}">Logout</a>
+                        <li><a href="{{ route('logout') }}">Logout</a></li>
                     </nav>
-                @endauth
+                    @endauth
+                </ul>
             </nav>
             <h1>
                 @section('title-container')@yield('title')@show

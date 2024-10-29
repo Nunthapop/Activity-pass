@@ -2,16 +2,28 @@
 @section('title', 'Type of Activity: ' .$type->name)
 @section('content')
 
-    <!-- ปุ่ม action -->
-    <nav>
-        {{-- <ul class="action-menu">
-            <li class="action-item">
-                <a href="{{ route('types.view-activities', ['type_code' => $type->code]) }}">
-                    <button type="button" class="view-button">View all activity of this type</button>
-                </a>
-            </li> --}}
 
-            {{-- @can('update', \App\Models\Type::class) --}}
+<link rel="stylesheet" href="{{ asset('css/view.css') }}" type="text/css">
+    <main>
+    <div class="container">
+        <div class="details">
+            <div class="detail-item">
+                <label><strong>Code:</strong></label>
+                <span>{{ $type->code }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Name:</strong></label>
+                <span>{{ $type->name }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Description:</strong></label>
+                <span>{{ $type->description }}</span>
+            </div>
+        </div>
+
+        <!-- ปุ่ม action -->
+    <nav>
+        <ul class="action-menu">
             @can('create', \App\Models\Student::class)
                <li class="action-item">
                    <a href="{{ route('types.update-form', ['type_code' => $type->code]) }}">
@@ -19,7 +31,6 @@
                    </a>
                </li>
                @endcan
-           {{-- @endcan --}}
 
            @can('create', \App\Models\Student::class)
                <li class="action-item">
@@ -30,25 +41,8 @@
          @endcan
         </ul>
     </nav>
-
-    <main>
-
-        <!-- รายละเอียดรางวัล -->
-        <table class="/">
-            <tr>
-                <td><strong>Code:</strong></td>
-                <td>{{ $type->code }}</td>
-            </tr>
-            <tr>
-                <td><strong>Name:</strong></td>
-                <td>{{ $type->name }}</td>
-            </tr>
-            <tr>
-                <td><strong>Description:</strong></td>
-                <td>{{ $type->description }}</td>
-            </tr>
-        </table>
-
+    
+    </div>
     </main>
 
 @endsection

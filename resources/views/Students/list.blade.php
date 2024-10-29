@@ -21,13 +21,13 @@
         <nav class="action">
             <ul>
                 <li>
-                    <a href="{{ route('students.create-form') }}">
-                        <button type="button" class="add-button"> + Insert Student</button>
-                    </a>
+                    <a href="{{ route('students.create-form') }}">+ Insert Student</a>
+                </li>
+                <li>
+                    <label>Export to .xlsx file<a href="{{ route('students.export') }}">Export students</a></label>
                 </li>
             </ul>
         </nav> 
-        <a href="{{ route('students.export') }}">Export students</a>
         <div class="pagination">
             {{ $students->withQueryString()->links() }}
         </div>

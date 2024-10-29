@@ -20,9 +20,7 @@
         <nav class="action">
             <ul>
                 <li>
-                    <a href="{{ route('rewards.create-form') }}">
-                        <button type="button" class="add-button">+ Insert Reward</button>
-                    </a>
+                    <a href="{{ route('rewards.create-form') }}">+ Insert Reward</a>
                 </li>
             </ul>
         </nav>
