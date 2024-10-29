@@ -11,7 +11,7 @@
 
         <div>
             <label for="code"><strong>Code:</strong></label>
-            <input type="number" name="code" id="code" value="{{ $student->code }}" required>
+            <input type="text" name="code" id="code" value="{{ $student->code }}" required>
         </div>
         <div>
             <label for="first_name"><strong>First Name:</strong></label>

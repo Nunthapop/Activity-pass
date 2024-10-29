@@ -28,7 +28,7 @@
                 @foreach ($activities as $activityItem)
                     <div class="level-card unlocked">
                         <div class="level-header">
-                            <h2>Level 1</h2>
+                            <h2>{{ $activityItem->name }}</h2>
                         </div>
                         <div class="level-reward">
                             <p>{{ $activityItem->name }}</p>
