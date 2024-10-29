@@ -121,12 +121,44 @@ class StudentController extends SearchableController
         ]);
     }
 
-    // ฟังก์ชันสำหรับลบ
     function delete(string $student_code): RedirectResponse
     {
-        $student = $this->find($student_code);
-        $student->delete();
-        return redirect()->route('students.list');
+        try {
+            $student = $this->find($student_code);
+            $student->delete();
+            return redirect()->route('students.list')->with('message', "{$student->code} has been removed ");
+        } catch (QueryException $e) {
+            return redirect()->back()->withInput()->withErrors([
+                'error' => $e->errorInfo[2],
+            ]);
+        }
+        
     }
 
+    function removeAct(
+        string $student_code,
+        string $activity_name
+    ): RedirectResponse {
+
+        $student = $this->find($student_code);
+        //remove score
+
+        try {
+
+            $activity = $student->activities()->where('name', $activity_name)->firstOrFail();
+            //remove score form student
+            Student::where('code', $student_code)->update([
+                'score' => Student::where('code',  $student_code)->value('score') - $activity->score
+            ]);
+
+            $student->activities()->detach($activity);
+
+            return redirect()->back()->with('message', "{$activity->name} has been removed from {$student->code}");
+        } catch (QueryException $e) {
+
+            return redirect()->back()->withInput()->withErrors([
+                'error' => $e->errorInfo[2],
+            ]);
+        }
+    }
 }

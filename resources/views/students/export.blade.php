@@ -21,5 +21,5 @@
                 <!-- Add any other data columns -->
             </tr>
         @endforeach
-    </tbody>
-</table>
+    </tbody> 
+</table> 

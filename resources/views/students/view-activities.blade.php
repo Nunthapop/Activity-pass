@@ -25,12 +25,12 @@
                                 <button type="button" class="/">View</button>
                             </a>
                         </td>
+                    
                         <td>
-                            {{-- <a
-                                href="{{ route('students.remove-activity', ['activity_name' => $activityItem->name, 'student_code' => $student->code]) }}">
-                                <button type="button" class="delete-button">Delete</button>
-                            </a> --}}
+                        <a href="{{ route('students.remove-activity', ['student_code' => $students->code,
+                        'activity_name' => $activityItem->name]) }}">Remove Activity from this user</a>
                         </td>
+                        
                     </tr>
                 @endforeach
             </tbody>

@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Database\Eloquent\Model;
 use App\Models;
+
 use App\Models\Reward;
 use Illuminate\Http\Request;
 use App\Models\Student;
@@ -105,10 +106,29 @@ class RewardController extends SearchableController
     }
 
     // ฟังก์ชันสำหรับลบ
-    function delete(string $reward_code): RedirectResponse
+    function delete(string $reward_code ): RedirectResponse
     {
         $reward = $this->find($reward_code);
-        $reward->delete();
-        return redirect()->route('rewards.list');
+        try {
+            Gate::authorize('create', Student::class);
+            //load activities() in model reward
+            $reward->loadCount('activities');
+            
+            if ($reward->activities_count > 0) {
+                return redirect()->back()->withInput()->withErrors([
+                    'error' => "Can't delete $reward->code because it has $reward->activities_count activities",
+                ]);
+            }
+            $reward->delete();
+            return redirect()->route('rewards.list');
+        }
+        catch (QueryException $e) {
+            return redirect()->back()->withInput()->withErrors([
+                'error' => $e->errorInfo[2],
+            ]);
+        }
+       
+   
     }
+    
 }

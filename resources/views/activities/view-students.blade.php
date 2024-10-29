@@ -14,7 +14,7 @@
             <button type="button" class="nav-link">Clear</button>
         </a>
     </form>
-    
+
     <main>
 
         <!-- ปุ่ม action -->
@@ -53,6 +53,11 @@
                         <td>{{ $item->year }}</td>
                         <td>{{ $item->major }}</td>
                         <td>{{ $item->score }}</td>
+                        <td> <a href="{{ route('activities.remove-student', ['activity_name' => $activity->name, 'student_code' => $item->code]) }}">
+                                <button type="button" class="button">Student removed</button>
+                            </a>
+                            
+                        </td>
                     </tr>
                 @endforeach
             </tbody>

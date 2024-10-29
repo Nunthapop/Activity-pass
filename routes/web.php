@@ -46,7 +46,10 @@ Route::middleware([
                         Route::get('', 'show')->name('view');
                         Route::prefix('/activities')->group(function () {
                             Route::get('', 'showActivity')->name('view-activities');
+                            
+                        
                         });
+                        Route::get('/{activity_name}/remove', 'removeAct')->name('remove-activity');
                         Route::get('/update', 'showUpdateForm')->name('update-form');
                         Route::post('/update', 'update')->name('update');
                         Route::get('/delete', 'delete')->name('delete');
@@ -63,11 +66,14 @@ Route::middleware([
                 Route::prefix('/{activity_name}')
                     ->group(function () {
                         Route::get('', 'show')->name('view');
+                        // Route::get('/students/{student_code}/remove', 'removeStudent')->name('remove-student');
                         Route::prefix('/students')->group(function () {
                             Route::get('', 'showStudents')->name('view-students');
                             Route::get('/add', 'AddStudentForm')->name('add-students-form');
                             Route::post('/add', 'AddStudent')->name('add-students');
+                          
                         });
+                      
                         Route::get('/update', 'showUpdateForm')->name('update-form');
                         Route::post('/update', 'update')->name('update');
                     });

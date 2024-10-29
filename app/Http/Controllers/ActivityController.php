@@ -194,5 +194,32 @@ class ActivityController extends SearchableController
         $activity->students()->attach($student);
         return redirect()->route('activities.view-students', ['activity_name' => $activity->name])->with('message', "$student->code has been added");;
     }
+    //Cannot use rn
+    // function removeStudent(
+    //     string $student_code,
+    //     string $activity_name
+    // ): RedirectResponse {
+
+    //     $activity = $this->find($activity_name);
+    //     //remove score
+
+    //     try {
+
+    //         $student = $activity ->students()->where('code', $student_code)->firstOrFail();
+    //         //remove score form student
+    //         // Student::where('code', $student_code)->update([
+    //         //     'score' => Student::where('code', $student_code)->value('score') - $activity->score
+    //         // ]);
+    //         $activity ->students()->detach($student->code);
+    //         return redirect()->route('activities.list')->with('message', "{$activity->name} has been removed from {$student_code}");
+
+    //     } catch (QueryException $e) {
+
+    //         return redirect()->route('activities.list')->withInput()->withErrors([
+    //             'error' => $e->errorInfo[2],
+    //         ]);
+    //     }
+        
+    // }
 
 }
