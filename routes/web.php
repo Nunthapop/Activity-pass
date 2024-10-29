@@ -49,6 +49,7 @@ Route::middleware([
                         });
                         Route::get('/update', 'showUpdateForm')->name('update-form');
                         Route::post('/update', 'update')->name('update');
+                        Route::get('/delete', 'delete')->name('delete');
                     });
             });
 

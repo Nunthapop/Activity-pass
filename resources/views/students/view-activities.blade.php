@@ -25,14 +25,12 @@
                                 <button type="button" class="/">View</button>
                             </a>
                         </td>
-                        {{-- @can('create', \App\Models\Student::class)
                         <td>
-                            <a
-                                href="{{ route('students.remove-activity', ['activity_name' => $activity->name, 'student_code' => $student->code]) }}">
-                                <button type="button" class="delete-button">delete</button>
-                            </a>
+                            {{-- <a
+                                href="{{ route('students.remove-activity', ['activity_name' => $activityItem->name, 'student_code' => $student->code]) }}">
+                                <button type="button" class="delete-button">Delete</button>
+                            </a> --}}
                         </td>
-                    @endcan --}}
                     </tr>
                 @endforeach
             </tbody>
