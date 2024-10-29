@@ -50,8 +50,10 @@
                 @auth
                
                     <nav class="app-cmp-user-panel">
+                        @can('MyActivity', \App\Models\Student::class)
                         <li><a href="{{ route('students.view-activities', ['student_code' => session('student_code')]) }}">
                             {{ \Auth::user()->name }}</a></li>
+                            @endcan
                         {{ \Auth::user()->role }}
                         <li><a href="{{ route('logout') }}">Logout</a></li>
                     </nav>
