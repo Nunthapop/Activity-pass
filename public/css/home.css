@@ -1,0 +1,115 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    display: flex;
+    height: 100vh;
+    margin: 0;
+}
+.container-align {
+    display: flex;
+    justify-content: space-between; /* จัดให้มีช่องว่างระหว่างสองกล่อง */
+    align-items: center; /* จัดแนวให้อยู่ในแนวเดียวกัน */
+    padding: 10px;
+}
+.event-container {
+    display: block;
+    width: 400px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+.info-container {
+    display: block;
+    width: 400px;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-left: auto; /* ดัน info-container ไปทางขวา */
+}
+
+/*battlepass*/
+.battle-pass-container {
+    background: #000000ce;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+.levels-horizontal {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 15px;
+    padding: 10px 0;
+}
+
+.level-card {
+    background: #444;
+    padding: 15px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    width: 150px;
+    min-width: 150px;
+    transition: background-color 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.level-card.unlocked {
+    background-color: hsla(0, 0%, 81%, 0.459);
+    border-color: #555;
+}
+
+.level-header {
+    background: #000000;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px 5px 0 0;
+    margin-bottom: 10px;
+}
+
+.level-reward {
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.level-status {
+    text-align: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.status {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.status.unlocked {
+    color: #ffeb3b;
+}
+
+.status.locked {
+    color: #f44336;
+}
+
+/* Scrollbar styling */
+.levels-horizontal::-webkit-scrollbar {
+    height: 8px;
+}
+
+.levels-horizontal::-webkit-scrollbar-track {
+    background: #3b3f4a;
+}
+
+.levels-horizontal::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
