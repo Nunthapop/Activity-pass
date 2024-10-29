@@ -36,7 +36,6 @@ Route::middleware([
     });
 
 
-    Route::get('students/export/', [StudentController::class, 'export'])->name('students.export');
     
     
     // Route::middleware(['auth'])->group(function () {
