@@ -30,10 +30,10 @@
             <div id="main-header">
                 <nav id="main-nav">
                     <ul >
-                        {{-- <li><a href="{{ route('home.home') }}">Home</a></li> --}}
+                        <li><a href="{{ route('home.home') }}">Home</a></li>
                         {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
-                        {{-- <li><a href="{{ route('types.list') }}">Type</a></li> --}}
+                        <li><a href="{{ route('types.list') }}">Type</a></li>
                         <li><a href="{{ route('rewards.list') }}">Reward</a></li>
                         <li><a href="{{ route('students.list') }}">Student</a></li>
                             {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
