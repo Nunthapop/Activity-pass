@@ -46,6 +46,27 @@ class StudentController extends SearchableController
         ]);
     }
 
+    function filterByTerm(Builder|Relation $query, ?string $term): Builder|Relation
+    {
+       
+
+        if (!empty($term)) {
+            foreach (\preg_split('/\s+/', \trim($term)) as $word) {
+                $query->where(function (Builder $innerQuery) use ($word) {
+                    $innerQuery
+                        ->where('code', 'LIKE', "%{$word}%")
+                        ->orWhere('name', 'LIKE', "%{$word}%");
+                });
+            }
+        }
+
+        return $query;
+    }
+
+
+
+
+
     function show($student_code): View
     {
         $student =  Student::where('code', $student_code)->firstOrFail();
@@ -109,6 +130,10 @@ class StudentController extends SearchableController
             ]);
         }
     }
+  
+
+
+
     public function showActivity(string $activity_name, ActivityController $activity, ServerRequestInterface $request): View
     {
         $search = $activity->prepareSearch($request->getQueryParams());
@@ -116,7 +141,7 @@ class StudentController extends SearchableController
         $query = $activity->filter($student->activities(), $search);
         return view('students.view-activities', [
             'students' => $student,
-            'search' => $search,
+        
             'activities' => $query->paginate(5),
         ]);
     }

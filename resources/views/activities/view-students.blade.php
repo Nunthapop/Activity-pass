@@ -2,7 +2,7 @@
 @section('title', 'Students List In Activity: ' . $activity->name)
 @section('content')
 
-    <form action="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}" method="get">
+    {{-- <form action="{{ route('activities.view-students', ['activity_name' => $activity->name]) }}" method="get">
         <label>
             Search
             <input type="text" name="term" value="{{ $search['term'] }}" />
@@ -13,7 +13,7 @@
         <a href="{{ route('activities.list') }}">
             <button type="button" class="nav-link">Clear</button>
         </a>
-    </form>
+    </form> --}}
 
     <main>
 

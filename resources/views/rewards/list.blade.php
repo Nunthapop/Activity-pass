@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
 
     <!-- Search Form -->
-    <form action="{{ route('rewards.list') }}" method="get" class="search-form">
+    {{-- <form action="{{ route('rewards.list') }}" method="get" class="search-form">
         <div class="search-container">
             <label id="search">Search</label>
             <input type="text" name="term" value="{{ $search['term'] }}" />
             <button type="submit">Search</button>
             <button type="reset">Clear</button>
         </div>
-    </form>
+    </form> --}}
 
     <main>
         @can('create', \App\Models\Student::class)

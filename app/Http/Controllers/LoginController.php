@@ -50,9 +50,7 @@ class LoginController extends Controller
             
             return redirect()->intended(route('activities.list',[
                 'student_code' => Auth::user()->email]));
-            // return redirect()->back()->withErrors([
-            //     'credentials' => 'The provided credentials do not match our records.',
-            //     ]);
+           
         }
         else{
             return redirect()->back()->withErrors([
