@@ -3,66 +3,48 @@
 @section('content')
 
     <!-- หน้าสร้างรางวัล -->
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}" type="text/css">
 
     <!-- ฟอร์ม -->
-
+    <div class="container">
     <form action="{{ route('students.create') }}" method="POST">
         @csrf <!-- CSRF token for security -->
-
-        <table class="table-form">
-            <tr>
-                <td>
-                    <strong>Code:</strong>
-                </td>
-                <td>
-                    <input type="text" name="code" value="" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>First Name:</strong>
-                </td>
-                <td>
-                    <input type="text" name="first_name" value="" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Last Name:</strong>
-                </td>
-                <td>
-                    <input type="text" name="last_name" value="" required>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Year:</strong>
-                </td>
-                <td>
-                    <select name="year" required>
-                        <option value="1">1</option>
-                        <option value="3">2</option>
-                        <option value="2">3</option>
-                        <option value="4">4</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Major:</strong>
-                </td>
-                <td>
-                    <select name="major" required>
-                        <option value="">Select Major</option>
-                        <option value="SE">SE</option>
-                        <option value="DII">DII</option>
-                        <option value="MMIT">MMIT</option>
-                        <option value="DG">DG</option>
-                        <option value="ANI">ANI</option>
-                    </select>
-                </td>
-            </tr>
-        </table>
+        <div>
+            <label for="student_id"><strong>Student ID</strong></label>
+            <input type="text" id="student_id" name="code" placeholder="Enter Student ID" required>
+        </div>
+    
+        <div>
+            <label for="first_name"><strong>First Name</strong></label>
+            <input type="text" id="first_name" name="first_name" placeholder="Enter Student's First Name" required>
+        </div>
+    
+        <div>
+            <label for="last_name"><strong>Last Name</strong></label>
+            <input type="text" id="last_name" name="last_name" placeholder="Enter Student's Last Name" required>
+        </div>
+    
+        <div>
+            <label for="year"><strong>Year</strong></label>
+            <select id="year" name="year" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select>
+        </div>
+    
+        <div>
+            <label for="major"><strong>Major</strong></label>
+            <select id="major" name="major" required>
+                <option value="">Select Major</option>
+                <option value="SE">SE</option>
+                <option value="DII">DII</option>
+                <option value="MMIT">MMIT</option>
+                <option value="DG">DG</option>
+                <option value="ANI">ANI</option>
+            </select>
+        </div>
 
         <!-- ปุ่ม action -->
         <nav>
@@ -80,8 +62,8 @@
                 </li>
             </ul>
         </nav>
-
     </form>
+</div>
 
 
 @endsection

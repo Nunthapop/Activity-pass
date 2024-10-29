@@ -54,9 +54,7 @@
                         <td>{{ $activityItem->location }}</td>
                         <td>{{ $activityItem->score }}</td>
                         <td>
-                            <a href="{{ route('activities.view', ['activity_name' => $activityItem->name]) }}">
-                                <button type="button" class="/">View</button>
-                            </a>
+                            <a href="{{ route('activities.view', ['activity_name' => $activityItem->name]) }}">View</a>
                         </td>
                     </tr>
                 @endforeach

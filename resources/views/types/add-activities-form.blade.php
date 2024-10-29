@@ -2,58 +2,65 @@
 @section('title', 'Add Activities For Type: ' . $type->code)
 @section('content')
 
-
-    <main>
-        <!-- ปุ่ม action -->
-        <nav>
-            <li>
-                <a href="{{ route('types.view-activities', ['type' => $type->code]) }}">
-                    <button type="button" class="back-button">Back</button>
-                </a>
-            </li>
+<link rel="stylesheet" href="{{ asset('css/create.css') }}" type="text/css">
+<main>
+    <!-- ปุ่ม action -->
+    <div class="container">
+        <nav class="action-menu">
+            <ul>
+                <li class="action-item">
+                    <a href="{{ route('types.view-activities', ['type' => $type->code]) }}">
+                        <button type="button" class="back-button">Back</button>
+                    </a>
+                </li>
             </ul>
         </nav>
 
         <!-- แสดงหน้าลิงค์เพจ -->
-        <div>{{ $activities->withQueryString()->links() }}</div>
+        <div class="pagination">
+            {{ $activities->withQueryString()->links() }}
+        </div>
 
-        <!-- ฟอร์มเพิ่มกิจกรรมของ type -->
-        <form action="{{ route('types.add-activities', ['type' => $type->code]) }}" method="POST">
+        <h2 class="title">Add Activity to Type</h2>
+
+        <!-- ฟอร์มเพิ่มกิจกรรม -->
+        <form action="{{ route('types.add-activities', ['type' => $type->code]) }}" method="POST" class="activity-form">
             @csrf
 
             @php
                 session()->put('bookmark.activities.view', url()->full());
             @endphp
 
-            <!-- ตารางแสดงผลิตภัณฑ์ -->
-            <table class="">
-                <thead>
-                    <tr>
-                        <th>Activity Name</th>
-                        <th>Date & Time</th>
-                        <th>Location</th>
-                        <th>Score</th>
-                        <th>Add Activity</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($activity as $activityItem)
-                        <tr>
-                            <td>{{ $activityItem->name }}</td>
-                            <td>{{ $activityItem->datetime }}</td>
-                            <td>{{ $activityItem->location }}</td>
-                            <td>{{ $activityItem->score }}</td>
-                            <td>
-                                <!-- ปุ่มเพิ่ม activity -->
-                                <button type="submit" name="type" value="{{ $activity->code }}"
-                                    class="add-button">Add</button>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </form>
+            <div class="details">
+                @foreach ($activity as $activityItem)
+                    <div class="detail-item">
+                        <label><strong>Activity Name:</strong></label>
+                        <span>{{ $activityItem->name }}</span>
+                    </div>
 
-    </main>
+                    <div class="detail-item">
+                        <label><strong>Date & Time:</strong></label>
+                        <span>{{ $activityItem->datetime }}</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <label><strong>Location:</strong></label>
+                        <span>{{ $activityItem->location }}</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <label><strong>Score:</strong></label>
+                        <span>{{ $activityItem->score }}</span>
+                    </div>
+
+                    <div class="detail-item">
+                        <button type="submit" name="type" value="{{ $activityItem->code }}" class="add-button">Add Activity</button>
+                    </div>
+                @endforeach
+            </div>
+        </form>
+    </div>
+</main>
+
 
 @endsection

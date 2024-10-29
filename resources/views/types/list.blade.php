@@ -67,9 +67,7 @@
                         <!-- แสดงจำนวนกิจกกรรมในประเภทนี้ -->
                         {{-- <td>{{ $type->activities_count }}</td> --}}
                         <td>
-                            <a href="{{ route('types.view', ['type_code' => $type->code]) }}">
-                                <button type="button" class="/">View</button>
-                            </a>
+                            <a href="{{ route('types.view', ['type_code' => $type->code]) }}">View</a>
                         </td>
                     </tr>
                 @endforeach

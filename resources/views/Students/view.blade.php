@@ -2,69 +2,80 @@
  @section('title', 'View Student: ' . $student->code)
  @section('content')
 
+ <link rel="stylesheet" href="{{ asset('css/view.css') }}" type="text/css">
      <!-- ปุ่ม action -->
-     <nav>
-         <ul class="action-menu">
-             <li class="action-item">
-                 <a href="{{ route('students.view-activities', ['student_code' => $student->code]) }}">
-                     <button type="button" class="view-button">View All Activity of This Student</button>
-                 </a>
-             </li>
-
-             <li class="action-item">
-                 <a href="{{ route('students.list') }}">
-                     <button type="button" class="back-button">Back</button>
-                 </a>
-             </li>
-
-             {{-- @can('update', \App\Models\activities::class)
-                <li class="action-item">
-                    <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
-                        <button type="button" class="update-button">Update</button>
-                    </a>
-                </li>
-            @endcan
-
-            @can('delete', \App\Models\activities::class)
-                <li class="action-item">
-                    <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
-                        <button type="button" class="delete-button">Delete</button>
-                    </a>
-                </li>
-            @endcan --}}
-         </ul>
-     </nav>
-
+    <div class="container">
      <main>
+        <h2 class="title">Student Details</h2>
 
-         <!-- รายละเอียดรางวัล -->
-         <table class="">
-             <tr>
-                 <td><strong>Student Code:</strong></td>
-                 <td>{{ $student->code }}</td>
-             </tr>
-             <tr>
-                 <td><strong>First Name:</strong></td>
-                 <td>{{ $student->first_name }}</td>
-             </tr>
-             <tr>
-                 <td><strong>Last Name:</strong></td>
-                 <td>{{ $student->last_name }}</td>
-             </tr>
-             <tr>
-                 <td><strong>Year:</strong></td>
-                 <td>{{ $student->year }}</td>
-             </tr>
-             <tr>
-                 <td><strong>Major:</strong></td>
-                 <td>{{ $student->major }}</td>
-             </tr>
-             <tr>
-                 <td><strong>Score:</strong></td>
-                 <td>{{ $student->score }}</td>
-             </tr>
-         </table>
+        <div class="image-container">
+            <img src="{{ asset('images/anya_profile.jpg') }}" alt="Student Photo" class="student-photo">
+        </div>
 
-     </main>
+        <div class="details">
+            <div class="detail-item">
+                <label><strong>Student ID</strong></label>
+                <span>{{ $student->code }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>First Name</strong></label>
+                <span>{{ $student->first_name }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Last Name</strong></label>
+                <span>{{ $student->last_name }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Year</strong></label>
+                <span>{{ $student->year }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Major</strong></label>
+                <span>{{ $student->major }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Score</strong></label>
+                <span>{{ $student->score }}</span>
+            </div>
+        </div>
+    </main>
+
+    <nav>
+        <ul class="action-menu">
+            <li class="action-item">
+                <a href="{{ route('students.view-activities', ['student_code' => $student->code]) }}">
+                    <button type="button" class="view-button">View All Activity of This Student</button>
+                </a>
+            </li>
+
+            <li class="action-item">
+                <a href="{{ route('students.list') }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
+
+         {{-- @can('update', \App\Models\activities::class)
+            <li class="action-item">
+                <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
+                    <button type="button" class="update-button">Update</button>
+                </a>
+            </li>
+        @endcan
+
+        @can('delete', \App\Models\activities::class)
+            <li class="action-item">
+                <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
+                    <button type="button" class="delete-button">Delete</button>
+                </a>
+            </li>
+        @endcan --}}
+        </ul>
+    </nav>
+</div>
 
  @endsection

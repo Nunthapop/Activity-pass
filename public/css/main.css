@@ -37,3 +37,19 @@ h1 {
     background-color: #ffffff;
     color: rgb(0, 0, 0);
 }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ตั้งค่าให้ footer อยู่ด้านล่างสุด */
+#main-footer {
+    margin-top: auto;
+    padding: 10px;
+    background-color: #5e5e5e;
+    color: white;
+    text-align: center;
+}

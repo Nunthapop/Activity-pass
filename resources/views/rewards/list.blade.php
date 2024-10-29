@@ -10,8 +10,8 @@
         <div class="search-container">
             <label id="search">Search</label>
             <input type="text" name="term" value="{{ $search['term'] }}" />
-            <button type="submit" class="nav-link">Search</button>
-            <button type="reset" class="nav-link">Clear</button>
+            <button type="submit">Search</button>
+            <button type="reset">Clear</button>
         </div>
     </form>
 
@@ -20,7 +20,7 @@
             <ul>
                 <li>
                     <a href="{{ route('rewards.create-form') }}">
-                        <button type="button" class="nav-link">Insert Reward</button>
+                        <button type="button" class="add-button">+ Insert Reward</button>
                     </a>
                 </li>
             </ul>

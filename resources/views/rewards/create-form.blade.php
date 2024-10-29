@@ -3,27 +3,32 @@
 @section('content')
 
     <!-- Reward Creation Page -->
+    <link rel="stylesheet" href="{{ asset('css/create.css') }}" type="text/css">
 
     <!-- Form -->
+    <div class="container">
     <form action="{{ route('rewards.create') }}" method="POST">
         @csrf <!-- CSRF token for security -->
 
-        <p>
-            <strong>Code:</strong>
-            <input type="text" name="code" value="" required>
-        </p>
-        <p>
-            <strong>Score:</strong>
-            <input type="number" name="score" value="" required>
-        </p>
-        <p>
-            <strong>QTY:</strong>
-            <input type="number" name="qty" value="" required>
-        </p>
-        <p>
-            <strong>Description:</strong>
-            <textarea name="description" required></textarea>
-        </p>
+        <div>
+            <label for="code"><strong>Code </strong></label>
+            <input type="text" id="code" name="code" placeholder="Enter code" required>
+        </div>
+        
+        <div>
+            <label for="score"><strong>Score </strong></label>
+            <input type="number" id="score" name="score" placeholder="Enter score" required>
+        </div>
+        
+        <div>
+            <label for="qty"><strong>Quantity </strong></label>
+            <input type="number" id="qty" name="qty" placeholder="Enter quantity" required>
+        </div>
+        
+        <div>
+            <label for="description"><strong>Description </strong></label>
+            <textarea id="description" name="description" placeholder="Enter description" required></textarea>
+        </div>      
 
         <!-- ปุ่ม action -->
         <nav>
@@ -43,5 +48,6 @@
         </nav>
 
     </form>
+</div>  
 
 @endsection

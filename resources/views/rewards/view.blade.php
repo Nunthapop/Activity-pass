@@ -2,51 +2,56 @@
 @section('title', 'View Reward: ' . $reward->code)
 @section('content')
 
-    <!-- ปุ่ม action -->
+<link rel="stylesheet" href="{{ asset('css/view.css') }}" type="text/css">
+<div class="container">
+    <main>
+        <h2 class="title">Reward Details</h2>
+
+        <div class="details">
+            <div class="detail-item">
+                <label><strong>Code:</strong></label>
+                <span>{{ $reward->code }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Quantity:</strong></label>
+                <span>{{ $reward->qty }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Score:</strong></label>
+                <span>{{ $reward->points }}</span>
+            </div>
+
+            <div class="detail-item">
+                <label><strong>Description:</strong></label>
+                <span>{{ $reward->description }}</span>
+            </div>
+        </div>
+    </main>
     <nav>
         <ul class="action-menu">
-            
             <li class="action-item">
                 <a href="{{ route('rewards.update-form', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="update-button">Update</button>
                 </a>
             </li>
 
+            <!-- ปุ่ม Delete-->
             {{-- <li class="action-item">
-            <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
-                <button type="button" class="delete-button">Delete</button>
-            </a>
-        </li> --}}
+                <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
+                    <button type="button" class="delete-button">Delete</button>
+                </a>
+            </li> --}}
 
             <li class="action-item">
                 <a href="{{ route('rewards.list') }}">
                     <button type="button" class="back-button">Back</button>
                 </a>
             </li>
-
         </ul>
     </nav>
+</div>
 
-    <main>
-        <!-- Reward Details -->
-        <table>
-            <thead>
-                <tr>
-                    <th>Code</th>
-                    <th>qty</th>
-                    <th>Score</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{ $reward->code }}</td>
-                    <td>{{ $reward->qty }}</td>
-                    <td>{{ $reward->points }}</td>
-                    <td>{{ $reward->description }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </main>
 
 @endsection
