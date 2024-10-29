@@ -59,17 +59,17 @@
                 </a>
             </li>
 
-         {{-- @can('update', \App\Models\activities::class)
+         {{-- @can('update', \App\Models\Student::class)
             <li class="action-item">
-                <a href="{{ route('activities.update-form', ['activity_name' => $activity->code]) }}">
+                <a href="{{ route('students.update-form', ['student_code' => $student->code]) }}">
                     <button type="button" class="update-button">Update</button>
                 </a>
             </li>
         @endcan
 
-        @can('delete', \App\Models\activities::class)
+        @can('delete', \App\Models\Student::class)
             <li class="action-item">
-                <a href="{{ route('activities.delete', ['activity_name' => $activity->code]) }}">
+                <a href="{{ route('students.delete', ['student_code' => $student->code]) }}">
                     <button type="button" class="delete-button">Delete</button>
                 </a>
             </li>

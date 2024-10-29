@@ -109,6 +109,6 @@ class RewardController extends SearchableController
     {
         $reward = $this->find($reward_code);
         $reward->delete();
-        return redirect()->route('products.list');
+        return redirect()->route('rewards.list');
     }
 }

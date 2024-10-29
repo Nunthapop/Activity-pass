@@ -120,4 +120,12 @@ class StudentController extends SearchableController
             'activities' => $query->paginate(5),
         ]);
     }
+
+        // ฟังก์ชันสำหรับลบ
+        function delete(string $student_code): RedirectResponse
+        {
+            $student = $this->find($student_code);
+            $student->delete();
+            return redirect()->route('students.list');
+        }
 }
