@@ -30,10 +30,12 @@
             <div id="main-header">
                 <nav id="main-nav">
                     <ul >
-                        <li><a href="{{ route('home.home') }}">Home</a></li>
+                        {{-- <li><a href="{{ route('home.home') }}">Home</a></li> --}}
                         {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
+                        @can('view', \App\Models\StudentsPolicy::class)
                         <li><a href="{{ route('types.list') }}">Type</a></li>
+                        @endcan
                         <li><a href="{{ route('rewards.list') }}">Reward</a></li>
                         <li><a href="{{ route('students.list') }}">Student</a></li>
                             {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
@@ -44,6 +46,7 @@
                         <nav class="app-cmp-user-panel">
                             <a href="{{ route('students.list', ['Email' => Auth::user()->email]) }}">
                                 {{ \Auth::user()->name }}</a>
+                                {{ \Auth::user()->role }}
                             <a href="{{ route('logout') }}">Logout</a>
                         </nav>
                     @endauth

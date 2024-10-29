@@ -50,6 +50,10 @@ class User extends Authenticatable
     {
         return $this->role === 'ADMIN';
     }
+    function isUser(): bool
+    {
+        return $this->role === 'USER';
+    }
     //check user student
     // public static function findStudent($email, $password)
     // {

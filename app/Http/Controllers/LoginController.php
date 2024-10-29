@@ -49,7 +49,7 @@ class LoginController extends Controller
             // to route products.list if does not specify
             session(['student_code' => Auth::user()->email]);
             
-            return redirect()->intended(route('home.profile',[
+            return redirect()->intended(route('home.home',[
                 'student_code' => Auth::user()->email]));
             // return redirect()->back()->withErrors([
             //     'credentials' => 'The provided credentials do not match our records.',

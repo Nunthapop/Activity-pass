@@ -16,6 +16,7 @@ use App\Models\User;
 use GuzzleHttp\Psr7\Query;
 use Illuminate\Database\QueryException;
 use App\Exports\StudentsExport;
+use App\Policies\StudentsPolicy;
 use Maatwebsite\Excel\Facades\Excel;
 
 class StudentController extends SearchableController
@@ -78,6 +79,7 @@ class StudentController extends SearchableController
        
     }
     function ShowCreateForm(): View{
+        Gate::authorize('view', StudentsPolicy::class);
         return view('students.create-form');
     }
     function  create(ServerRequestInterface $request): RedirectResponse
