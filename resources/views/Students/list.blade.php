@@ -27,7 +27,7 @@
                 </li>
             </ul>
         </nav> 
-
+        <a href="{{ route('students.export') }}">Export students</a>
         <div class="pagination">
             {{ $students->withQueryString()->links() }}
         </div>
