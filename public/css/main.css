@@ -1,3 +1,6 @@
+body {
+    text-align: center;
+}
 #main-nav {
     background-color: #747474;
     overflow: hidden;
