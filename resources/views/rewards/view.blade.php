@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@section('title', 'View Reward: ' . $reward->name)
+@section('title', 'View Reward: ' . $reward->code)
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/view.css') }}" type="text/css">
