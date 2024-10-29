@@ -4,7 +4,7 @@
 
 <link rel="stylesheet" href="{{ asset('css/list.css') }}" type="text/css">
     <form action="{{ route('activities.add-students-form', ['activity_name' => $activity->name]) }}" method="post"
-        class="search-form">
+        class="search-form">@csrf
         <main>
 
             <!-- แสดงหน้าลิงค์เพจ -->
