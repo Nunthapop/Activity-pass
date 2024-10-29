@@ -37,4 +37,9 @@ class StudentsPolicy
         }
        
     }
+    function MyActivity(User $user){
+        if ($user->isUser()) {
+            return true;
+        }
+    }
 }

@@ -47,6 +47,9 @@
                     {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
                     {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
                     {{-- @endcan --}}
+                    @can('MyActivity', \App\Models\Student::class)
+                        <li><a href="{{ route('students.view-activities' ,['student_code' => session('student_code')]) }}">My activities</a></li>
+                    @endcan
                 </ul>
                 @auth
                     <nav class="app-cmp-user-panel">
