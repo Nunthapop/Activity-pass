@@ -11,7 +11,6 @@ return new class extends Migration
         Schema::create('types', function (Blueprint $table) {
             $table->id();
             $table->string('code', 45);
-            $table->dateTime('datetime');
             $table->string('name', 45);
             $table->string('description', 45);
             $table->timestamps();
@@ -21,6 +20,7 @@ return new class extends Migration
         Schema::create('rewards', function (Blueprint $table) {
             $table->id();
             $table->string('code', 45);
+            $table->string('name', 45);
             $table->integer('score')->default(0);
             $table->integer('qty')->default(0);
             $table->string('description', 45);
