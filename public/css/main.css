@@ -1,11 +1,3 @@
-body {
-    font-family: sans-serif;
-}
-h1 {
-    text-align: center;
-    font-family: sans-serif;
-    color: #555;
-}
 #main-nav {
     background-color: #747474;
     overflow: hidden;
@@ -14,11 +6,26 @@ h1 {
     list-style-type: none;
     display: flex;
     justify-content: left;
-    margin: 0%;
+    margin: 0;
+    padding: 0;
 }
-#main-nav ul li a {
+#main-nav ul#right {
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;
+    align-items: center;
+}
+#main-nav ul#right #role {
+    color: rgb(177, 220, 255);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+#main-nav a {
     display: block;
-    padding: 10px;
+    padding: 15px 30px; 
     color: white;
     text-decoration: none;
     text-align: center;
@@ -26,6 +33,10 @@ h1 {
     transition: background 0.3s;
     width: fit-content;
 }
+#main-nav a.logout {
+    background-color: #9b0000;
+}
+
 /* Hover effect for links */
 #main-nav ul li a:hover {
     background-color: #ffffff;

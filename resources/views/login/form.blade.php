@@ -17,16 +17,17 @@
 
             <!-- ฟิลด์สำหรับกรอกอีเมล -->
             <label class="form-label">
-               Students Code
+               Students ID
                 <input type="text" name="email" required class="form-input" />
             </label><br />
 
             <!-- ฟิลด์สำหรับกรอกรหัสผ่าน -->
             <label class="form-label">
-                Password 'Last_name'
+                Password
                 <input type="password" name="password" required class="form-input" />
-            </label><br />
-
+                <p>Your first password is your 'Last name'</p>
+            </label>
+            <br />
             <!-- ปุ่มเข้าสู่ระบบ -->
             <button type="submit" class="submit-button">Log-in</button>
 
