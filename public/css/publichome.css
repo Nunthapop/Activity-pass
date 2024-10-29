@@ -25,7 +25,7 @@ body img[aly="bg"] {
 }
 
 a {
-    position: absolute;
+    position: fixed;
     bottom: 108px;
     right: 140px;
     background-color: white;
