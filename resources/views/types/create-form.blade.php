@@ -4,44 +4,41 @@
 
     <!-- สร้างกิจกรรม -->
 
-    <!-- ฟอร์ม -->
-    <form action="{{ route('types.create') }}" method="POST">
-        @csrf <!-- ป้องกันการโจมตี CSRF -->
+<link rel="stylesheet" href="{{ asset('css/create.css') }}" type="text/css">
 
-        <!-- กรอกข้อมูล -->
-        <table class="">
-            <tr>
-                <td><strong>Code:</strong></td>
-                <td><input type="text" name="code" value="" required></td>
-            </tr>
-            <tr>
-                <td><strong>Name:</strong></td>
-                <td><input type="text" name="name" value="" required></td>
-            </tr>
-            <tr>
-                <td><strong>Description:</strong></td>
-                <td>
-                    <textarea name="description" cols="200" rows="10" required></textarea>
-                </td>
-            </tr>
-        </table>
+<div class="container">
+<form action="{{ route('types.create') }}" method="POST">
+    @csrf <!-- ป้องกันการโจมตี CSRF -->
 
-        <nav>
-            <ul class="action-menu">
-                <li class="action-item">
-                    <a href="{{ route('types.list') }}">
-                        <button type="button" class="back-button">Back</button>
-                    </a>
-                </li>
-                <li class="action-item">
-                    <button type="submit" class="submit-button">Submit</button>
-                </li>
-                <li class="action-item">
-                    <button type="reset" class="cancel-button">Cancel</button>
-                </li>
-            </ul>
-        </nav>
+    <div>
+        <label for="code"><strong>Code</strong></label>
+        <input type="text" name="code" id="code" required>
+    </div>
+    <div>
+        <label for="name"><strong>Name</strong></label>
+        <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+        <label for="details"><strong>Details</strong></label>
+        <textarea name="description" id="description" rows="5" required></textarea>
+    </div>
 
-    </form>
+    <nav>
+        <ul class="action-menu">
+            <li class="action-item">
+                <a href="{{ route('types.list') }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
+            <li class="action-item">
+                <button type="submit" class="submit-button">Submit</button>
+            </li>
+            <li class="action-item">
+                <button type="reset" class="cancel-button">Cancel</button>
+            </li>
+        </ul>
+    </nav>
+</form>
+</div>
 
 @endsection

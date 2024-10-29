@@ -2,29 +2,14 @@
 @section('title', 'View Activities Of Student: ' . $students->code)
 @section('content')
 
+<link rel="stylesheet" href="{{ asset('css/viewlist.css') }}" type="text/css">
     <main>
 
-        <!-- ปุ่ม action -->
-        <nav>
-            <ul class="action-menu">
-                <li>
-                    <a href="{{ route('students.view', ['student_code' => $students->code]) }}">
-                        <button type="button" class="back-button">Back</button>
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <div class="pagination">{{ $activities->withQueryString()->links() }}</div>
 
-        <!-- แสดงลิงก์สำหรับการแบ่งหน้า -->
-        <div>{{ $activities->withQueryString()->links() }}</div>
-
-        @php
-            session()->put('bookmark.activities.view', url()->full());
-        @endphp
-
-        <!-- ตารางกิจกรรม -->
+        <div class="container">
         <table>
-            <tr>
+            <tr class="headcol">
                 <th>Name</th>
                 <th>Date & Time</th>
                 <th>Details</th>
@@ -52,6 +37,22 @@
                 @endforeach
             </tbody>
         </table>
+
+        <!-- ปุ่ม action -->
+    </div>
+    <nav>
+        <ul class="action-menu">
+            <li>
+                <a href="{{ route('students.view', ['student_code' => $students->code]) }}">
+                    <button type="button" class="back-button">Back</button>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+        @php
+            session()->put('bookmark.activities.view', url()->full());
+        @endphp
 
     </main>
 
