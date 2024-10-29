@@ -80,7 +80,7 @@ class StudentController extends SearchableController
 
         $student =  Student::where('code', $student_code)->firstOrFail();
         return view('students.update-form', [
-            'students' => $student
+            'student' => $student
         ]);
     }
     function update(string $student_code, ServerRequestInterface $request): RedirectResponse
@@ -151,7 +151,7 @@ class StudentController extends SearchableController
         try {
             $student = $this->find($student_code);
             $student->delete();
-            return redirect()->route('students.list')->with('message', "{$student->code} has been removed ");
+            return redirect()->route('students.list',['student_code' => $student->code])->with('message', "{$student->code} has been removed ");
         } catch (QueryException $e) {
             return redirect()->back()->withInput()->withErrors([
                 'error' => $e->errorInfo[2],
