@@ -58,14 +58,14 @@
             <tr class="headcol">
                 <th>Code</th>
                 <th>Name</th>
-                <th>Number of Activities</th>
-                <th>Details</th>
+                <th>View Activity</th>
+              
             </tr>
             <tbody>
                 @foreach ($types as $type)
                     <tr>
                         <td>{{ $type->code }}</td>
-                        <td>{{ $type->Name }}</td>
+                        <td>{{ $type->name }}</td>
                         <!-- แสดงจำนวนกิจกกรรมในประเภทนี้ -->
                         {{-- <td>{{ $type->activities_count }}</td> --}}
                         <td>
