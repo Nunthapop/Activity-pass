@@ -2,6 +2,43 @@
 @section('title', 'Activity: ' . $activity->name . $activity->code)
 @section('content')
 
+
+<link rel="stylesheet" href="{{ asset('css/view.css') }}" type="text/css">
+<div class="container">
+    <main>
+        <!-- แสดงข้อมูล -->
+        <div class="details">
+            <div class="detail-item">
+                <label><strong>Name:</strong></label>
+                <span>{{ $activity->name }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Type:</strong></label>
+                <span>{{ $type->name }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Activity By:</strong></label>
+                <span>{{ $activity->activity_by }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Date & Time:</strong></label>
+                <span>{{ $activity->datetime }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Location:</strong></label>
+                <span>{{ $activity->location }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Score:</strong></label>
+                <span>{{ $activity->score }}</span>
+            </div>
+            <div class="detail-item">
+                <label><strong>Description:</strong></label>
+                <span>{{ $activity->description }}</span>
+            </div>
+        </div>
+    </main>
+
     <!-- ปุ่ม action -->
     <nav>
         <ul class="action-menu">
@@ -35,40 +72,7 @@
         </ul>
     </nav>
 
-    <main>
+</div>
 
-        <!-- แสดงข้อมูล -->
-        <table class="">
-            <tr>
-                <td><strong>Name:</strong></td>
-                <td>{{ $activity->name }}</td>
-            </tr>
-            <tr>
-                <td><strong>Type:</strong></td>
-                <td>{{ $type->name }}</td>
-            </tr>
-            <tr>
-                <td><strong>Activity By:</strong></td>
-                <td>{{ $activity->activity_by }}</td>
-            </tr>
-            <tr>
-                <td><strong>Date & Time:</strong></td>
-                <td>{{ $activity->datetime }}</td>
-            </tr>
-            <tr>
-                <td><strong>Location:</strong></td>
-                <td>{{ $activity->location }}</td>
-            </tr>
-            <tr>
-                <td><strong>Score:</strong></td>
-                <td>{{ $activity->score }}</td>
-            </tr>
-            <tr>
-                <td><strong>Description:</strong></td>
-                <td>{{ $activity->description }}</td>
-            </tr>
-        </table>
-
-    </main>
 
 @endsection
