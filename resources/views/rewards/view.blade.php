@@ -35,21 +35,23 @@
         </div>
     </main>
     <nav>
-  
+        @can('create', \App\Models\Student::class)
         <ul class="action-menu">
             <li class="action-item">
                 <a href="{{ route('rewards.update-form', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="update-button">Update</button>
                 </a>
             </li>
+            @endcan
        
 
-            <!-- ปุ่ม Delete--> 
+            @can('create', \App\Models\Student::class)
             <li class="action-item">
                 <a href="{{ route('rewards.delete', ['reward_code' => $reward->code]) }}">
                     <button type="button" class="delete-button">Delete</button>
                 </a>
             </li>
+            @endcan
 
             <li class="action-item">
                 <a href="{{ route('rewards.list') }}">

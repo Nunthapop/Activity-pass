@@ -11,7 +11,7 @@ use App\Models;
 use App\Models\Type;
 use App\Models\Student;
 use Illuminate\Database\QueryException;
-
+use Illuminate\Support\Facades\Gate;
 
 
 class TypeController extends SearchableController
@@ -103,5 +103,29 @@ class TypeController extends SearchableController
             'search' => $search,
             'activities' => $query->paginate(5),
         ]);
+    }
+    function delete(string $type_code ): RedirectResponse
+    {
+        $type = $this->find($type_code);
+        try {
+            Gate::authorize('create', Student::class);
+            //load activities() in model reward
+            $type->loadCount('activities');
+            
+            if ($type->activities_count > 0) {
+                return redirect()->back()->withInput()->withErrors([
+                    'error' => "Can't delete $type->code because it has $type->activities_count activities ",
+                ]);
+            }
+            $type->delete();
+            return redirect()->route('types.list')->with('message', "{$type->code} has been removed ");
+        }
+        catch (QueryException $e) {
+            return redirect()->back()->withInput()->withErrors([
+                'error' => $e->errorInfo[2],
+            ]);
+        }
+       
+   
     }
 }

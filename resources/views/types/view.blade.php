@@ -21,13 +21,13 @@
                @endcan
            {{-- @endcan --}}
 
-           {{-- @can('delete', \App\Models\Type::class) --}}
-               {{-- <li class="action-item">
+           @can('create', \App\Models\Student::class)
+               <li class="action-item">
                    <a href="{{ route('types.delete', ['type_code' => $type->code]) }}">
                        <button type="button" class="delete-button">Delete</button>
                    </a>
-               </li> --}}
-           {{-- @endcan --}}
+               </li>
+         @endcan
         </ul>
     </nav>
 

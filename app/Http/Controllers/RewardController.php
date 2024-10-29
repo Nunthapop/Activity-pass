@@ -116,7 +116,7 @@ class RewardController extends SearchableController
             
             if ($reward->activities_count > 0) {
                 return redirect()->back()->withInput()->withErrors([
-                    'error' => "Can't delete $reward->code because it has $reward->activities_count activities",
+                    'error' => "Can't delete $reward->code because it has $reward->activities_count activities ",
                 ]);
             }
             $reward->delete();

@@ -3,6 +3,7 @@
 @section('content')
 
 <link rel="stylesheet" href="{{ asset('css/home.css') }}" type="text/css">
+<li><a href="{{ route('login') }}">Login</a></li>
     {{-- <form>
         <a href="{{ route('login') }}">Login</a>
         

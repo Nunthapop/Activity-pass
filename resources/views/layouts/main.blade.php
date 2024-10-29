@@ -31,29 +31,27 @@
         <div id="main-header">
             <nav id="main-nav">
                 <ul>
-                    {{-- <li><a href="{{ route('home.home') }}">Home</a></li> --}}
-                    {{-- <li><a href="{{ route('home.profile', ['student_code' => session('student_code')]) }}">Profile</a></li> --}}
+                    
                     @can('view', \App\Models\Student::class)
                         <li><a href="{{ route('activities.list') }}">Activity</a></li>
                     @endcan
                     @can('view', \App\Models\Student::class)
                         <li><a href="{{ route('types.list') }}">Type</a></li>
                     @endcan
-
+                    @can('view', \App\Models\Student::class)
                     <li><a href="{{ route('rewards.list') }}">Reward</a></li>
+                    @endcan
                     @can('create', \App\Models\Student::class)
                         <li><a href="{{ route('students.list') }}">Student</a></li>
                     @endcan
-                    {{-- @can('Enter', \App\Models\UserPolicy::class) --}}
-                    {{-- <li> <a href="{{ route('user.list') }}">User</a></li> --}}
-                    {{-- @endcan --}}
                     @can('MyActivity', \App\Models\Student::class)
                         <li><a href="{{ route('students.view-activities' ,['student_code' => session('student_code')]) }}">My activities</a></li>
                     @endcan
                 </ul>
                 @auth
+               
                     <nav class="app-cmp-user-panel">
-                        <a href="{{ route('students.list', ['Email' => Auth::user()->email]) }}">
+                        <a href="{{ route('students.view-activities', ['student_code' => session('student_code')]) }}">
                             {{ \Auth::user()->name }}</a>
                         {{ \Auth::user()->role }}
                         <a href="{{ route('logout') }}">Logout</a>
