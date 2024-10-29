@@ -53,11 +53,11 @@
                         <td>{{ $item->year }}</td>
                         <td>{{ $item->major }}</td>
                         <td>{{ $item->score }}</td>
-                        <td> <a href="{{ route('activities.remove-student', ['activity_name' => $activity->name, 'student_code' => $item->code]) }}">
+                        {{-- <td> <a href="{{ route('activities.remove-student', ['activity_name' => $activity->name, 'student_code' => $item->code]) }}">
                                 <button type="button" class="button">Student removed</button>
                             </a>
                             
-                        </td>
+                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>
