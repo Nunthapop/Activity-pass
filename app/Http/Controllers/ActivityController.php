@@ -128,6 +128,7 @@ class ActivityController extends SearchableController
             ]);
         }
     }
+    //filter
     public function filterByTerm(Builder|Relation $query, ?string $term): Builder|Relation
     {
         if (empty($term)) {

@@ -1,7 +1,7 @@
 <table>
     <thead>
         <tr>
-            <th>Student Code</th>
+            <th style="background-color:crimson , color:aliceblue">Student Code</th>
             <th>Name</th>
             <th>Year</th>
             <th>Major</th>
